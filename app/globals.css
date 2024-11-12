@@ -23,26 +23,6 @@ body {
   }
 }
 
-.bg-global {
-  background-image: url('/assets/images/background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* This prevents background from scrolling */
-  position: relative;
-}
-
-.bg-global::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 1;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -105,5 +85,11 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .border-l-16 {
+    border-left-width: 16px;
   }
 }
