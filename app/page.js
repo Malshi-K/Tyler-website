@@ -17,7 +17,7 @@ export default function Home() {
           loop
           playsInline
           className="w-full h-full object-cover"
-          src="/assets/videos/company.webm"
+          src="/assets/videos/company.mp4"
         />
       </div>
       <ExperienceSection />
