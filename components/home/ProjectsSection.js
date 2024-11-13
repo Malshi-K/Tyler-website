@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Link } from "lucide-react";
+import Image from "next/image";
 
 const ProjectsSection = () => {
   const [activeCategory, setActiveCategory] = useState("0");
@@ -54,11 +55,12 @@ const ProjectsSection = () => {
     return projects[activeCategory] || [];
   };
 
-  const categoriesWithCounts = categories.map(category => ({
+  const categoriesWithCounts = categories.map((category) => ({
     ...category,
-    count: category.id === "0" 
-      ? getAllProjects().length 
-      : (projects[category.id]?.length || 0)
+    count:
+      category.id === "0"
+        ? getAllProjects().length
+        : projects[category.id]?.length || 0,
   }));
 
   const filteredProjects = getFilteredProjects();
@@ -112,7 +114,7 @@ const ProjectsSection = () => {
               <div
                 key={project.id}
                 className="break-inside-avoid group relative overflow-hidden rounded-lg 
-                  bg-white hover:shadow-xl transition-all duration-300"
+    bg-white hover:shadow-xl transition-all duration-300"
                 style={{
                   height:
                     project.size === "large"
@@ -122,10 +124,13 @@ const ProjectsSection = () => {
                       : "300px",
                 }}
               >
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="w-full h-full object-cover"
+                  priority
                 />
                 {/* Dark Overlay */}
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300" />
@@ -136,7 +141,7 @@ const ProjectsSection = () => {
                   <div className="absolute top-4 right-4 flex gap-2">
                     <button
                       className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center
-                      hover:bg-white/20 transition-colors duration-300"
+        hover:bg-white/20 transition-colors duration-300"
                     >
                       <Link className="w-5 h-5 text-white" />
                     </button>

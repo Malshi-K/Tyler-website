@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const TestimonialsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -107,9 +108,11 @@ const TestimonialsSection = () => {
     <div className="relative py-20 px-8">
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="/assets/images/background/pattern-4.png"
           alt="background"
+          fill
+          sizes="100vw"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-navy/90" />
@@ -150,9 +153,9 @@ const TestimonialsSection = () => {
 
               {/* Testimonial Text */}
               <div className="space-y-6">
-              <h4 className="text-2xl font-semibold text-white">
-                    {testimonials[currentSlide].title}
-                  </h4>
+                <h4 className="text-2xl font-semibold text-white">
+                  {testimonials[currentSlide].title}
+                </h4>
                 <p className="text-white/90 text-lg leading-relaxed italic">
                   {testimonials[currentSlide].quote}
                 </p>
@@ -188,11 +191,15 @@ const TestimonialsSection = () => {
           {/* Right Side - Images */}
           <div className="relative">
             {/* Main Image */}
-            <div className="relative z-10">
-              <img
+            <div className="relative z-10 aspect-[4/3]">
+              {" "}
+              {/* or aspect-[16/9] depending on your preference */}
+              <Image
                 src={testimonials[currentSlide].image}
                 alt={testimonials[currentSlide].name}
-                className="w-full h-auto object-cover rounded-lg shadow-xl"
+                fill
+                sizes="100vw"
+                className="object-cover rounded-lg shadow-xl"
               />
             </div>
 
@@ -209,9 +216,11 @@ const TestimonialsSection = () => {
                         : "opacity-50 hover:opacity-75"
                     }`}
                 >
-                  <img
+                  <Image
                     src={testimonial.thumbnail}
                     alt={`Go to testimonial ${index + 1}`}
+                    fill
+                    sizes="100vw"
                     className="w-full h-full object-cover"
                   />
                 </button>

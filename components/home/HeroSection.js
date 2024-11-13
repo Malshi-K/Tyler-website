@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Facebook, Youtube, Instagram } from "lucide-react";
+import Image from "next/image";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -39,10 +40,14 @@ const HeroSection = () => {
       {/* Header - Logo and Menu aligned */}
       <header className="relative z-20 px-8 pt-8 flex justify-between items-center">
         <a href="/" className="inline-block">
-          <img
+          <Image
             src="/assets/images/logo.png"
             alt="T Wilson Builders"
+            width={0}
+            height={0}
+            sizes="100vw"
             className="h-40 w-auto"
+            style={{ width: "auto" }}
           />
         </a>
       </header>

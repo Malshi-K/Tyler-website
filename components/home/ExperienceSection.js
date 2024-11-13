@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Phone } from "lucide-react";
+import Image from "next/image";
 
 const ExperienceSection = () => {
   const [count, setCount] = useState(0);
@@ -113,10 +114,12 @@ const ExperienceSection = () => {
           {/* Right Content - Image */}
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl">
-              <img
+              <Image
                 src="/assets/images/team.jpg"
                 alt="Team"
+                fill
                 className="object-cover w-full h-full"
+                sizes="100vw"
               />
               {/* Play Button Overlay */}
               <div className="absolute inset-0 bg-black/20"></div>
