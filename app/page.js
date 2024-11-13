@@ -17,9 +17,8 @@ export default function Home() {
           loop
           playsInline
           className="w-full h-full object-cover"
-        >
-          <source src="/assets/videos/TWilson May Mash-Up.webm" type="video/webm" />
-        </video>
+          src="/assets/videos/company.webm"
+        />
       </div>
       <ExperienceSection />
       <ServicesSection />
