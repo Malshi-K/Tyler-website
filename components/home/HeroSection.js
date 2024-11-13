@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Facebook, Youtube, Instagram } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -39,7 +40,7 @@ const HeroSection = () => {
     <div className="relative min-h-screen overflow-hidden">
       {/* Header - Logo and Menu aligned */}
       <header className="relative z-20 px-8 pt-8 flex justify-between items-center">
-        <a href="/" className="inline-block">
+        <Link href="/" className="inline-block">
           <Image
             src="/assets/images/logo.png"
             alt="T Wilson Builders"
@@ -49,13 +50,13 @@ const HeroSection = () => {
             className="h-40 w-auto"
             style={{ width: "auto" }}
           />
-        </a>
+        </Link>
       </header>
 
       {/* Social Media Icons */}
       <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20">
         {socialLinks.map(({ name, Icon, url }) => (
-          <a
+          <Link
             key={name}
             href={url}
             target="_blank"
@@ -64,7 +65,7 @@ const HeroSection = () => {
               text-white hover:text-white hover:border-white/40 transition-colors"
           >
             <Icon size={20} />
-          </a>
+          </Link>
         ))}
       </div>
 
@@ -94,18 +95,18 @@ const HeroSection = () => {
 
           {/* Call to Action Buttons */}
           <div className="flex gap-8 mb-16">
-            <a
+            <Link
               href="tel:+64123456789"
               className="px-10 py-4 bg-orange text-white text-lg font-semibold rounded-full hover:bg-orange/90 transition-colors duration-300"
             >
               Call Us
-            </a>
-            <a
+            </Link>
+            <Link
               href="/quote"
               className="px-10 py-4 bg-transparent text-white text-lg font-semibold rounded-full border-2 border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300"
             >
               Get a Quote
-            </a>
+            </Link>
           </div>
 
           {/* Slide Indicators */}

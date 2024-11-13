@@ -57,7 +57,7 @@ const TestimonialsSection = () => {
       name: "Via Gary, No cowboys.",
       title: "Concrete Laying",
       quote:
-        "We recently hired the services of Tyler Wilson to lay a very large concrete slab in our back garden where we wanted to store our new caravan. We can unequivocally say that we were very impressed with his professionalism and his attention to detail. He was totally in control of the whole operation and the completed project finished up better than we could have imagined, and on time. We would have absolutely no hesitation in recommending Tyler for any project asked of him. There are no hidden costs; what he quotes and what you pay are the same regardless. He is utterly reliable, he listens to his client and ‘goes the extra mile’ to ensure his client is completely and absolutely happy with his service.",
+        "We recently hired the services of Tyler Wilson to lay a very large concrete slab in our back garden where we wanted to store our new caravan. We can unequivocally say that we were very impressed with his professionalism and his attention to detail. He was totally in control of the whole operation and the completed project finished up better than we could have imagined, and on time. We would have absolutely no hesitation in recommending Tyler for any project asked of him. There are no hidden costs; what he quotes and what you pay are the same regardless. He is utterly reliable, he listens to his client and 'goes the extra mile' to ensure his client is completely and absolutely happy with his service.",
       image: "/assets/images/testimonials/6.jpg",
       thumbnail: "/assets/images/testimonials/6.jpg",
     },
@@ -66,7 +66,7 @@ const TestimonialsSection = () => {
       name: "Via John, No cowboys.",
       title: "Deck and Pergola Renovation",
       quote:
-        "Couldn’t be happier with Tylers work, we wanted a deck and pergola built for us in a short time frame and he did exactly that. The workmanship and quality is second to none and we absolutely love it! I would recommend Tyler to anyone and everyone, we will definitely be using him again in the future.",
+        "Couldn't be happier with Tylers work, we wanted a deck and pergola built for us in a short time frame and he did exactly that. The workmanship and quality is second to none and we absolutely love it! I would recommend Tyler to anyone and everyone, we will definitely be using him again in the future.",
       image: "/assets/images/testimonials/7.jpg",
       thumbnail: "/assets/images/testimonials/7.jpg",
     },
@@ -148,7 +148,7 @@ const TestimonialsSection = () => {
             <div className="relative bg-white/10 backdrop-blur-sm p-8 rounded-lg">
               {/* Quote Icon */}
               <div className="absolute -left-4 -top-4 text-6xl text-orange/40 font-serif">
-                "
+                &ldquo;
               </div>
 
               {/* Testimonial Text */}
@@ -192,8 +192,6 @@ const TestimonialsSection = () => {
           <div className="relative">
             {/* Main Image */}
             <div className="relative z-10 aspect-[4/3]">
-              {" "}
-              {/* or aspect-[16/9] depending on your preference */}
               <Image
                 src={testimonials[currentSlide].image}
                 alt={testimonials[currentSlide].name}

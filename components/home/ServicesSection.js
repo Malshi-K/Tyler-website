@@ -2,6 +2,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const ServicesSection = () => {
   const services = [
@@ -101,14 +102,14 @@ const ServicesSection = () => {
                       {service.title}
                     </h3>
                     <p className="text-white/90 mb-6">{service.description}</p>
-                    <a
+                    <Link
                       href={service.link}
                       className="inline-flex items-center gap-2 text-white border-2 border-white px-6 py-2 rounded-full
           hover:bg-white hover:text-orange transition-colors duration-300"
                     >
                       Read More
                       <ArrowRight size={18} />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

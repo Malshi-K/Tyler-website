@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Phone } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const ExperienceSection = () => {
   const [count, setCount] = useState(0);
@@ -91,22 +92,22 @@ const ExperienceSection = () => {
             {/* Signature and Contact */}
             <div className="flex items-center justify-between">
               <div className="space-y-4">
-                <a href="/about" className="inline-block">
+                <Link href="/about" className="inline-block">
                   <button className="bg-navy text-white px-8 py-3 rounded-full hover:bg-navy/90 transition-colors duration-300">
                     Learn More
                   </button>
-                </a>
+                </Link>
               </div>
 
               <div className="text-right">
                 <p className="text-gray-600 mb-2">Hotline</p>
-                <a
+                <Link
                   href="tel:+6433668455"
                   className="flex items-center justify-end gap-2 text-2xl font-semibold text-navy hover:text-orange transition-colors duration-300"
                 >
                   <Phone className="h-6 w-6" />
                   +64 33 668 455
-                </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -16,6 +16,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import Image from "next/image";
+import Link from "next/link";
 
 const SideNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,7 +74,7 @@ const SideNavigation = () => {
     return (
       <div key={item.path} className="block">
         <div className="flex items-center justify-between">
-          <a
+          <Link
             href={item.path}
             className={`py-3 text-lg font-medium transition-colors flex items-center gap-3
               ${
@@ -92,7 +93,7 @@ const SideNavigation = () => {
           >
             {item.icon}
             {item.name}
-          </a>
+          </Link>
           {hasSubItems && (
             <button
               onClick={() => toggleSubmenu(item.name)}
@@ -112,7 +113,7 @@ const SideNavigation = () => {
         {hasSubItems && isExpanded && (
           <div className="pl-4 border-l border-white/10">
             {item.subItems.map((subItem) => (
-              <a
+              <Link
                 key={subItem.path}
                 href={subItem.path}
                 className={`block py-2 text-base transition-colors
@@ -124,7 +125,7 @@ const SideNavigation = () => {
                 onClick={() => setIsOpen(false)}
               >
                 {subItem.name}
-              </a>
+              </Link>
             ))}
           </div>
         )}
