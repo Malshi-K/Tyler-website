@@ -73,9 +73,9 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-8 pt-20">
         <div className="max-w-4xl">
           {/* Welcome Text */}
-          <p className="text-orange text-lg uppercase tracking-[0.3em] mb-8 transition-all duration-500 ease-in-out transform">
+          <h5 className="text-orange text-xl font-bold uppercase tracking-[0.3em] mb-8 transition-all duration-500 ease-in-out transform">
             {heroContent[currentSlide].welcome}
-          </p>
+          </h5>
 
           {/* Main Title */}
           <h1 className="text-white text-7xl font-bold leading-[1.2] mb-12 transition-all duration-500 ease-in-out transform">

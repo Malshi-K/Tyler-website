@@ -8,42 +8,42 @@ const ServicesSection = () => {
   const services = [
     {
       title: "Design & Build",
-      image: "/assets/images/services/DJI_0028.jpg",
+      image: "/assets/images/services/1.webp",
       description:
         "We also done furniture manufacturing, our experts are help you building your dream furnitures with in more than your expectation...",
       link: "/services/furniture",
     },
     {
       title: "Renovations & Extensions",
-      image: "/assets/images/services/DJI_0028.jpg",
+      image: "/assets/images/services/2.jpg",
       description:
         "Our expert carpenters provide top-quality woodworking services for all your construction and renovation needs...",
       link: "/services/carpentry",
     },
     {
       title: "Light Commercial",
-      image: "/assets/images/services/DJI_0028.jpg",
+      image: "/assets/images/services/3.webp",
       description:
         "Transform your existing furniture into beautiful pieces that match your style and requirements...",
       link: "/services/remodeling",
     },
     {
       title: "New Builds",
-      image: "/assets/images/services/DJI_0028.jpg",
+      image: "/assets/images/services/4.jpg",
       description:
         "We also done furniture manufacturing, our experts are help you building your dream furnitures with in more than your expectation...",
       link: "/services/furniture",
     },
     {
       title: "Bathrooms & Kitchens",
-      image: "/assets/images/services/DJI_0028.jpg",
+      image: "/assets/images/services/5.jpg",
       description:
         "Our expert carpenters provide top-quality woodworking services for all your construction and renovation needs...",
       link: "/services/carpentry",
     },
     {
       title: "Decks & Fences",
-      image: "/assets/images/services/DJI_0028.jpg",
+      image: "/assets/images/services/6.avif",
       description:
         "Transform your existing furniture into beautiful pieces that match your style and requirements...",
       link: "/services/remodeling",
