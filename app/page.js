@@ -8,7 +8,7 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen">      
+    <div className="relative min-h-screen">
       <HeroSection />
       {/* Video Background */}
       <div className="fixed inset-0 z-0">
@@ -18,6 +18,7 @@ export default function Home() {
           muted
           loop
           playsInline
+          poster="/assets/images/poster-image.jpg" 
           className="w-full h-full object-cover"
           src="/assets/videos/company.mp4"
         />
