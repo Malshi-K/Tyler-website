@@ -68,7 +68,6 @@ const ExperienceSection = () => {
                 <div className="absolute left-0 w-24 h-1 bg-orange" />{" "}
                 {/* Main line */}
                 <div className="absolute left-0 w-12 h-1 bg-orange/30 my-2" />{" "}
-                {/* Optional second line for layered effect */}
               </div>
             </div>
 

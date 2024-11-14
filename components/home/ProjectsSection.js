@@ -41,6 +41,13 @@ const ProjectsSection = () => {
         image: "/assets/images/projects/December - Marae Project/DSC05681.jpg",
         size: "small",
       },
+      {
+        id: "2-2",
+        title: "Villa Extension",
+        description: "Modern extension adding extra living space",
+        image: "/assets/images/projects/December - Marae Project/DSC05681.jpg",
+        size: "small",
+      },
     ],
   };
 

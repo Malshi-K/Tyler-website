@@ -1,5 +1,7 @@
+import AboutSection from "@/components/home/AboutSection";
 import ExperienceSection from "@/components/home/ExperienceSection";
 import HeroSection from "@/components/home/HeroSection";
+import LogoSlider from "@/components/home/LogoSlider";
 import ProjectsSection from "@/components/home/ProjectsSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
@@ -21,9 +23,11 @@ export default function Home() {
         />
       </div>
       <ExperienceSection />
+      <AboutSection />
       <ServicesSection />
       <ProjectsSection />
       <TestimonialsSection />
+      <LogoSlider />
     </div>
   );
 }
