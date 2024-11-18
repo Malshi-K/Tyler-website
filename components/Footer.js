@@ -59,7 +59,7 @@ const Footer = () => {
                   House Plans
                 </Link>
                 <Link
-                  href="/blogs"
+                  href="/blog"
                   className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
                 >
                   Our Blogs

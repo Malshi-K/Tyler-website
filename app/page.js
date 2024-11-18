@@ -5,10 +5,12 @@ import LogoSlider from "@/components/home/LogoSlider";
 import ProjectsSection from "@/components/home/ProjectsSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import SideNavigation from "@/components/SideNavigation";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen">
+      <SideNavigation />
       <HeroSection />
       {/* Video Background */}
       <div className="fixed inset-0 z-0">
