@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const LogoSlider = () => {
   const [isDragging, setIsDragging] = useState(false);
@@ -102,7 +101,7 @@ const LogoSlider = () => {
           <div className="w-4 h-1 bg-orange"></div>
           <div className="w-16 h-[1px] bg-gray-300"></div>
         </div>
-      </div>      
+      </div>
 
       <div
         ref={sliderRef}
@@ -120,11 +119,15 @@ const LogoSlider = () => {
             className="flex-shrink-0 transition-all duration-300 group"
           >
             <div className="w-40 h-60 flex items-center justify-center bg-white rounded-lg">
-              <img
-                src={logo.url}
-                alt={logo.name}
-                className="max-w-full h-auto transition-all duration-300 filter grayscale hover:grayscale-0 opacity-50 hover:opacity-100"
-              />
+              <div className="relative w-full h-auto">
+                <Image
+                  src={logo.url}
+                  alt={logo.name}
+                  width={160} // w-40 equals 160px
+                  height={240} // h-60 equals 240px
+                  className="transition-all duration-300 filter grayscale hover:grayscale-0 opacity-50 hover:opacity-100"
+                />
+              </div>
             </div>
           </div>
         ))}

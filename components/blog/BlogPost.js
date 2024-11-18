@@ -3,6 +3,7 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, User, ArrowLeft } from "lucide-react";
 import BlogImage from './BlogImage';
+import Link from 'next/link';
 
 const BlogPost = ({ post }) => {
   if (!post) {
@@ -19,13 +20,13 @@ const BlogPost = ({ post }) => {
 
   return (
     <article className="max-w-4xl mx-auto px-4 py-20 mt-20">
-      <a 
+      <Link 
         href="/blog" 
         className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8 no-underline"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to Blog
-      </a>
+      </Link>
 
       <div className="mb-8 text-center">
         {post.label && (
