@@ -56,7 +56,15 @@ const SideNavigation = () => {
     },
     { name: "House Plans", path: "/house-plans", icon: <FileText size={20} /> },
     { name: "Our Blogs", path: "/blog", icon: <FileText size={20} /> },
-    { name: "Contact Us", path: "/contact", icon: <Mail size={20} /> },
+    {
+      name: "Contact Us",
+      path: "/contact",
+      icon: <Mail size={20} />,
+      subItems: [
+        { name: "Contact Us", path: "/contact/contact-us" },
+        { name: "Project Questionniare", path: "/contact/questionniare" },
+      ],
+    },
   ];
 
   const toggleSubmenu = (itemName) => {

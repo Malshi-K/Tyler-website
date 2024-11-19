@@ -34,10 +34,45 @@ const pageTitleData = {
     description: "Home / Our Blog",
     backgroundImage: "/assets/images/page-title/6.png",
   },
-  "/contact": {
+  "/contact/contact-us": {
     title: "Contact Us",
     description: "Home / Contact Us",
     backgroundImage: "/assets/images/page-title/7.png",
+  },
+  "/contact/questionniare": {
+    title: "Project Questionniare",
+    description: "Home / Project Questionniare",
+    backgroundImage: "/assets/images/page-title/7.png",
+  },
+  "/services/design-build": {
+    title: "Design Build",
+    description: "Home / Design Build",
+    backgroundImage: "/assets/images/page-title/8.png",
+  },
+  "/services/renovations": {
+    title: "Renovations & Extensions",
+    description: "Home / Renovations & Extensions",
+    backgroundImage: "/assets/images/page-title/9.png",
+  },
+  "/services/commercial": {
+    title: "Light Commercial",
+    description: "Home / Light Commercial",
+    backgroundImage: "/assets/images/page-title/10.png",
+  },
+  "/services/new-builds": {
+    title: "New Builds",
+    description: "Home / New Builds",
+    backgroundImage: "/assets/images/page-title/11.png",
+  },
+  "/services/bathrooms-kitchens": {
+    title: "Bathrooms & Kitchens",
+    description: "Home / Bathrooms & Kitchens",
+    backgroundImage: "/assets/images/page-title/12.png",
+  },
+  "/services/decks-fences": {
+    title: "Decks & Fences",
+    description: "Home / Decks & Fences",
+    backgroundImage: "/assets/images/page-title/13.png",
   },
 };
 
