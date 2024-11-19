@@ -81,8 +81,8 @@ const ContactForm = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column with Illustration and Text */}
           <div className="relative">
-            <h2 className="text-2xl font-bold mb-2 text-orange">
-              Let's talk about your next project
+            <h2 className="text-2xl font-bold mb-2 text-navy">
+              Let&apos;s talk about your next project
             </h2>
             <p className="text-gray-600 mb-8">
               Give Tyler a call or get in touch by filling out the form below

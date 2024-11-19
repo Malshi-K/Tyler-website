@@ -34,7 +34,7 @@ const QuestionniareForm = () => {
           {/* Left Column with Illustration and Text */}
           <div className="relative">
             <h2 className="text-2xl font-bold mb-2 text-navy">
-              Let's talk about your next project
+              Let&apos;s talk about your next project
             </h2>
             <p className="text-gray-600 mb-8">
               Give Tyler a call or get in touch by filling out the form below
@@ -53,7 +53,7 @@ const QuestionniareForm = () => {
                   src="/assets/images/contact/contact-bg.png"
                   alt="Contact illustration"
                   className="rounded-lg"
-                  width={500} 
+                  width={500}
                   height={300} // Replace with your desired height
                 />
               </div>
