@@ -53,7 +53,7 @@ const QuestionniareForm = () => {
                   src="/assets/images/contact/contact-bg.png"
                   alt="Contact illustration"
                   className="rounded-lg"
-                  width={500} // Replace with your desired width
+                  width={500} 
                   height={300} // Replace with your desired height
                 />
               </div>
