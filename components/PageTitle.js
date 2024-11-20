@@ -39,9 +39,9 @@ const pageTitleData = {
     description: "Home / Contact Us",
     backgroundImage: "/assets/images/page-title/7.png",
   },
-  "/contact/questionniare": {
-    title: "Project Questionniare",
-    description: "Home / Project Questionniare",
+  "/contact/questionnaire": {
+    title: "Project Questionnaire",
+    description: "Home / Project Questionnaire",
     backgroundImage: "/assets/images/page-title/7.png",
   },
   "/services/design-build": {

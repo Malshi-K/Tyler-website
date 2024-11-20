@@ -24,8 +24,82 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-const QuestionniareForm = () => {
+const QuestionnaireForm = () => {
   const [date, setDate] = useState();
+  // Add these state declarations at the top of your QuestionnaireForm component
+  const [formData, setFormData] = useState({
+    name: "",
+    location: "",
+    postCode: "",
+    email: "",
+    phone: "",
+    startDate: "",
+    hasPlans: "no",
+    budget: "",
+    financeApproval: "no",
+    hearAboutUs: "",
+    projectDescription: "",
+  });
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Add this submit handler function
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const response = await fetch("/api/send-questionnaire", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          startDate: date ? format(date, "PPP") : null,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit questionnaire");
+      }
+
+      setStatus({
+        type: "success",
+        message:
+          "Questionnaire submitted successfully! We'll be in touch soon.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        location: "",
+        postCode: "",
+        email: "",
+        phone: "",
+        startDate: "",
+        hasPlans: "no",
+        budget: "",
+        financeApproval: "no",
+        hearAboutUs: "",
+        projectDescription: "",
+      });
+      setDate(null);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setStatus({
+        type: "error",
+        message:
+          error.message ||
+          "Failed to submit questionnaire. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen py-10">
@@ -65,22 +139,72 @@ const QuestionniareForm = () => {
             <div className="absolute -top-4 -right-4 w-12 h-12 bg-orange-200 rounded-full opacity-50" />
             <div className="text-center mb-8">
               <h2 className="text-4xl font-bold mb-2 text-orange">
-                Our Project Questionniare
+                Our Project Questionnaire
               </h2>
               <p className="text-gray-600">
-                Complete our Project Questionniare so we can get to know a
+                Complete our Project Questionnaire so we can get to know a
                 liittle bit more about your project and we can start to prepare
                 your no obligation free quote.
               </p>
             </div>
-            <form className="space-y-6">
+            {status.message && (
+              <Alert
+                className={`mb-4 ${
+                  status.type === "error" ? "bg-red-50" : "bg-green-50"
+                }`}
+              >
+                <AlertDescription>{status.message}</AlertDescription>
+              </Alert>
+            )}
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Basic Information */}
               <div className="space-y-4">
-                <Input type="text" placeholder="Name" />
-                <Input type="text" placeholder="Location" />
-                <Input type="text" placeholder="Post Code" />
-                <Input type="email" placeholder="Email" />
-                <Input type="tel" placeholder="Phone" />
+                <Input
+                  type="text"
+                  placeholder="Name"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, name: e.target.value }))
+                  }
+                />
+                <Input
+                  type="text"
+                  placeholder="Location"
+                  value={formData.location}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      location: e.target.value,
+                    }))
+                  }
+                />
+                <Input
+                  type="text"
+                  placeholder="Post Code"
+                  value={formData.postCode}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      postCode: e.target.value,
+                    }))
+                  }
+                />
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, email: e.target.value }))
+                  }
+                />
+                <Input
+                  type="tel"
+                  placeholder="Phone"
+                  value={formData.phone}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, phone: e.target.value }))
+                  }
+                />
               </div>
 
               {/* Project Start Date */}
@@ -103,7 +227,13 @@ const QuestionniareForm = () => {
                     <Calendar
                       mode="single"
                       selected={date}
-                      onSelect={setDate}
+                      onSelect={(newDate) => {
+                        setDate(newDate);
+                        setFormData((prev) => ({
+                          ...prev,
+                          startDate: newDate ? format(newDate, "PPP") : "",
+                        }));
+                      }}
                       initialFocus
                     />
                   </PopoverContent>
@@ -113,7 +243,14 @@ const QuestionniareForm = () => {
               {/* Plans Question */}
               <div className="space-y-2">
                 <Label>Have you had plans professionally drawn up?</Label>
-                <RadioGroup defaultValue="no" className="flex gap-4">
+                <RadioGroup
+                  defaultValue="no"
+                  className="flex gap-4"
+                  value={formData.hasPlans}
+                  onValueChange={(value) =>
+                    setFormData((prev) => ({ ...prev, hasPlans: value }))
+                  }
+                >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="yes" id="plans-yes" />
                     <Label htmlFor="plans-yes">Yes</Label>
@@ -128,13 +265,27 @@ const QuestionniareForm = () => {
               {/* Budget */}
               <div className="space-y-2">
                 <Label>Approximate Budget</Label>
-                <Input type="text" placeholder="Approximate Budget?" />
+                <Input
+                  type="text"
+                  placeholder="Approximate Budget?"
+                  value={formData.budget}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, budget: e.target.value }))
+                  }
+                />
               </div>
 
               {/* Finance Approval */}
               <div className="space-y-2">
                 <Label>Have you got financed approved?</Label>
-                <RadioGroup defaultValue="yes" className="flex gap-4">
+                <RadioGroup
+                  defaultValue="no"
+                  className="flex gap-4"
+                  value={formData.financeApproval}
+                  onValueChange={(value) =>
+                    setFormData((prev) => ({ ...prev, financeApproval: value }))
+                  }
+                >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="yes" id="finance-yes" />
                     <Label htmlFor="finance-yes">Yes</Label>
@@ -153,7 +304,17 @@ const QuestionniareForm = () => {
               {/* Hear About Us */}
               <div className="space-y-2">
                 <Label>How did you hear about us?</Label>
-                <Input type="text" placeholder="How did you hear about us?" />
+                <Input
+                  type="text"
+                  placeholder="How did you hear about us?"
+                  value={formData.hearAboutUs}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      hearAboutUs: e.target.value,
+                    }))
+                  }
+                />
               </div>
 
               {/* Project Description */}
@@ -162,12 +323,21 @@ const QuestionniareForm = () => {
                 <Textarea
                   placeholder="Briefly describe your project"
                   className="min-h-[120px]"
+                  value={formData.projectDescription}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      projectDescription: e.target.value,
+                    }))
+                  }
                 />
               </div>
-
               {/* Submit Button */}
-              <Button className="w-full bg-navy hover:bg-orange text-white rounded-full py-6">
-                SEND US MESSAGE
+              <Button
+                className="w-full bg-navy hover:bg-orange text-white rounded-full py-6"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "SUBMITTING..." : "SEND US MESSAGE"}
               </Button>
             </form>
           </div>
@@ -234,4 +404,4 @@ const QuestionniareForm = () => {
   );
 };
 
-export default QuestionniareForm;
+export default QuestionnaireForm;

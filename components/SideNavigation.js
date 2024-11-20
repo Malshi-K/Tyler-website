@@ -62,7 +62,7 @@ const SideNavigation = () => {
       icon: <Mail size={20} />,
       subItems: [
         { name: "Contact Us", path: "/contact/contact-us" },
-        { name: "Project Questionniare", path: "/contact/questionniare" },
+        { name: "Project Questionnaire", path: "/contact/questionnaire" },
       ],
     },
   ];
