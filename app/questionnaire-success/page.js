@@ -21,7 +21,7 @@ const QuestionnaireSuccessPage = () => {
             Thank You, {name}!
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            We've received your questionnaire about {projectType}.
+            We&apos;ve received your questionnaire about {projectType}.
           </p>
           <div className="mt-4 text-center">
             <p className="text-sm text-gray-600">
