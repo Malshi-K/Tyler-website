@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,7 @@ import {
 import Image from "next/image";
 
 const QuestionnaireForm = () => {
+  const router = useRouter();
   const [date, setDate] = useState();
   // Add these state declarations at the top of your QuestionnaireForm component
   const [formData, setFormData] = useState({
@@ -68,12 +70,6 @@ const QuestionnaireForm = () => {
         throw new Error(data.error || "Failed to submit questionnaire");
       }
 
-      setStatus({
-        type: "success",
-        message:
-          "Questionnaire submitted successfully! We'll be in touch soon.",
-      });
-
       // Reset form
       setFormData({
         name: "",
@@ -89,6 +85,10 @@ const QuestionnaireForm = () => {
         projectDescription: "",
       });
       setDate(null);
+
+      // Navigate to success page with query parameters
+      router.push(`/questionnaire-success`);
+
     } catch (error) {
       console.error("Form submission error:", error);
       setStatus({
@@ -97,7 +97,6 @@ const QuestionnaireForm = () => {
           error.message ||
           "Failed to submit questionnaire. Please try again later.",
       });
-    } finally {
       setIsSubmitting(false);
     }
   };

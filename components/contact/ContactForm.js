@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import { Phone, Mail, Facebook, Instagram, Youtube } from "lucide-react";
 import Image from "next/image";
 
 const ContactForm = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,7 +29,6 @@ const ContactForm = () => {
         throw new Error("All fields are required");
       }
 
-      // Update the fetch URL to include the full path
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
@@ -40,12 +41,7 @@ const ContactForm = () => {
         }),
       });
 
-      // Log the response for debugging
-      console.log("Response status:", response.status);
       const responseText = await response.text();
-      console.log("Response text:", responseText);
-
-      // Try to parse the response as JSON
       let data;
       try {
         data = JSON.parse(responseText);
@@ -58,11 +54,12 @@ const ContactForm = () => {
         throw new Error(data.error || "Failed to send message");
       }
 
+      // Clear form data
       setFormData({ name: "", email: "", message: "" });
-      setStatus({
-        type: "success",
-        message: "Message sent successfully! We'll get back to you soon.",
-      });
+      
+      // Navigate to success page with query parameters
+      router.push(`/success`);
+      
     } catch (error) {
       console.error("Form submission error:", error);
       setStatus({
@@ -70,7 +67,6 @@ const ContactForm = () => {
         message:
           error.message || "Failed to send message. Please try again later.",
       });
-    } finally {
       setIsSubmitting(false);
     }
   };
