@@ -27,7 +27,7 @@ const AccordionTrigger = React.forwardRef(({ className, children, ...props }, re
       {...props}>
       {children}
       {/* Custom indicator based on state */}
-      <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded bg-[#3E4345] data-[state=open]:bg-[#A67548] transition-colors">
+      <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded bg-orange data-[state=open]:bg-[#A67548] transition-colors">
         <Plus className="h-6 w-6 text-white shrink-0 transition-transform duration-200 data-[state=open]:hidden" />
         <Minus className="h-6 w-6 text-white shrink-0 transition-transform duration-200 hidden data-[state=open]:block" />
       </div>
