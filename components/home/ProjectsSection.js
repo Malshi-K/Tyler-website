@@ -189,55 +189,55 @@ const ProjectsSection = () => {
           </div>
         </div>
 
-        {/* Projects Grid - Updated with border radius */}
+        {/* Projects Grid - Updated with uniform sizing */}
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group relative overflow-hidden rounded-2xl bg-white hover:shadow-xl transition-all duration-300"
+                className="group bg-white rounded-2xl"
               >
-                {/* Image Container with rounded corners */}
-                <div className="relative w-full rounded-2xl overflow-hidden">
-                  <div className="relative w-full pt-[75%]">
+                {/* Fixed aspect ratio container */}
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+                  <div className="absolute inset-0 bg-gray-100 rounded-2xl">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="w-full h-full object-contain rounded-2xl"
+                      className="w-full h-full object-cover rounded-2xl"
                       priority
                     />
                   </div>
-                </div>
 
-                {/* Dark Overlay with rounded corners */}
-                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300 rounded-2xl" />
+                  {/* Dark Overlay */}
+                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300 rounded-2xl" />
 
-                {/* Content Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  {/* Action Icons */}
-                  <div className="absolute top-4 right-4 flex gap-2">
-                    <button
-                      className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center
-                        hover:bg-white/20 transition-colors duration-300"
-                    >
-                      <Link className="w-5 h-5 text-white" />
-                    </button>
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    {/* Action Icons */}
+                    <div className="absolute top-4 right-4 flex gap-2">
+                      <button
+                        className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center
+                          hover:bg-white/20 transition-colors duration-300"
+                      >
+                        <Link className="w-5 h-5 text-white" />
+                      </button>
+                    </div>
+
+                    {/* Project Title */}
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      {project.title.toUpperCase()}
+                    </h3>
+
+                    {/* Project Category/Type */}
+                    <p className="text-white/80 text-sm font-medium mb-4">
+                      {project.description}
+                    </p>
+
+                    {/* Accent Line */}
+                    <div className="w-12 h-0.5 bg-orange mb-0 group-hover:mb-4 opacity-0 group-hover:opacity-100 transition-all duration-500" />
                   </div>
-
-                  {/* Project Title */}
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    {project.title.toUpperCase()}
-                  </h3>
-
-                  {/* Project Category/Type */}
-                  <p className="text-white/80 text-sm font-medium mb-4">
-                    {project.description}
-                  </p>
-
-                  {/* Accent Line */}
-                  <div className="w-12 h-0.5 bg-orange mb-0 group-hover:mb-4 opacity-0 group-hover:opacity-100 transition-all duration-500" />
                 </div>
               </div>
             ))}

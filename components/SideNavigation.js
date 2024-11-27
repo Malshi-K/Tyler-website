@@ -145,7 +145,7 @@ const SideNavigation = () => {
     <>
       {/* Hamburger Menu Button */}
       <button
-        className="fixed top-8 right-8 z-50 flex items-center gap-3 text-orange hover:text-white transition-colors duration-300 group"
+        className="fixed top-8 right-8 z-50 flex items-center gap-3 text-orange hover:text-navy transition-colors duration-300 group"
         onClick={() => setIsOpen(true)}
       >
         <span className="text-xl font-bold tracking-wider">MENU</span>
