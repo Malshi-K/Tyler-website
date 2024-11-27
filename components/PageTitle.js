@@ -6,42 +6,34 @@ import Image from "next/image";
 const pageTitleData = {
   "/about/our-guarantee": {
     title: "Our Guarantee",
-    description: "Home / Our Guarantee",
     backgroundImage: "/assets/images/page-title/1.png",
   },
   "/about/testimonials": {
     title: "Testimonials",
-    description: "Home / Testimonials",
     backgroundImage: "/assets/images/page-title/2.png",
   },
   "/about/who-we-are": {
     title: "How we work",
-    description: "Home / How we work",
     backgroundImage: "/assets/images/page-title/3.png",
   },
   "/about/gallery": {
     title: "Gallery",
-    description: "Home / Gallery",
     backgroundImage: "/assets/images/page-title/4.png",
   },
   "/house-plans": {
     title: "House Plans",
-    description: "Home / House Plans",
     backgroundImage: "/assets/images/page-title/5.png",
   },
   "/blog": {
     title: "Our Blog",
-    description: "Home / Our Blog",
     backgroundImage: "/assets/images/page-title/6.png",
   },
   "/contact/contact-us": {
     title: "Contact Us",
-    description: "Home / Contact Us",
     backgroundImage: "/assets/images/page-title/7.png",
   },
   "/contact/questionnaire": {
     title: "Project Questionnaire",
-    description: "Home / Project Questionnaire",
     backgroundImage: "/assets/images/page-title/7.png",
   }
 };
@@ -75,10 +67,6 @@ const PageTitle = () => {
         {/* Content container */}
         <div className="relative h-full max-w-7xl mx-auto px-8 lg:px-12">
           <div className="flex flex-col justify-center h-full max-w-3xl">
-            {/* Description - using lighter opacity for subtle text */}
-            <p className="text-lg text-orange mb-5 max-w-2xl">
-              {pageData.description}
-            </p>
             {/* Title - using gray color as seen in the screenshot */}
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-navy whitespace-pre-line leading-tight">
               {pageData.title}

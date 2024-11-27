@@ -13,8 +13,6 @@ const TestimonialsSection = () => {
       title: "Home Improvement",
       quote:
         "Listened to what the Customer wanted. Work done to a high Standard. Honest and Polite. Communication: 100%, Quality: 100%, Reliability: 100%, Value: 100%",
-      image: "/assets/images/testimonials/1.jpg",
-      thumbnail: "/assets/images/testimonials/1.jpg",
     },
     {
       id: 2,
@@ -22,8 +20,6 @@ const TestimonialsSection = () => {
       title: "Deck Renovation",
       quote:
         "Excellent workmanship by Tyler and co-workers Work done perfectly and to our specifications Tyler had to clean up some sub-standard work done by a previous builder and did a great job before he could start his own Highly recommend",
-      image: "/assets/images/testimonials/2.jpg",
-      thumbnail: "/assets/images/testimonials/2.jpg",
     },
     {
       id: 3,
@@ -31,8 +27,6 @@ const TestimonialsSection = () => {
       title: "Bathroom Renovation",
       quote:
         "I am pleased to report that Tyler and his team have done a very good job. The standard has been of a high standard. The work has been done in a timely fashion. I would be happy to recommend Tyler to any prospective customer. I wish Tyler and his team all the very best in the future.",
-      image: "/assets/images/testimonials/3.jpg",
-      thumbnail: "/assets/images/testimonials/3.jpg",
     },
     {
       id: 4,
@@ -40,8 +34,6 @@ const TestimonialsSection = () => {
       title: "Renovation Project",
       quote:
         "Nice guy Easy to talk with about any changes or extra needs. Tyler was very accommodating. Notified me very early regarding time lines because of issues with other jobs. Very apologetic when building material deliveries were late arriving. Clearly has high expectations of his finished protect. I highly recommend!!",
-      image: "/assets/images/testimonials/4.jpg",
-      thumbnail: "/assets/images/testimonials/4.jpg",
     },
     {
       id: 5,
@@ -49,8 +41,6 @@ const TestimonialsSection = () => {
       title: "Communiation 100%, Quality 100%, Reliabilty 100%",
       quote:
         "Excellent prompt service and I would highly recommend T.Wilson Builders to anyone looking to find a professional builder with a honest , positive attitude and delivers awesome results in his workmanship.",
-      image: "/assets/images/testimonials/5.jpg",
-      thumbnail: "/assets/images/testimonials/5.jpg",
     },
     {
       id: 6,
@@ -58,8 +48,6 @@ const TestimonialsSection = () => {
       title: "Concrete Laying",
       quote:
         "We recently hired the services of Tyler Wilson to lay a very large concrete slab in our back garden where we wanted to store our new caravan. We can unequivocally say that we were very impressed with his professionalism and his attention to detail. He was totally in control of the whole operation and the completed project finished up better than we could have imagined, and on time. We would have absolutely no hesitation in recommending Tyler for any project asked of him. There are no hidden costs; what he quotes and what you pay are the same regardless. He is utterly reliable, he listens to his client and 'goes the extra mile' to ensure his client is completely and absolutely happy with his service.",
-      image: "/assets/images/testimonials/6.jpg",
-      thumbnail: "/assets/images/testimonials/6.jpg",
     },
     {
       id: 7,
@@ -67,8 +55,6 @@ const TestimonialsSection = () => {
       title: "Deck and Pergola Renovation",
       quote:
         "Couldn't be happier with Tylers work, we wanted a deck and pergola built for us in a short time frame and he did exactly that. The workmanship and quality is second to none and we absolutely love it! I would recommend Tyler to anyone and everyone, we will definitely be using him again in the future.",
-      image: "/assets/images/testimonials/7.jpg",
-      thumbnail: "/assets/images/testimonials/7.jpg",
     },
     {
       id: 8,
@@ -76,8 +62,6 @@ const TestimonialsSection = () => {
       title: "New Deck Build",
       quote:
         "Really impressed with Tylers workmanship and eye for detail. Got exactly what we asked for an more. Would definitely recommend to anyone wanting a deck added to their home.",
-      image: "/assets/images/testimonials/8.jpg",
-      thumbnail: "/assets/images/testimonials/8.jpg",
     },
     {
       id: 9,
@@ -85,8 +69,6 @@ const TestimonialsSection = () => {
       title: "Several projects in Hamilton",
       quote:
         "Extremely happy with the service provided by T Wilson Builders. Several projects completed around our home on time and at quoted price. Every attempt to recycle would could be reused was done as requested.",
-      image: "/assets/images/testimonials/9.jpg",
-      thumbnail: "/assets/images/testimonials/9.jpg",
     },
   ];
 
@@ -98,10 +80,6 @@ const TestimonialsSection = () => {
     setCurrentSlide(
       (prev) => (prev - 1 + testimonials.length) % testimonials.length
     );
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
   };
 
   return (
@@ -129,12 +107,12 @@ const TestimonialsSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Title */}
-        <div className="mb-16">
+        <div className="text-center mb-16">
           <h3 className="text-2xl font-bold text-orange mb-4">This is why</h3>
           <h2 className="text-4xl font-bold text-white mb-4">
             We do what we do!
           </h2>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center justify-center gap-1">
             <div className="w-16 h-[1px] bg-white/20"></div>
             <div className="w-4 h-1 bg-orange"></div>
             <div className="w-16 h-[1px] bg-white/20"></div>
@@ -142,8 +120,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Testimonial Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Quote */}
+        <div className="max-w-3xl mx-auto">
           <div className="relative">
             <div className="relative bg-white/10 backdrop-blur-sm p-8 rounded-lg">
               {/* Quote Icon */}
@@ -153,16 +130,16 @@ const TestimonialsSection = () => {
 
               {/* Testimonial Text */}
               <div className="space-y-6">
-                <h4 className="text-2xl font-semibold text-white">
+                <h4 className="text-2xl font-semibold text-white text-center">
                   {testimonials[currentSlide].title}
                 </h4>
-                <p className="text-white/90 text-lg leading-relaxed italic">
+                <p className="text-white/90 text-lg leading-relaxed italic text-center">
                   {testimonials[currentSlide].quote}
                 </p>
 
                 {/* Client Info */}
                 <div className="pt-6 border-t border-white/10">
-                  <p className="text-orange">
+                  <p className="text-orange text-center">
                     {testimonials[currentSlide].name}
                   </p>
                 </div>
@@ -170,7 +147,7 @@ const TestimonialsSection = () => {
             </div>
 
             {/* Navigation Arrows */}
-            <div className="flex items-center gap-4 mt-8">
+            <div className="flex items-center justify-center gap-4 mt-8">
               <button
                 onClick={prevSlide}
                 className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center
@@ -185,44 +162,6 @@ const TestimonialsSection = () => {
               >
                 <ChevronRight size={20} />
               </button>
-            </div>
-          </div>
-
-          {/* Right Side - Images */}
-          <div className="relative">
-            {/* Main Image */}
-            <div className="relative z-10 aspect-[4/3]">
-              <Image
-                src={testimonials[currentSlide].image}
-                alt={testimonials[currentSlide].name}
-                fill
-                sizes="100vw"
-                className="object-cover rounded-lg shadow-xl"
-              />
-            </div>
-
-            {/* Thumbnail Navigation */}
-            <div className="flex gap-4 mt-6 justify-center">
-              {testimonials.map((testimonial, index) => (
-                <button
-                  key={testimonial.id}
-                  onClick={() => goToSlide(index)}
-                  className={`relative w-16 h-16 rounded-lg overflow-hidden transition-all duration-300
-                    ${
-                      currentSlide === index
-                        ? "ring-2 ring-orange scale-110"
-                        : "opacity-50 hover:opacity-75"
-                    }`}
-                >
-                  <Image
-                    src={testimonial.thumbnail}
-                    alt={`Go to testimonial ${index + 1}`}
-                    fill
-                    sizes="100vw"
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
             </div>
           </div>
         </div>

@@ -17,35 +17,111 @@ const ProjectsSection = () => {
   ];
 
   const projects = {
-    1: [
-      {
-        id: "1-1",
-        title: "Marae Project",
-        description: "Modern family home with sustainable features",
-        image: "/assets/images/projects/December - Marae Project/DSC05681.jpg",
-        size: "large",
-      },
-      {
-        id: "1-2",
-        title: "Marae Project",
-        description: "Modern family home with sustainable features",
-        image: "/assets/images/projects/Galloway Street Build/DSC01410.jpg",
-        size: "medium",
-      },
-    ],
     2: [
       {
         id: "2-1",
-        title: "Villa Extension",
-        description: "Modern extension adding extra living space",
-        image: "/assets/images/projects/Hamilton New Build/DJI_0034.jpg",
+        title: "Kotahitanga Marae",
+        description: "Renovations",
+        image: "/assets/images/projects/Kotahitanga Marae - Reno/DSC05681.jpg",
+        size: "large",
+      },
+    ],
+    3: [
+      {
+        id: "3-1",
+        title: "The Base car wash",
+        description: "Light Commercial",
+        image: "/assets/images/projects/The Base car wash/IMG_4400.JPG",
+        size: "large",
+      },
+      {
+        id: "3-2",
+        title: "Kaipaki Berry Farm",
+        description: "Light Commercial",
+        image: "/assets/images/projects/Kaipaki Berry Farm ( Big warehosue)/F7249D3E-5DA3-49A4-9506-B98F055EE117.JPEG",
+        size: "large",
+      },
+    ],
+    4: [
+      {
+        id: "4-1",
+        title: "Galloway Street New Build - House Hamilton East",
+        description: "New Build",
+        image: "/assets/images/projects/Galloway Street New Build - House Hamilton East/DSC01410.jpg",
         size: "small",
       },
       {
-        id: "2-2",
-        title: "Villa Extension",
-        description: "Modern extension adding extra living space",
-        image: "/assets/images/projects/House _ Land Package - Cambridge/DJI_0095.jpg",
+        id: "4-2",
+        title: "Hamilton - House Greenhill",
+        description: "New Build",
+        image: "/assets/images/projects/Hamilton - New Build - House Greenhill/DJI_0034.jpg",
+        size: "small",
+      },
+      {
+        id: "4-3",
+        title: "Ragan - New Builds Rangatahi",
+        description: "New Build",
+        image: "/assets/images/projects/Ragan - New Builds Rangatahi/DJI_0043.jpg",
+        size: "large",
+      },
+      {
+        id: "4-4",
+        title: "Taare - Wharenui New Build",
+        description: "New Build",
+        image: "/assets/images/projects/Taare - Wharenui New Build/DSC02893.jpg",
+        size: "medium",
+      },
+      {
+        id: "4-5",
+        title: "Tamahere New Build",
+        description: "New Build",
+        image: "/assets/images/projects/Tamahere New Build/DSC08057.jpg",
+        size: "small",
+      },
+      {
+        id: "4-6",
+        title: "Te Kowhari New Build",
+        description: "New Build",
+        image: "/assets/images/projects/Te Kowhari New Build/DJI_0029.jpg",
+        size: "medium",
+      },
+    ],
+    5: [
+      {
+        id: "5-1",
+        title: "Bathrooms",
+        description: "Bathrooms",
+        image: "/assets/images/projects/Bathrooms & Kitchens/Copy of IMG_9136.jpg",
+        size: "small",
+      },
+      {
+        id: "5-2",
+        title: "Kitchens",
+        description: "Kitchens",
+        image: "/assets/images/projects/Bathrooms & Kitchens/DSC03679.jpg",
+        size: "small",
+      },
+    ],
+    6: [
+      {
+        id: "6-1",
+        title: "Decks",
+        description: "Decks",
+        image: "/assets/images/projects/decks and kitchen bathrooms/IMG_0554 Kwilla deck Tyler Wilson.jpg",
+        size: "small",
+      },
+      {
+        id: "6-2",
+        title: "Decks",
+        description: "Decks",
+        image: "/assets/images/projects/decks and kitchen bathrooms/IMG_2717 Tyler Wilson.JPG",
+        size: "small",
+      },
+      {
+        id: "6-3",
+        title: "Decks",
+        description: "Decks",
+        image: "/assets/images/projects/decks and kitchen bathrooms/Photo 29-09-19, 7 51 57 AM Tyler Wilson.jpg",
         size: "small",
       },
     ],
@@ -74,11 +150,10 @@ const ProjectsSection = () => {
 
   return (
     <div className="relative py-20 px-8">
-      {/* Background Overlay */}
       <div className="absolute inset-0 bg-white" />
 
       <div className="relative z-10">
-        {/* Section Title */}
+        {/* Section Title - unchanged */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-navy mb-4">
             Our Featured Projects
@@ -90,7 +165,7 @@ const ProjectsSection = () => {
           </div>
         </div>
 
-        {/* Category Filter */}
+        {/* Category Filter - unchanged */}
         <div className="container mx-auto px-4 mb-12">
           <div className="flex flex-wrap justify-center gap-4">
             {categoriesWithCounts.map((category) => (
@@ -114,41 +189,38 @@ const ProjectsSection = () => {
           </div>
         </div>
 
-        {/* Projects Masonry Grid */}
+        {/* Projects Grid - Updated with border radius */}
         <div className="container mx-auto px-4">
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="break-inside-avoid group relative overflow-hidden rounded-lg 
-    bg-white hover:shadow-xl transition-all duration-300"
-                style={{
-                  height:
-                    project.size === "large"
-                      ? "600px"
-                      : project.size === "medium"
-                      ? "400px"
-                      : "300px",
-                }}
+                className="group relative overflow-hidden rounded-2xl bg-white hover:shadow-xl transition-all duration-300"
               >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="w-full h-full object-cover"
-                  priority
-                />
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300" />
+                {/* Image Container with rounded corners */}
+                <div className="relative w-full rounded-2xl overflow-hidden">
+                  <div className="relative w-full pt-[75%]">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="w-full h-full object-contain rounded-2xl"
+                      priority
+                    />
+                  </div>
+                </div>
 
-                {/* Title and Description Overlay */}
+                {/* Dark Overlay with rounded corners */}
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300 rounded-2xl" />
+
+                {/* Content Overlay */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   {/* Action Icons */}
                   <div className="absolute top-4 right-4 flex gap-2">
                     <button
                       className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center
-        hover:bg-white/20 transition-colors duration-300"
+                        hover:bg-white/20 transition-colors duration-300"
                     >
                       <Link className="w-5 h-5 text-white" />
                     </button>
@@ -161,8 +233,7 @@ const ProjectsSection = () => {
 
                   {/* Project Category/Type */}
                   <p className="text-white/80 text-sm font-medium mb-4">
-                    {/* You can add a subtitle or category here */}
-                    Wood Work & Projects
+                    {project.description}
                   </p>
 
                   {/* Accent Line */}

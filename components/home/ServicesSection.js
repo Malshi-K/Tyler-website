@@ -8,45 +8,45 @@ const ServicesSection = () => {
   const services = [
     {
       title: "Design & Build",
-      image: "/assets/images/services/1.webp",
+      image: "/assets/images/services/1.jpg",
       description:
         "We also done furniture manufacturing, our experts are help you building your dream furnitures with in more than your expectation...",
-      link: "/services/furniture",
+      link: "/services/design-build",
     },
     {
       title: "Renovations & Extensions",
       image: "/assets/images/services/2.jpg",
       description:
         "Our expert carpenters provide top-quality woodworking services for all your construction and renovation needs...",
-      link: "/services/carpentry",
+      link: "/services/renovations",
     },
     {
       title: "Light Commercial",
-      image: "/assets/images/services/3.webp",
+      image: "/assets/images/services/3.jpg",
       description:
         "Transform your existing furniture into beautiful pieces that match your style and requirements...",
-      link: "/services/remodeling",
+      link: "/services/commercial",
     },
     {
       title: "New Builds",
       image: "/assets/images/services/4.jpg",
       description:
         "We also done furniture manufacturing, our experts are help you building your dream furnitures with in more than your expectation...",
-      link: "/services/furniture",
+      link: "/services/new-builds",
     },
     {
       title: "Bathrooms & Kitchens",
       image: "/assets/images/services/5.jpg",
       description:
         "Our expert carpenters provide top-quality woodworking services for all your construction and renovation needs...",
-      link: "/services/carpentry",
+      link: "/services/bathrooms-kitchens",
     },
     {
       title: "Decks & Fences",
-      image: "/assets/images/services/6.avif",
+      image: "/assets/images/services/6.jpg",
       description:
         "Transform your existing furniture into beautiful pieces that match your style and requirements...",
-      link: "/services/remodeling",
+      link: "/services/decks-fences",
     },
   ];
 

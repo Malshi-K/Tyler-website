@@ -23,9 +23,9 @@ const HeroSection = () => {
   ];
 
   const socialLinks = [
-    { name: "Facebook", Icon: Facebook, url: "#" },
-    { name: "YouTube", Icon: Youtube, url: "#" },
-    { name: "Instagram", Icon: Instagram, url: "#" },
+    { name: "Facebook", Icon: Facebook, url: "https://www.facebook.com/twilsonbuilders/" },
+    { name: "YouTube", Icon: Youtube, url: "https://www.instagram.com/twilsonbuilders/" },
+    { name: "Instagram", Icon: Instagram, url: "https://www.youtube.com/watch?v=wK6aKXu5NbE" },
   ];
 
   useEffect(() => {
@@ -102,7 +102,7 @@ const HeroSection = () => {
               Call Us
             </Link>
             <Link
-              href="/quote"
+              href="/contact/contact-us"
               className="px-10 py-4 bg-transparent text-white text-lg font-semibold rounded-full border-2 border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300"
             >
               Get a Quote

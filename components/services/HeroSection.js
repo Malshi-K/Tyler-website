@@ -19,7 +19,6 @@ const HeroSection = ({ data }) => {
 
       <div className="relative h-full max-w-7xl mx-auto px-8 lg:px-12">
         <div className="flex flex-col justify-center h-full max-w-3xl">
-          <p className="text-lg text-orange-500 mb-5">{data.description}</p>
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-navy leading-tight">
             {data.title}
           </h1>

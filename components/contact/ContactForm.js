@@ -56,10 +56,9 @@ const ContactForm = () => {
 
       // Clear form data
       setFormData({ name: "", email: "", message: "" });
-      
+
       // Navigate to success page with query parameters
       router.push(`/success`);
-      
     } catch (error) {
       console.error("Form submission error:", error);
       setStatus({
@@ -171,23 +170,35 @@ const ContactForm = () => {
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 bg-orange rounded-tl-full rounded-br-full text-white">
           <Card className="bg-transparent border-none shadow-none">
             <CardContent className="flex flex-col items-center p-6">
-              <div className="rounded-full bg-white/20 p-3 mb-4">
-                <Phone className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="font-semibold mb-2">PHONE</h3>
-              <p className="text-center text-sm text-white/90">022 419 7176</p>
+              <a
+                href="tel:+64224197176"
+                className="group flex flex-col items-center hover:opacity-90 transition-opacity"
+              >
+                <div className="rounded-full bg-white/20 p-3 mb-4 group-hover:bg-white/30 transition-colors">
+                  <Phone className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-navy font-semibold mb-2">PHONE</h3>
+                <p className="text-center text-sm text-white/90 hover:text-navy">
+                  022 419 7176
+                </p>
+              </a>
             </CardContent>
           </Card>
 
           <Card className="bg-transparent border-none shadow-none">
             <CardContent className="flex flex-col items-center p-6">
-              <div className="rounded-full bg-white/20 p-3 mb-4">
-                <Mail className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="font-semibold mb-2">EMAIL</h3>
-              <p className="text-center text-sm text-white/90">
-                tyler@twilsonbuilders.co.nz
-              </p>
+              <a
+                href="mailto:tyler@twilsonbuilders.co.nz"
+                className="group flex flex-col items-center hover:opacity-90 transition-opacity"
+              >
+                <div className="rounded-full bg-white/20 p-3 mb-4 group-hover:bg-white/30 transition-colors">
+                  <Mail className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-navy font-semibold mb-2">EMAIL</h3>
+                <p className="text-center text-sm text-white/90 hover:text-navy">
+                  tyler@twilsonbuilders.co.nz
+                </p>
+              </a>
             </CardContent>
           </Card>
 
@@ -196,24 +207,24 @@ const ContactForm = () => {
               <div className="rounded-full bg-white/20 p-3 mb-4">
                 <Facebook className="h-6 w-6 text-white" />
               </div>
-              <h3 className="font-semibold mb-2">FOLLOW US</h3>
+              <h3 className="text-navy font-semibold mb-2">FOLLOW US</h3>
               <div className="flex gap-4">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/twilsonbuilders/"
                   className="bg-white/20 p-2 rounded-lg hover:bg-white/30 transition-colors"
                   aria-label="Facebook"
                 >
                   <Facebook size={20} className="text-white" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/twilsonbuilders/"
                   className="bg-white/20 p-2 rounded-lg hover:bg-white/30 transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram size={20} className="text-white" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.youtube.com/watch?v=wK6aKXu5NbE"
                   className="bg-white/20 p-2 rounded-lg hover:bg-white/30 transition-colors"
                   aria-label="YouTube"
                 >

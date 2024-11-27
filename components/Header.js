@@ -175,7 +175,7 @@ const Header = () => {
 
           {/* Hamburger Menu Button */}
           <button
-            className="flex items-center gap-3 text-orange hover:text-white transition-colors duration-300 group"
+            className="flex items-center gap-3 text-white hover:text-orange transition-colors duration-300 group"
             onClick={() => setIsOpen(true)}
           >
             <span className="text-xl font-bold tracking-wider">MENU</span>

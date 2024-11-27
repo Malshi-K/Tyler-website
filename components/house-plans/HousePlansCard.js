@@ -279,19 +279,17 @@ const HousePlansCard = () => {
 
   return (
     <div className="py-20">
-      <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg">
-        <div className="flex flex-col md:flex-row min-h-[600px]">
+      <div className="max-w-6xl mx-auto bg-white rounded-lg">
+        <div className="flex flex-col md:flex-row">
           {/* Image Carousel Section */}
-          <div
-            className="relative w-full md:w-3/5"
-            style={{ minHeight: "600px" }}
-          >
-            <div className="relative w-full h-full">
+          <div className="relative w-full md:w-3/5">
+            <div className="relative w-full pt-[75%]"> {/* 4:3 aspect ratio container */}
               <Image
                 src={currentRoom.image}
                 alt={`${currentRoom.title} View`}
                 fill
-                className="object-cover rounded-l-lg transition-opacity duration-300"
+                className="object-contain rounded-l-lg transition-opacity duration-300"
+                priority
               />
             </div>
             <button
@@ -306,7 +304,7 @@ const HousePlansCard = () => {
             >
               <ChevronRight className="w-6 h-6 text-gray-700" />
             </button>
-
+  
             {/* Image Indicators */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
               {roomsData.map((_, index) => (
@@ -314,12 +312,12 @@ const HousePlansCard = () => {
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
                   className={`w-2 h-2 rounded-full transition-colors
-        ${currentImageIndex === index ? "bg-white" : "bg-white/50"}`}
+                    ${currentImageIndex === index ? "bg-white" : "bg-white/50"}`}
                 />
               ))}
             </div>
           </div>
-
+  
           {/* Details Section */}
           <div className="w-full md:w-2/5 p-8 flex flex-col justify-between">
             <div className="space-y-6">
@@ -332,7 +330,7 @@ const HousePlansCard = () => {
                   {currentRoom.description}
                 </p>
               </div>
-
+  
               {/* Features Grid */}
               <div>
                 <h3 className="font-semibold mb-4 flex items-center gap-2">
@@ -349,7 +347,7 @@ const HousePlansCard = () => {
                 </div>
               </div>
             </div>
-
+  
             {/* Download Button */}
             <div className="border-t pt-6 mt-6">
               <button

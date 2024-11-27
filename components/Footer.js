@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="absolute inset-0 bg-navy/60 z-0"></div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
             {/* Company Info */}
             <div className="space-y-6">
               <div className="flex items-center p-2 rounded">
@@ -41,16 +41,10 @@ const Footer = () => {
                   Home
                 </Link>
                 <Link
-                  href="/about"
+                  href="/about/our-guarantee"
                   className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
                 >
                   About Us
-                </Link>
-                <Link
-                  href="/services"
-                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
-                >
-                  Services
                 </Link>
                 <Link
                   href="/house-plans"
@@ -63,6 +57,51 @@ const Footer = () => {
                   className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
                 >
                   Our Blogs
+                </Link>
+              </nav>
+            </div>
+
+            <div>
+              <h3 className="text-white text-lg font-bold mb-6 relative">
+                SERVICES
+                <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-orange-500 -mb-2"></span>
+              </h3>
+              <nav className="space-y-3">
+                <Link
+                  href="/services/design-build"
+                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
+                >
+                  Design & Build
+                </Link>
+                <Link
+                  href="/services/renovations"
+                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
+                >
+                  Renovations & Extensions
+                </Link>
+                <Link
+                  href="/services/commercial"
+                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
+                >
+                  Light Commercial
+                </Link>
+                <Link
+                  href="/services/new-builds"
+                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
+                >
+                  New Builds
+                </Link>
+                <Link
+                  href="/services/bathrooms-kitchens"
+                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
+                >
+                  Bathrooms & Kitchens
+                </Link>
+                <Link
+                  href="/services/decks-fences"
+                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
+                >
+                  Decks & Fences
                 </Link>
               </nav>
             </div>
@@ -103,21 +142,21 @@ const Footer = () => {
               </h3>
               <div className="flex gap-4">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/twilsonbuilders/"
                   className="bg-orange-500 p-2 rounded-lg hover:bg-orange-600 transition-colors"
                   aria-label="Facebook"
                 >
                   <Facebook size={20} className="text-white" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/twilsonbuilders/"
                   className="bg-orange-500 p-2 rounded-lg hover:bg-orange-600 transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram size={20} className="text-white" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.youtube.com/watch?v=wK6aKXu5NbE"
                   className="bg-orange-500 p-2 rounded-lg hover:bg-orange-600 transition-colors"
                   aria-label="YouTube"
                 >

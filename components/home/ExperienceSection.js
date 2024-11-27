@@ -91,7 +91,7 @@ const ExperienceSection = () => {
             {/* Signature and Contact */}
             <div className="flex items-center justify-between">
               <div className="space-y-4">
-                <Link href="/about" className="inline-block">
+                <Link href="/about/our-guarantee" className="inline-block">
                   <button className="bg-navy text-white px-8 py-3 rounded-full hover:bg-navy/90 transition-colors duration-300">
                     Learn More
                   </button>
