@@ -21,7 +21,7 @@ const ServicePage = () => {
       <Section1 data={serviceData.section1} />
       {/* Pass the entire serviceData object */}
       <Section2 data={serviceData} />
-      <CTACard />
+      <CTACard data={serviceData.section4}/>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 
-const CTACard = () => {
+const CTACard = ({data}) => {
   return (
     <div className="py-10">
       <div className="w-full flex items-center justify-center p-4">
@@ -24,16 +24,13 @@ const CTACard = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-orange/80 via-orange/60 to-transparent z-10" />
 
             <CardContent className="relative h-full z-20 p-8 flex flex-col justify-center">
-              <div className="max-w-[80%]">
+              <div className="max-w-[70%]">
                 {/* Heading */}
-                <h3 className="text-navy text-4xl md:text-6xl font-bold mb-2">
-                  Let's Get Started
+                <h3 className="text-navy text-4xl md:text-3xl font-bold mb-2">
+                  {data.title}
                 </h3>
-                <h5 className="text-white text-xl">
-                  If you're ready to create a new home, renovate, or build a
-                  commercial space, we're here to help. Contact T. Wilson
-                  Builders today, and let's work together to make your vision a
-                  reality.
+                <h5 className="text-white text-2xl">
+                  {data.description}
                 </h5>
               </div>
             </CardContent>

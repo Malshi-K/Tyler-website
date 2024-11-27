@@ -2,12 +2,7 @@
 import React, { useState, useEffect } from "react";
 import {
   Menu as MenuIcon,
-  ChevronDown,
-  Home,
-  Info,
-  Briefcase,
-  FileText,
-  Mail,
+  Plus,
 } from "lucide-react";
 import {
   Sheet,
@@ -29,11 +24,15 @@ const SideNavigation = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", path: "/", icon: <Home size={20} /> },
+    {
+      name: "Home",
+      path: "/",
+      icon: "/assets/images/menu-icons/1.png",
+    },
     {
       name: "About Us",
       path: "/about",
-      icon: <Info size={20} />,
+      icon: "/assets/images/menu-icons/2.png",
       subItems: [
         { name: "Our Guarantee", path: "/about/our-guarantee" },
         { name: "Testimonials", path: "/about/testimonials" },
@@ -44,7 +43,7 @@ const SideNavigation = () => {
     {
       name: "Services",
       path: "/services",
-      icon: <Briefcase size={20} />,
+      icon: "/assets/images/menu-icons/3.png",
       subItems: [
         { name: "Design & Build", path: "/services/design-build" },
         { name: "Renovations & Extensions", path: "/services/renovations" },
@@ -54,12 +53,20 @@ const SideNavigation = () => {
         { name: "Decks & Fences", path: "/services/decks-fences" },
       ],
     },
-    { name: "House Plans", path: "/house-plans", icon: <FileText size={20} /> },
-    { name: "Our Blogs", path: "/blog", icon: <FileText size={20} /> },
+    {
+      name: "House Plans",
+      path: "/house-plans",
+      icon: "/assets/images/menu-icons/4.png",
+    },
+    {
+      name: "Our Blogs",
+      path: "/blog",
+      icon: "/assets/images/menu-icons/5.png",
+    },
     {
       name: "Contact Us",
       path: "/contact",
-      icon: <Mail size={20} />,
+      icon: "/assets/images/menu-icons/6.png",
       subItems: [
         { name: "Contact Us", path: "/contact/contact-us" },
         { name: "Project Questionnaire", path: "/contact/questionnaire" },
@@ -99,7 +106,14 @@ const SideNavigation = () => {
               }
             }}
           >
-            {item.icon}
+            <div className="w-10 h-10 relative">
+              <Image
+                src={item.icon}
+                alt={item.name}
+                fill
+                className="object-contain filter brightness-0 invert"
+              />
+            </div>
             {item.name}
           </Link>
           {hasSubItems && (
@@ -107,7 +121,7 @@ const SideNavigation = () => {
               onClick={() => toggleSubmenu(item.name)}
               className="p-2 text-white/60 hover:text-white"
             >
-              <ChevronDown
+              <Plus
                 size={20}
                 className={`transition-transform duration-300 ${
                   isExpanded ? "rotate-180" : ""

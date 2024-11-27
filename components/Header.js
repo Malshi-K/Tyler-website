@@ -3,14 +3,10 @@ import React, { useState, useEffect } from "react";
 import {
   Menu as MenuIcon,
   ChevronDown,
-  Home,
-  Info,
-  Briefcase,
-  FileText,
-  Mail,
   Facebook,
   Youtube,
   Instagram,
+  Plus,
 } from "lucide-react";
 import {
   Sheet,
@@ -26,23 +22,37 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState([]);
   const [currentPath, setCurrentPath] = useState("");
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     setCurrentPath(pathname);
   }, [pathname]);
 
-  // If we're on the home page, don't render the header
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   if (pathname === "/") {
     return null;
   }
 
   const navItems = [
-    { name: "Home", path: "/", icon: <Home size={20} /> },
+    {
+      name: "Home",
+      path: "/",
+      icon: "/assets/images/menu-icons/1.png",
+    },
     {
       name: "About Us",
       path: "/about",
-      icon: <Info size={20} />,
+      icon: "/assets/images/menu-icons/2.png",
       subItems: [
         { name: "Our Guarantee", path: "/about/our-guarantee" },
         { name: "Testimonials", path: "/about/testimonials" },
@@ -53,7 +63,7 @@ const Header = () => {
     {
       name: "Services",
       path: "/services",
-      icon: <Briefcase size={20} />,
+      icon: "/assets/images/menu-icons/3.png",
       subItems: [
         { name: "Design & Build", path: "/services/design-build" },
         { name: "Renovations & Extensions", path: "/services/renovations" },
@@ -63,23 +73,25 @@ const Header = () => {
         { name: "Decks & Fences", path: "/services/decks-fences" },
       ],
     },
-    { name: "House Plans", path: "/house-plans", icon: <FileText size={20} /> },
-    { name: "Our Blogs", path: "/blog", icon: <FileText size={20} /> },
+    {
+      name: "House Plans",
+      path: "/house-plans",
+      icon: "/assets/images/menu-icons/4.png",
+    },
+    {
+      name: "Our Blogs",
+      path: "/blog",
+      icon: "/assets/images/menu-icons/5.png",
+    },
     {
       name: "Contact Us",
       path: "/contact",
-      icon: <Mail size={20} />,
+      icon: "/assets/images/menu-icons/6.png",
       subItems: [
         { name: "Contact Us", path: "/contact/contact-us" },
         { name: "Project Questionnaire", path: "/contact/questionnaire" },
       ],
     },
-  ];
-
-  const socialLinks = [
-    { name: "Facebook", Icon: Facebook, url: "#" },
-    { name: "YouTube", Icon: Youtube, url: "#" },
-    { name: "Instagram", Icon: Instagram, url: "#" },
   ];
 
   const toggleSubmenu = (itemName) => {
@@ -114,7 +126,14 @@ const Header = () => {
               }
             }}
           >
-            {item.icon}
+            <div className="w-10 h-10 relative">
+              <Image
+                src={item.icon}
+                alt={item.name}
+                fill
+                className="object-contain filter brightness-0 invert"
+              />
+            </div>
             {item.name}
           </Link>
           {hasSubItems && (
@@ -122,7 +141,7 @@ const Header = () => {
               onClick={() => toggleSubmenu(item.name)}
               className="p-2 text-white/60 hover:text-white"
             >
-              <ChevronDown
+              <Plus
                 size={20}
                 className={`transition-transform duration-300 ${
                   isExpanded ? "rotate-180" : ""
@@ -158,9 +177,10 @@ const Header = () => {
   return (
     <>
       {/* Main Header */}
-      <header className="fixed top-0 left-0 right-0 z-40 backdrop-blur-sm">
+      <header className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-sm transition-all duration-300 ${
+        scrolled ? 'bg-white/80' : ''
+      }`}>
         <div className="container mx-auto px-8 py-4 flex justify-between items-center">
-          {/* Header - Logo and Menu aligned */}
           <Link href="/" className="inline-block">
             <Image
               src="/assets/images/logo.png"
@@ -173,9 +193,10 @@ const Header = () => {
             />
           </Link>
 
-          {/* Hamburger Menu Button */}
           <button
-            className="flex items-center gap-3 text-white hover:text-orange transition-colors duration-300 group"
+            className={`flex items-center gap-3 transition-colors duration-300 group ${
+              scrolled ? 'text-orange' : 'text-white hover:text-orange'
+            }`}
             onClick={() => setIsOpen(true)}
           >
             <span className="text-xl font-bold tracking-wider">MENU</span>
@@ -187,7 +208,7 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Side Navigation Sheet */}
+      {/* Side Navigation Sheet - Same as before */}
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetContent
           side="right"
@@ -208,24 +229,7 @@ const Header = () => {
             </div>
           </SheetHeader>
 
-          {/* Navigation Links */}
           <nav className="mb-12 space-y-1">{navItems.map(renderNavItem)}</nav>
-
-          {/* Mobile Social Links */}
-          <div className="md:hidden flex items-center gap-4 pt-4 border-t border-white/10">
-            {socialLinks.map(({ name, Icon, url }) => (
-              <Link
-                key={name}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center
-                  text-white/60 hover:text-white hover:border-white/40 transition-colors"
-              >
-                <Icon size={16} />
-              </Link>
-            ))}
-          </div>
         </SheetContent>
       </Sheet>
     </>
