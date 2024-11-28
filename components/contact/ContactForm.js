@@ -20,7 +20,51 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
-    // ... your existing handleSubmit logic
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      // Clear form
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+
+      // Show success message briefly before navigation
+      setStatus({
+        type: "success",
+        message: "Thank you! Your message has been sent successfully.",
+      });
+
+      // Navigate to success page after a short delay to allow user to see the success message
+      setTimeout(() => {
+        router.push("/success");
+      }, 1500);
+    } catch (error) {
+      console.error("Submission error:", error);
+      setStatus({
+        type: "error",
+        message: "Sorry, something went wrong. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -70,7 +114,7 @@ const ContactForm = () => {
                 and one of our team will be back with you shortly.
               </p>
             </div>
-            
+
             {status.message && (
               <Alert
                 className={`mb-4 ${
@@ -136,7 +180,9 @@ const ContactForm = () => {
                 <div className="rounded-full bg-white/20 p-2 sm:p-3 mb-3 sm:mb-4 group-hover:bg-white/30 transition-colors">
                   <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
-                <h3 className="text-navy font-semibold mb-1 sm:mb-2 text-sm sm:text-base">PHONE</h3>
+                <h3 className="text-navy font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                  PHONE
+                </h3>
                 <p className="text-center text-xs sm:text-sm text-white/90 hover:text-navy">
                   022 419 7176
                 </p>
@@ -153,7 +199,9 @@ const ContactForm = () => {
                 <div className="rounded-full bg-white/20 p-2 sm:p-3 mb-3 sm:mb-4 group-hover:bg-white/30 transition-colors">
                   <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
-                <h3 className="text-navy font-semibold mb-1 sm:mb-2 text-sm sm:text-base">EMAIL</h3>
+                <h3 className="text-navy font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                  EMAIL
+                </h3>
                 <p className="text-center text-xs sm:text-sm text-white/90 hover:text-navy break-all">
                   tyler@twilsonbuilders.co.nz
                 </p>
@@ -166,12 +214,26 @@ const ContactForm = () => {
               <div className="rounded-full bg-white/20 p-2 sm:p-3 mb-3 sm:mb-4">
                 <Facebook className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
               </div>
-              <h3 className="text-navy font-semibold mb-1 sm:mb-2 text-sm sm:text-base">FOLLOW US</h3>
+              <h3 className="text-navy font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                FOLLOW US
+              </h3>
               <div className="flex gap-3 sm:gap-4">
                 {[
-                  { Icon: Facebook, url: "https://www.facebook.com/twilsonbuilders/", label: "Facebook" },
-                  { Icon: Instagram, url: "https://www.instagram.com/twilsonbuilders/", label: "Instagram" },
-                  { Icon: Youtube, url: "https://www.youtube.com/watch?v=wK6aKXu5NbE", label: "YouTube" }
+                  {
+                    Icon: Facebook,
+                    url: "https://www.facebook.com/twilsonbuilders/",
+                    label: "Facebook",
+                  },
+                  {
+                    Icon: Instagram,
+                    url: "https://www.instagram.com/twilsonbuilders/",
+                    label: "Instagram",
+                  },
+                  {
+                    Icon: Youtube,
+                    url: "https://www.youtube.com/watch?v=wK6aKXu5NbE",
+                    label: "YouTube",
+                  },
                 ].map(({ Icon, url, label }) => (
                   <a
                     key={label}
