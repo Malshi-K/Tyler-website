@@ -6,7 +6,7 @@ import "@/app/pageTitle.css";
 const pageTitleData = {
   "/about/our-guarantee": {
     title: "Our Guarantee",
-    mobileTitle: "Our\nGuarantee", 
+    mobileTitle: "Our Guarantee",
     backgroundImage: "/assets/images/page-title/1.webp",
   },
   "/about/testimonials": {
@@ -16,7 +16,7 @@ const pageTitleData = {
   },
   "/about/who-we-are": {
     title: "How we work",
-    mobileTitle: "How we\nwork",
+    mobileTitle: "How we work",
     backgroundImage: "/assets/images/page-title/3.webp",
   },
   "/about/gallery": {
@@ -26,22 +26,22 @@ const pageTitleData = {
   },
   "/house-plans": {
     title: "House Plans",
-    mobileTitle: "House\nPlans",
+    mobileTitle: "House Plans",
     backgroundImage: "/assets/images/page-title/5.webp",
   },
   "/blog": {
     title: "Our Blog",
-    mobileTitle: "Our\nBlog",
+    mobileTitle: "Our Blog",
     backgroundImage: "/assets/images/page-title/6.webp",
   },
   "/contact/contact-us": {
     title: "Contact Us",
-    mobileTitle: "Contact\nUs",
+    mobileTitle: "Contact Us",
     backgroundImage: "/assets/images/page-title/7.webp",
   },
   "/contact/questionnaire": {
     title: "Project Questionnaire",
-    mobileTitle: "Project\nQuestionnaire",
+    mobileTitle: "Project Questionnaire",
     backgroundImage: "/assets/images/page-title/7.webp",
   },
 };
@@ -57,10 +57,10 @@ const PageTitle = () => {
     };
 
     checkMobile();
-    window.addEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
 
     return () => {
-      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener("resize", checkMobile);
     };
   }, []);
 
@@ -70,17 +70,23 @@ const PageTitle = () => {
     <div className="relative w-full overflow-hidden">
       <div className="relative h-[calc(100vh-80px)] min-h-[600px] w-full">
         <div className="the-long-way">
-          <img className="pageImage" src={pageData.backgroundImage} alt={pageData.title} />
-          <h1 
+          <img
+            className="pageImage"
+            src={pageData.backgroundImage}
+            alt={pageData.title}
+          />
+          <h1
             data-title={pageData.title}
-            className={isMobile ? 'mobile-title' : ''}
+            className={isMobile ? "mobile-title" : ""}
           >
             {displayTitle}
-            <span className="wrap" aria-hidden="true">
-              <span className="split" data-letters={pageData.title}>
-                {pageData.title}
+            {!isMobile && ( // Only show the wrap/split effect on desktop
+              <span className="wrap" aria-hidden="true">
+                <span className="split" data-letters={pageData.title}>
+                  {pageData.title}
+                </span>
               </span>
-            </span>
+            )}
           </h1>
         </div>
       </div>
