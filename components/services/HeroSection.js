@@ -7,7 +7,7 @@ const HeroSection = ({ data }) => {
       <div className="relative h-[calc(100vh-80px)] min-h-[600px] w-full">
         <div className="the-long-way">
           <img className="pageImage" src={data.backgroundImage} alt={data.title} />
-          <h1 data-title={data.title} className={isMobile ? 'mobile-title' : ''}>
+          <h1 data-title={data.title}>
             {data.title}
             <span className="wrap" aria-hidden="true">
               <span className="split" data-letters={data.title}>

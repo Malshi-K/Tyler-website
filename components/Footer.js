@@ -27,7 +27,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Rest of the footer content remains the same */}
             {/* Navigation Links */}
             <div className="flex flex-col items-center lg:items-start">
               <h3 className="text-white text-lg font-bold mb-6 relative inline-block">
@@ -35,13 +34,18 @@ const Footer = () => {
                 <span className="absolute bottom-0 left-1/2 lg:left-0 w-12 h-0.5 bg-orange-500 -mb-2 transform -translate-x-1/2 lg:translate-x-0"></span>
               </h3>
               <nav className="flex flex-col items-center lg:items-start space-y-3">
-                {["Home", "About Us", "House Plans", "Our Blogs"].map((item) => (
+                {[
+                  { text: "Home", path: "/home" },
+                  { text: "About Us", path: "/about/our-guarantee" },
+                  { text: "House Plans", path: "/house-plans" },
+                  { text: "Our Blogs", path: "/our-blogs" },
+                ].map((item) => (
                   <Link
-                    key={item}
-                    href={`/${item.toLowerCase().replace(/ /g, "-")}`}
+                    key={item.text}
+                    href={item.path}
                     className="text-gray-100 hover:text-orange-500 transition-colors font-medium text-center lg:text-left"
                   >
-                    {item}
+                    {item.text}
                   </Link>
                 ))}
               </nav>
@@ -60,11 +64,14 @@ const Footer = () => {
                   "Light Commercial",
                   "New Builds",
                   "Bathrooms & Kitchens",
-                  "Decks & Fences"
+                  "Decks & Fences",
                 ].map((service) => (
                   <Link
                     key={service}
-                    href={`/services/${service.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
+                    href={`/services/${service
+                      .toLowerCase()
+                      .replace(/ & /g, "-")
+                      .replace(/ /g, "-")}`}
                     className="text-gray-100 hover:text-orange-500 transition-colors font-medium text-center lg:text-left whitespace-nowrap"
                   >
                     {service}
@@ -109,9 +116,21 @@ const Footer = () => {
               </h3>
               <div className="flex gap-4">
                 {[
-                  { Icon: Facebook, url: "https://www.facebook.com/twilsonbuilders/", label: "Facebook" },
-                  { Icon: Instagram, url: "https://www.instagram.com/twilsonbuilders/", label: "Instagram" },
-                  { Icon: Youtube, url: "https://www.youtube.com/watch?v=wK6aKXu5NbE", label: "YouTube" }
+                  {
+                    Icon: Facebook,
+                    url: "https://www.facebook.com/twilsonbuilders/",
+                    label: "Facebook",
+                  },
+                  {
+                    Icon: Instagram,
+                    url: "https://www.instagram.com/twilsonbuilders/",
+                    label: "Instagram",
+                  },
+                  {
+                    Icon: Youtube,
+                    url: "https://www.youtube.com/watch?v=wK6aKXu5NbE",
+                    label: "YouTube",
+                  },
                 ].map(({ Icon, url, label }) => (
                   <a
                     key={label}
