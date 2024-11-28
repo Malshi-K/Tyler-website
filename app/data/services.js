@@ -1,7 +1,7 @@
 export const servicesData = {
   "design-build": {
     title: "Design Build",
-    backgroundImage: "/assets/images/page-title/8.png",
+    backgroundImage: "/assets/images/page-title/8.webp",
     section1: {
       heading:
         "Transform Your Vision Into Reality with Expert Design & Build Services",
@@ -37,7 +37,7 @@ export const servicesData = {
 
   renovations: {
     title: "Renovations & Extensions",
-    backgroundImage: "/assets/images/page-title/9.png",
+    backgroundImage: "/assets/images/page-title/9.webp",
     section1: {
       heading:
         "Reimagine Your Space with Professional Renovations & Extensions",
@@ -76,7 +76,7 @@ export const servicesData = {
   },
   commercial: {
     title: "Light Commercial",
-    backgroundImage: "/assets/images/page-title/10.png",
+    backgroundImage: "/assets/images/page-title/10.webp",
     section1: {
       heading:
         "Building Success with Expert Light Commercial Construction Solutions",
@@ -113,7 +113,7 @@ export const servicesData = {
   },
   "new-builds": {
     title: "New Builds",
-    backgroundImage: "/assets/images/page-title/11.png",
+    backgroundImage: "/assets/images/page-title/11.webp",
     section1: {
       heading: "Crafting Your Dream Home with Precision and Care - New Builds",
       description:
@@ -151,7 +151,7 @@ export const servicesData = {
   },
   "bathrooms-kitchens": {
     title: "Bathrooms & Kitchens",
-    backgroundImage: "/assets/images/page-title/12.png",
+    backgroundImage: "/assets/images/page-title/12.webp",
     section1: {
       heading:
         "Transform Your Home with Stunning Bathroom & Kitchen Renovations",
@@ -192,7 +192,7 @@ export const servicesData = {
   },
   "decks-fences": {
     title: "Decks & Fences",
-    backgroundImage: "/assets/images/page-title/13.png",
+    backgroundImage: "/assets/images/page-title/13.webp",
     section1: {
       heading: "Enhance Your Outdoor Living with Custom Decks & Fences",
       description:

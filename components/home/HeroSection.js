@@ -9,7 +9,7 @@ const HeroSection = () => {
 
   const heroContent = [
     {
-      welcome: "Welcome to TWilson Builders",
+      welcome: "Welcome to T.Wilson Builders",
       title: "Quality Building Solutions for Your Dream Home",
     },
     {
@@ -42,8 +42,8 @@ const HeroSection = () => {
       <header className="relative z-20 px-8 pt-8 flex justify-between items-center">
         <Link href="/" className="inline-block">
           <Image
-            src="/assets/images/logo.png"
-            alt="T Wilson Builders"
+            src="/assets/images/logo.webp"
+            alt="T.Wilson Builders"
             width={0}
             height={0}
             sizes="100vw"

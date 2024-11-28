@@ -32,7 +32,7 @@ const GuaranteeCard = ({ content }) => {
 const GuaranteeSection = () => {
   const cardsData = [
     {
-      imageUrl: "/assets/images/guarantee/1.jpg",
+      imageUrl: "/assets/images/guarantee/1.webp",
       title: "Quality Assurance",
       description: {
         type: "paragraph",
@@ -41,7 +41,7 @@ const GuaranteeSection = () => {
       },
     },
     {
-      imageUrl: "/assets/images/guarantee/2.jpg",
+      imageUrl: "/assets/images/guarantee/2.webp",
       title: "Communication",
       description: {
         type: "paragraph",
@@ -50,7 +50,7 @@ const GuaranteeSection = () => {
       },
     },
     {
-      imageUrl: "/assets/images/guarantee/3.jpg",
+      imageUrl: "/assets/images/guarantee/3.webp",
       title: "Our Team Culture",
       description: {
         type: "mixed",
@@ -68,7 +68,7 @@ const GuaranteeSection = () => {
       },
     },
     {
-      imageUrl: "/assets/images/guarantee/4.jpg",
+      imageUrl: "/assets/images/guarantee/4.webp",
       title: "Reputation & Referrals",
       description: {
         type: "paragraph",
@@ -77,7 +77,7 @@ const GuaranteeSection = () => {
       },
     },
     {
-      imageUrl: "/assets/images/guarantee/5.jpg",
+      imageUrl: "/assets/images/guarantee/5.webp",
       title: "Accurate Pricing",
       description: {
         type: "paragraphs",

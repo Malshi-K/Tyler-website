@@ -81,9 +81,9 @@ export async function POST(request) {
 
     // Send confirmation email to the form submitter
     const confirmationMail = {
-      from: `"T Wilson Builders" <${process.env.EMAIL_USER}>`,
+      from: `"T.Wilson Builders" <${process.env.EMAIL_USER}>`,
       to: email,
-      subject: `We received your project questionnaire - T Wilson Builders`,
+      subject: `We received your project questionnaire - T.Wilson Builders`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2>Thank you for submitting your project questionnaire!</h2>

@@ -24,7 +24,7 @@ const HousePlansCard = () => {
   const roomsData = [
     {
       id: 1,
-      image: "/assets/images/house-plans/1.jpg",
+      image: "/assets/images/house-plans/1.webp",
       title: "Tawa - 4 Bedroom / 251m²",
       downloadLink: "/assets/downloads/tawa-plan.pdf",
       description:
@@ -66,7 +66,7 @@ const HousePlansCard = () => {
     },
     {
       id: 2,
-      image: "/assets/images/house-plans/2.jpg",
+      image: "/assets/images/house-plans/2.webp",
       title: "Matai - 4 Bedroom 311m²",
       downloadLink: "/assets/downloads/matai-plan.pdf",
       description:
@@ -116,7 +116,7 @@ const HousePlansCard = () => {
     },
     {
       id: 3,
-      image: "/assets/images/house-plans/3.jpg",
+      image: "/assets/images/house-plans/3.webp",
       title: "Kauri - 4 bedroom 364m²",
       downloadLink: "/assets/downloads/kauri-plan.pdf",
       description:
@@ -162,7 +162,7 @@ const HousePlansCard = () => {
     },
     {
       id: 4,
-      image: "/assets/images/house-plans/4.jpg",
+      image: "/assets/images/house-plans/4.webp",
       title: "Kea - 4 Bedroom 195m²",
       downloadLink: "/assets/downloads/kea-plan.pdf",
       description:
@@ -208,7 +208,7 @@ const HousePlansCard = () => {
     },
     {
       id: 5,
-      image: "/assets/images/house-plans/5.jpg",
+      image: "/assets/images/house-plans/5.webp",
       title: "Takahe - 3 Bedroom 223m²",
       downloadLink: "/assets/downloads/takahe-plan.pdf",
       description:

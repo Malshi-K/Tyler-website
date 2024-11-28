@@ -68,7 +68,7 @@ const TestimonialsSection = () => {
       name: "Via Carolyn, No Cowboys",
       title: "Several projects in Hamilton",
       quote:
-        "Extremely happy with the service provided by T Wilson Builders. Several projects completed around our home on time and at quoted price. Every attempt to recycle would could be reused was done as requested.",
+        "Extremely happy with the service provided by T.Wilson Builders. Several projects completed around our home on time and at quoted price. Every attempt to recycle would could be reused was done as requested.",
     },
   ];
 
@@ -87,7 +87,7 @@ const TestimonialsSection = () => {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/assets/images/background/pattern-4.png"
+          src="/assets/images/background/pattern-4.webp"
           alt="background"
           fill
           sizes="100vw"
@@ -98,7 +98,7 @@ const TestimonialsSection = () => {
         <div
           className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: `url('/assets/images/background/pattern-1.png')`,
+            backgroundImage: `url('/assets/images/background/pattern-1.webp')`,
             backgroundRepeat: "repeat",
             backgroundSize: "100px",
           }}

@@ -4,11 +4,11 @@ description: "Thinking about a kitchen renovation? Have a look at this article f
 label: "KITCHEN"
 date: "April 4, 2020"
 author: "admin"
-image: "/assets/images/blog/kitchen-renovations-to-stay-or-to-sell/1.jpg"
+image: "/assets/images/blog/kitchen-renovations-to-stay-or-to-sell/1.webp"
 gallery:
-  - src: "/assets/images/blog/kitchen-renovations-to-stay-or-to-sell/1.jpg"
+  - src: "/assets/images/blog/kitchen-renovations-to-stay-or-to-sell/1.webp"
     alt: "Construction in progress with T.Wilson Builders van"
-  - src: "/assets/images/blog/kitchen-renovations-to-stay-or-to-sell/2.jpg"
+  - src: "/assets/images/blog/kitchen-renovations-to-stay-or-to-sell/2.webp"
     alt: "Completed wooden deck with steps"
 ---
 

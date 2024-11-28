@@ -22,7 +22,7 @@ const ProjectsSection = () => {
         id: "2-1",
         title: "Kotahitanga Marae",
         description: "Renovations",
-        image: "/assets/images/projects/Kotahitanga Marae - Reno/DSC05681.jpg",
+        image: "/assets/images/projects/Kotahitanga Marae - Reno/DSC05681.webp",
         size: "large",
       },
     ],
@@ -31,14 +31,15 @@ const ProjectsSection = () => {
         id: "3-1",
         title: "The Base car wash",
         description: "Light Commercial",
-        image: "/assets/images/projects/The Base car wash/IMG_4400.JPG",
+        image: "/assets/images/projects/The Base car wash/IMG_4400.webp",
         size: "large",
       },
       {
         id: "3-2",
         title: "Kaipaki Berry Farm",
         description: "Light Commercial",
-        image: "/assets/images/projects/Kaipaki Berry Farm ( Big warehosue)/F7249D3E-5DA3-49A4-9506-B98F055EE117.JPEG",
+        image:
+          "/assets/images/projects/Kaipaki Berry Farm ( Big warehosue)/1.webp",
         size: "large",
       },
     ],
@@ -47,42 +48,46 @@ const ProjectsSection = () => {
         id: "4-1",
         title: "Galloway Street New Build - House Hamilton East",
         description: "New Build",
-        image: "/assets/images/projects/Galloway Street New Build - House Hamilton East/DSC01410.jpg",
+        image:
+          "/assets/images/projects/Galloway Street New Build - House Hamilton East/DSC01410.webp",
         size: "small",
       },
       {
         id: "4-2",
         title: "Hamilton - House Greenhill",
         description: "New Build",
-        image: "/assets/images/projects/Hamilton - New Build - House Greenhill/DJI_0034.jpg",
+        image:
+          "/assets/images/projects/Hamilton - New Build - House Greenhill/DJI_0034.webp",
         size: "small",
       },
       {
         id: "4-3",
-        title: "Ragan - New Builds Rangatahi",
+        title: "Raglan - New Builds Rangatahi",
         description: "New Build",
-        image: "/assets/images/projects/Ragan - New Builds Rangatahi/DJI_0043.jpg",
+        image:
+          "/assets/images/projects/Ragan - New Builds Rangatahi/DJI_0043.webp",
         size: "large",
       },
       {
         id: "4-4",
         title: "Taare - Wharenui New Build",
         description: "New Build",
-        image: "/assets/images/projects/Taare - Wharenui New Build/DSC02893.jpg",
+        image:
+          "/assets/images/projects/Taare - Wharenui New Build/DSC02893.webp",
         size: "medium",
       },
       {
         id: "4-5",
         title: "Tamahere New Build",
         description: "New Build",
-        image: "/assets/images/projects/Tamahere New Build/DSC08057.jpg",
+        image: "/assets/images/projects/Tamahere New Build/DSC08057.webp",
         size: "small",
       },
       {
         id: "4-6",
         title: "Te Kowhari New Build",
         description: "New Build",
-        image: "/assets/images/projects/Te Kowhari New Build/DJI_0029.jpg",
+        image: "/assets/images/projects/Te Kowhari New Build/DJI_0029.webp",
         size: "medium",
       },
     ],
@@ -91,14 +96,15 @@ const ProjectsSection = () => {
         id: "5-1",
         title: "Bathrooms",
         description: "Bathrooms",
-        image: "/assets/images/projects/Bathrooms & Kitchens/Copy of IMG_9136.jpg",
+        image:
+          "/assets/images/projects/Bathrooms & Kitchens/Copy of IMG_9136.webp",
         size: "small",
       },
       {
         id: "5-2",
         title: "Kitchens",
         description: "Kitchens",
-        image: "/assets/images/projects/Bathrooms & Kitchens/DSC03679.jpg",
+        image: "/assets/images/projects/Bathrooms & Kitchens/DSC03679.webp",
         size: "small",
       },
     ],
@@ -107,21 +113,24 @@ const ProjectsSection = () => {
         id: "6-1",
         title: "Decks",
         description: "Decks",
-        image: "/assets/images/projects/decks and kitchen bathrooms/IMG_0554 Kwilla deck Tyler Wilson.jpg",
+        image:
+          "/assets/images/projects/Decks/1.webp",
         size: "small",
       },
       {
         id: "6-2",
         title: "Decks",
         description: "Decks",
-        image: "/assets/images/projects/decks and kitchen bathrooms/IMG_2717 Tyler Wilson.JPG",
+        image:
+          "/assets/images/projects/Decks/2.webp",
         size: "small",
       },
       {
         id: "6-3",
         title: "Decks",
         description: "Decks",
-        image: "/assets/images/projects/decks and kitchen bathrooms/Photo 29-09-19, 7 51 57 AM Tyler Wilson.jpg",
+        image:
+          "/assets/images/projects/Decks/3.webp",
         size: "small",
       },
     ],
@@ -193,10 +202,7 @@ const ProjectsSection = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project) => (
-              <div
-                key={project.id}
-                className="group bg-white rounded-2xl"
-              >
+              <div key={project.id} className="group bg-white rounded-2xl">
                 {/* Fixed aspect ratio container */}
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
                   <div className="absolute inset-0 bg-gray-100 rounded-2xl">

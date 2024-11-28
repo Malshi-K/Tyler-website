@@ -47,12 +47,12 @@ const Header = () => {
     {
       name: "Home",
       path: "/",
-      icon: "/assets/images/menu-icons/1.png",
+      icon: "/assets/images/menu-icons/1.webp",
     },
     {
       name: "About Us",
       path: "/about",
-      icon: "/assets/images/menu-icons/2.png",
+      icon: "/assets/images/menu-icons/2.webp",
       subItems: [
         { name: "Our Guarantee", path: "/about/our-guarantee" },
         { name: "Testimonials", path: "/about/testimonials" },
@@ -63,7 +63,7 @@ const Header = () => {
     {
       name: "Services",
       path: "/services",
-      icon: "/assets/images/menu-icons/3.png",
+      icon: "/assets/images/menu-icons/3.webp",
       subItems: [
         { name: "Design & Build", path: "/services/design-build" },
         { name: "Renovations & Extensions", path: "/services/renovations" },
@@ -76,17 +76,17 @@ const Header = () => {
     {
       name: "House Plans",
       path: "/house-plans",
-      icon: "/assets/images/menu-icons/4.png",
+      icon: "/assets/images/menu-icons/4.webp",
     },
     {
       name: "Our Blogs",
       path: "/blog",
-      icon: "/assets/images/menu-icons/5.png",
+      icon: "/assets/images/menu-icons/5.webp",
     },
     {
       name: "Contact Us",
       path: "/contact",
-      icon: "/assets/images/menu-icons/6.png",
+      icon: "/assets/images/menu-icons/6.webp",
       subItems: [
         { name: "Contact Us", path: "/contact/contact-us" },
         { name: "Project Questionnaire", path: "/contact/questionnaire" },
@@ -183,8 +183,8 @@ const Header = () => {
         <div className="container mx-auto px-8 py-4 flex justify-between items-center">
           <Link href="/" className="inline-block">
             <Image
-              src="/assets/images/logo.png"
-              alt="T Wilson Builders"
+              src="/assets/images/logo.webp"
+              alt="T.Wilson Builders"
               width={0}
               height={0}
               sizes="100vw"
@@ -218,7 +218,7 @@ const Header = () => {
             <div className="flex justify-between items-center mb-8">
               <SheetTitle className="text-white text-lg font-medium">
                 <Image
-                  src="/assets/images/logo.png"
+                  src="/assets/images/logo.webp"
                   alt="Logo"
                   width={0}
                   height={0}

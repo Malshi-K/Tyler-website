@@ -118,7 +118,7 @@ const AboutSection = () => {
             ref={sectionRef}
             className="relative w-full h-[600px] bg-neutral-900 text-white"
           >
-            <div className="absolute inset-0 bg-[url('/assets/images/image-1.jpg')] opacity-50 bg-cover bg-center" />
+            <div className="absolute inset-0 bg-[url('/assets/images/image-1.webp')] opacity-50 bg-cover bg-center" />
             <div className="relative z-10 h-full flex items-center">
               <div className="w-full px-12">
                 <div className="grid grid-cols-2 gap-x-16 gap-y-20">

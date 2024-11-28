@@ -93,7 +93,7 @@ const ContactForm = () => {
               <div className="absolute top-20 right-12 w-16 h-16 bg-orange-200 rounded-full opacity-50" />
               <div className="relative z-10 mb-8">
                 <Image
-                  src="/assets/images/contact/contact-bg.png"
+                  src="/assets/images/contact/contact-bg.webp"
                   alt="Contact illustration"
                   className="rounded-lg"
                   width={500} // Replace with your desired width

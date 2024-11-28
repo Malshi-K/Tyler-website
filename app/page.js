@@ -20,7 +20,7 @@ export default function Home() {
           muted
           loop
           playsInline
-          poster="/assets/images/poster-image.jpg" 
+          poster="/assets/images/poster-image.webp" 
           className="w-full h-full object-cover"
           src="/assets/videos/company.mp4"
         />

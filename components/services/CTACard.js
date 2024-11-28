@@ -15,7 +15,7 @@ const CTACard = ({data}) => {
             <div
               className="absolute inset-0 bg-cover bg-center z-0 h-full w-full"
               style={{
-                backgroundImage: `url('/assets/images/services/CTA.png')`,
+                backgroundImage: `url('/assets/images/services/CTA.webp')`,
                 objectFit: 'cover'
               }}
             />

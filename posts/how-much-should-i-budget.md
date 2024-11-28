@@ -4,13 +4,13 @@ description: "Home Extension – How much should I budget?"
 label: "PLANNING"
 date: "April 22, 2020"
 author: "admin"
-image: "/assets/images/blog/how-much-should-i-budget/1.jpg"
+image: "/assets/images/blog/how-much-should-i-budget/1.webp"
 gallery:
-  - src: "/assets/images/blog/how-much-should-i-budget/1.jpg"
+  - src: "/assets/images/blog/how-much-should-i-budget/1.webp"
     alt: "Construction in progress with T.Wilson Builders van"
-  - src: "/assets/images/blog/how-much-should-i-budget/2.jpg"
+  - src: "/assets/images/blog/how-much-should-i-budget/2.webp"
     alt: "Deck construction with wooden balustrade"
-  - src: "/assets/images/blog/how-much-should-i-budget/3.jpg"
+  - src: "/assets/images/blog/how-much-should-i-budget/3.webp"
     alt: "Completed wooden deck with steps"
 ---
 

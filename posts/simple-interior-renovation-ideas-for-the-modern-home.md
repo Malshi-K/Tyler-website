@@ -4,13 +4,13 @@ description: "Thinking about a kitchen renovation? Have a look at this article f
 label: "PLANNING"
 date: "December 18, 2018"
 author: "admin"
-image: "/assets/images/blog/simple-interior-renovation-ideas-for-the-modern-home/1.jpg"
+image: "/assets/images/blog/simple-interior-renovation-ideas-for-the-modern-home/1.webp"
 gallery:
-  - src: "/assets/images/blog/simple-interior-renovation-ideas-for-the-modern-home/1.jpg"
+  - src: "/assets/images/blog/simple-interior-renovation-ideas-for-the-modern-home/1.webp"
     alt: "Construction in progress with T.Wilson Builders van"
-  - src: "/assets/images/blog/simple-interior-renovation-ideas-for-the-modern-home/2.jpg"
+  - src: "/assets/images/blog/simple-interior-renovation-ideas-for-the-modern-home/2.webp"
     alt: "Deck construction with wooden balustrade"
-  - src: "/assets/images/blog/simple-interior-renovation-ideas-for-the-modern-home/3.jpg"
+  - src: "/assets/images/blog/simple-interior-renovation-ideas-for-the-modern-home/3.webp"
     alt: "Completed wooden deck with steps"
 ---
 
@@ -42,4 +42,4 @@ Using interesting lighting and making the most of natural light can make your ho
 
 When it comes to interior design and renovation, the rule book is out the window! There’s plenty of ways to ramp up your style, from something simple and easy to a full-scale renovation or alteration. So what are you waiting for? Give one of our tips a try this weekend and enjoy the difference!
 
-T Wilson builders can give your home the breath of fresh air you’ve been searching for. Contact us todayto discuss your ideas with our team of experts. 
+T.Wilson builders can give your home the breath of fresh air you’ve been searching for. Contact us todayto discuss your ideas with our team of experts. 

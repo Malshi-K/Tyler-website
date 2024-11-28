@@ -6,35 +6,35 @@ import Image from "next/image";
 const pageTitleData = {
   "/about/our-guarantee": {
     title: "Our Guarantee",
-    backgroundImage: "/assets/images/page-title/1.png",
+    backgroundImage: "/assets/images/page-title/1.webp",
   },
   "/about/testimonials": {
     title: "Testimonials",
-    backgroundImage: "/assets/images/page-title/2.png",
+    backgroundImage: "/assets/images/page-title/2.webp",
   },
   "/about/who-we-are": {
     title: "How we work",
-    backgroundImage: "/assets/images/page-title/3.png",
+    backgroundImage: "/assets/images/page-title/3.webp",
   },
   "/about/gallery": {
     title: "Gallery",
-    backgroundImage: "/assets/images/page-title/4.png",
+    backgroundImage: "/assets/images/page-title/4.webp",
   },
   "/house-plans": {
     title: "House Plans",
-    backgroundImage: "/assets/images/page-title/5.png",
+    backgroundImage: "/assets/images/page-title/5.webp",
   },
   "/blog": {
     title: "Our Blog",
-    backgroundImage: "/assets/images/page-title/6.png",
+    backgroundImage: "/assets/images/page-title/6.webp",
   },
   "/contact/contact-us": {
     title: "Contact Us",
-    backgroundImage: "/assets/images/page-title/7.png",
+    backgroundImage: "/assets/images/page-title/7.webp",
   },
   "/contact/questionnaire": {
     title: "Project Questionnaire",
-    backgroundImage: "/assets/images/page-title/7.png",
+    backgroundImage: "/assets/images/page-title/7.webp",
   }
 };
 

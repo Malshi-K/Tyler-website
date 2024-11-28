@@ -34,7 +34,7 @@ const ExperienceSection = () => {
         <div
           className="absolute top-0 right-0 w-1/2 h-full"
           style={{
-            background: `url('/assets/images/background/pattern-1.png')`,
+            background: `url('/assets/images/background/pattern-1.webp')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             clipPath: "polygon(100% 0, 100% 100%, 0 100%, 20% 0)",
@@ -62,7 +62,7 @@ const ExperienceSection = () => {
 
             <div className="relative">
               <h3 className="text-4xl font-bold text-navy">
-                About T Wilson Builders
+                About T.Wilson Builders
               </h3>
               <div className="relative mt-4">
                 <div className="absolute left-0 w-24 h-1 bg-orange" />{" "}
@@ -115,7 +115,7 @@ const ExperienceSection = () => {
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl">
               <Image
-                src="/assets/images/team.jpg"
+                src="/assets/images/team.webp"
                 alt="Team"
                 fill
                 className="object-cover w-full h-full"
