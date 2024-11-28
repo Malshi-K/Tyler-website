@@ -158,91 +158,98 @@ const ProjectsSection = () => {
   const filteredProjects = getFilteredProjects();
 
   return (
-    <div className="relative py-20 px-8">
+    <div className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
       <div className="absolute inset-0 bg-white" />
 
       <div className="relative z-10">
-        {/* Section Title - unchanged */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-navy mb-4">
+        {/* Section Title */}
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">
             Our Featured Projects
           </h2>
           <div className="flex justify-center items-center gap-1">
-            <div className="w-16 h-[1px] bg-gray-300"></div>
-            <div className="w-4 h-1 bg-orange"></div>
-            <div className="w-16 h-[1px] bg-gray-300"></div>
+            <div className="w-12 sm:w-16 h-[1px] bg-gray-300"></div>
+            <div className="w-3 sm:w-4 h-1 bg-orange"></div>
+            <div className="w-12 sm:w-16 h-[1px] bg-gray-300"></div>
           </div>
         </div>
 
-        {/* Category Filter - unchanged */}
-        <div className="container mx-auto px-4 mb-12">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categoriesWithCounts.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 
-                  ${
-                    activeCategory === category.id
-                      ? "border border-orange text-orange font-bold scale-105"
-                      : "text-navy font-bold hover:text-orange hover:border border-navy"
-                  }
-                `}
-              >
-                {category.label}
-                {category.count > 0 && (
-                  <span className="ml-2 text-sm">({category.count})</span>
-                )}
-              </button>
-            ))}
+        {/* Category Filter - Scrollable on mobile */}
+        <div className="container mx-auto mb-8 sm:mb-12">
+          <div className="overflow-x-auto pb-4 sm:pb-0 hide-scrollbar">
+            <div className="flex flex-nowrap sm:flex-wrap sm:justify-center gap-3 sm:gap-4 min-w-max sm:min-w-0 px-4">
+              {categoriesWithCounts.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base whitespace-nowrap transition-all duration-300
+                    ${
+                      activeCategory === category.id
+                        ? "border-2 border-orange text-orange font-bold scale-105"
+                        : "border border-navy/20 text-navy hover:text-orange hover:border-orange"
+                    }
+                  `}
+                >
+                  {category.label}
+                  {category.count > 0 && (
+                    <span className="ml-1 sm:ml-2 text-xs sm:text-sm">
+                      ({category.count})
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Projects Grid - Updated with uniform sizing */}
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Projects Grid */}
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {filteredProjects.map((project) => (
-              <div key={project.id} className="group bg-white rounded-2xl">
-                {/* Fixed aspect ratio container */}
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gray-100 rounded-2xl">
+              <div 
+                key={project.id} 
+                className="group bg-white rounded-lg sm:rounded-2xl overflow-hidden"
+              >
+                {/* Project Container */}
+                <div className="relative w-full aspect-[4/3]">
+                  <div className="absolute inset-0 bg-gray-100">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="w-full h-full object-cover rounded-2xl"
-                      priority
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      priority={project.id.endsWith('-1')}
                     />
                   </div>
 
                   {/* Dark Overlay */}
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300 rounded-2xl" />
+                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300" />
 
                   {/* Content Overlay */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 translate-y-1/2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                     {/* Action Icons */}
                     <div className="absolute top-4 right-4 flex gap-2">
                       <button
-                        className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center
-                          hover:bg-white/20 transition-colors duration-300"
+                        className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 backdrop-blur-sm 
+                                 flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
                       >
-                        <Link className="w-5 h-5 text-white" />
+                        <Link className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                       </button>
                     </div>
 
                     {/* Project Title */}
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">
                       {project.title.toUpperCase()}
                     </h3>
 
                     {/* Project Category/Type */}
-                    <p className="text-white/80 text-sm font-medium mb-4">
+                    <p className="text-white/80 text-xs sm:text-sm font-medium mb-2 sm:mb-4">
                       {project.description}
                     </p>
 
                     {/* Accent Line */}
-                    <div className="w-12 h-0.5 bg-orange mb-0 group-hover:mb-4 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                    <div className="w-8 sm:w-12 h-0.5 bg-orange transition-all duration-500" />
                   </div>
                 </div>
               </div>

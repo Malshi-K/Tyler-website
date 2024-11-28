@@ -39,7 +39,7 @@ const HeroSection = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Header - Logo and Menu aligned */}
-      <header className="relative z-20 px-8 pt-8 flex justify-between items-center">
+      <header className="relative z-20 px-4 sm:px-8 pt-4 sm:pt-8 flex justify-between items-center">
         <Link href="/" className="inline-block">
           <Image
             src="/assets/images/logo.webp"
@@ -47,38 +47,45 @@ const HeroSection = () => {
             width={0}
             height={0}
             sizes="100vw"
-            className="h-40 w-auto"
+            className="h-24 sm:h-32 md:h-40 w-auto"
             style={{ width: "auto" }}
           />
         </Link>
       </header>
 
       {/* Social Media Icons */}
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20">
-        {socialLinks.map(({ name, Icon, url }) => (
-          <Link
-            key={name}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center
-              text-white hover:text-white hover:border-white/40 transition-colors"
-          >
-            <Icon size={20} />
-          </Link>
-        ))}
+      <div className="absolute z-50 bottom-0 left-0 right-0 md:right-12 md:left-auto md:bottom-auto md:top-1/2 
+                      md:-translate-y-1/2 bg-transparent">
+        <div className="flex md:flex-col justify-center items-center gap-4 p-4">
+          {socialLinks.map(({ name, Icon, url }) => (
+            <Link
+              key={name}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-14 h-14 rounded-full border border-white/50 flex items-center justify-center
+                       bg-black/20 backdrop-blur-sm hover:bg-black/40 transition-all duration-300
+                       text-white hover:border-white"
+            >
+              <Icon size={30} />
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* Main Content with Animation */}
-      <div className="relative z-10 container mx-auto px-8 pt-20">
-        <div className="max-w-4xl">
+      <div className="relative z-10 container mx-auto px-4 sm:px-8 pt-8 sm:pt-20">
+        <div className="max-w-4xl mx-auto md:mx-0">
           {/* Welcome Text */}
-          <h5 className="text-orange text-xl font-bold uppercase tracking-[0.3em] mb-8 transition-all duration-500 ease-in-out transform">
+          <h5 className="text-orange text-base sm:text-lg md:text-xl font-bold uppercase tracking-[0.2em] 
+                         sm:tracking-[0.3em] mb-4 sm:mb-8 transition-all duration-500 ease-in-out transform
+                         text-center md:text-left">
             {heroContent[currentSlide].welcome}
           </h5>
 
           {/* Main Title */}
-          <h1 className="text-white text-7xl font-bold leading-[1.2] mb-12 transition-all duration-500 ease-in-out transform">
+          <h1 className="text-white text-3xl sm:text-5xl md:text-7xl font-bold leading-[1.2] mb-8 sm:mb-12 
+                         transition-all duration-500 ease-in-out transform text-center md:text-left">
             {heroContent[currentSlide].title.split(" ").map((word, index) => (
               <span
                 key={index}
@@ -94,30 +101,33 @@ const HeroSection = () => {
           </h1>
 
           {/* Call to Action Buttons */}
-          <div className="flex gap-8 mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mb-8 sm:mb-16 justify-center md:justify-start">
             <Link
               href="tel:+64123456789"
-              className="px-10 py-4 bg-orange text-white text-lg font-semibold rounded-full hover:bg-orange/90 transition-colors duration-300"
+              className="px-6 sm:px-10 py-3 sm:py-4 bg-orange text-white text-base sm:text-lg 
+                       font-semibold rounded-full hover:bg-orange/90 transition-colors duration-300 text-center"
             >
               Call Us
             </Link>
             <Link
               href="/contact/contact-us"
-              className="px-10 py-4 bg-transparent text-white text-lg font-semibold rounded-full border-2 border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300"
+              className="px-6 sm:px-10 py-3 sm:py-4 bg-transparent text-white text-base sm:text-lg 
+                       font-semibold rounded-full border-2 border-white/20 hover:border-white/40 
+                       hover:bg-white/10 transition-all duration-300 text-center"
             >
               Get a Quote
             </Link>
           </div>
 
           {/* Slide Indicators */}
-          <div className="flex gap-3 pb-8">
+          <div className="flex gap-2 sm:gap-3 pb-4 sm:pb-8 justify-center md:justify-start">
             {heroContent.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   currentSlide === index
-                    ? "bg-orange w-8"
+                    ? "bg-orange w-6 sm:w-8"
                     : "bg-white/20 hover:bg-white/30"
                 }`}
               />

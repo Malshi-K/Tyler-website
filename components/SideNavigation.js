@@ -1,9 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import {
-  Menu as MenuIcon,
-  Plus,
-} from "lucide-react";
+import { Menu as MenuIcon, Plus, X } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -17,10 +14,22 @@ const SideNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState([]);
   const [currentPath, setCurrentPath] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Get the current path only on the client-side
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check
+    handleResize();
     setCurrentPath(window.location.pathname);
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const navItems = [
@@ -91,7 +100,7 @@ const SideNavigation = () => {
         <div className="flex items-center justify-between">
           <Link
             href={item.path}
-            className={`py-3 text-lg font-medium transition-colors flex items-center gap-3
+            className={`py-2 sm:py-3 text-base sm:text-lg font-medium transition-colors flex items-center gap-2 sm:gap-3
               ${
                 currentPath === item.path
                   ? "text-white"
@@ -106,7 +115,7 @@ const SideNavigation = () => {
               }
             }}
           >
-            <div className="w-10 h-10 relative">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 relative">
               <Image
                 src={item.icon}
                 alt={item.name}
@@ -114,15 +123,15 @@ const SideNavigation = () => {
                 className="object-contain filter brightness-0 invert"
               />
             </div>
-            {item.name}
+            <span className="whitespace-nowrap">{item.name}</span>
           </Link>
           {hasSubItems && (
             <button
               onClick={() => toggleSubmenu(item.name)}
-              className="p-2 text-white/60 hover:text-white"
+              className="p-1.5 sm:p-2 text-white/60 hover:text-white"
             >
               <Plus
-                size={20}
+                size={isMobile ? 16 : 20}
                 className={`transition-transform duration-300 ${
                   isExpanded ? "rotate-180" : ""
                 }`}
@@ -138,7 +147,7 @@ const SideNavigation = () => {
               <Link
                 key={subItem.path}
                 href={subItem.path}
-                className={`block py-2 text-base transition-colors
+                className={`block py-1.5 sm:py-2 text-sm sm:text-base transition-colors
                   ${
                     currentPath === subItem.path
                       ? "text-orange"
@@ -159,12 +168,14 @@ const SideNavigation = () => {
     <>
       {/* Hamburger Menu Button */}
       <button
-        className="fixed top-8 right-8 z-50 flex items-center gap-3 text-orange hover:text-navy transition-colors duration-300 group"
+        className="fixed top-4 sm:top-8 right-4 sm:right-8 z-50 flex items-center gap-2 sm:gap-3 text-orange hover:text-navy transition-colors duration-300 group"
         onClick={() => setIsOpen(true)}
       >
-        <span className="text-xl font-bold tracking-wider">MENU</span>
+        <span className="text-base sm:text-xl font-bold tracking-wider">
+          MENU
+        </span>
         <MenuIcon
-          size={24}
+          size={isMobile ? 20 : 24}
           className="transition-transform duration-300 group-hover:rotate-90"
         />
       </button>
@@ -173,25 +184,35 @@ const SideNavigation = () => {
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetContent
           side="right"
-          className="w-80 bg-navy text-white border-l border-white/10 overflow-y-auto"
+          className="w-[280px] sm:w-80 bg-navy text-white border-l border-white/10 overflow-y-auto p-4 sm:p-6"
         >
           <SheetHeader className="border-none">
-            <div className="flex justify-between items-center mb-8">
-              <SheetTitle className="text-white text-lg font-medium">
-                <Image
-                  src="/assets/images/logo.webp"
-                  alt="Logo"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: "auto", height: "auto" }}
-                />
+            <div className="flex justify-between items-center mb-6 sm:mb-8">
+              <SheetTitle className="text-white">
+                <div className="w-32 sm:w-40 relative">
+                  <Image
+                    src="/assets/images/logo.webp"
+                    alt="Logo"
+                    width={160}
+                    height={60}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </div>
               </SheetTitle>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white/60 hover:text-white transition-colors"
+              >
+                <X size={isMobile ? 20 : 24} />
+              </button>
             </div>
           </SheetHeader>
 
           {/* Navigation Links */}
-          <nav className="mb-12 space-y-1">{navItems.map(renderNavItem)}</nav>
+          <nav className="mb-8 sm:mb-12 space-y-1">
+            {navItems.map(renderNavItem)}
+          </nav>
         </SheetContent>
       </Sheet>
     </>

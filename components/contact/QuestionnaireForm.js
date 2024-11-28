@@ -29,7 +29,6 @@ import Image from "next/image";
 const QuestionnaireForm = () => {
   const router = useRouter();
   const [date, setDate] = useState();
-  // Add these state declarations at the top of your QuestionnaireForm component
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -46,7 +45,6 @@ const QuestionnaireForm = () => {
   const [status, setStatus] = useState({ type: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Add this submit handler function
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -70,7 +68,6 @@ const QuestionnaireForm = () => {
         throw new Error(data.error || "Failed to submit questionnaire");
       }
 
-      // Reset form
       setFormData({
         name: "",
         location: "",
@@ -86,9 +83,7 @@ const QuestionnaireForm = () => {
       });
       setDate(null);
 
-      // Navigate to success page with query parameters
       router.push(`/questionnaire-success`);
-
     } catch (error) {
       console.error("Form submission error:", error);
       setStatus({
@@ -102,15 +97,15 @@ const QuestionnaireForm = () => {
   };
 
   return (
-    <div className="min-h-screen py-10">
-      <div className="max-w-6xl mx-auto p-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column with Illustration and Text */}
-          <div className="relative">
-            <h2 className="text-2xl font-bold mb-2 text-navy">
+    <div className="min-h-screen w-full py-6 sm:py-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Left Column */}
+          <div className="relative order-2 lg:order-1">
+            <h2 className="text-xl sm:text-2xl font-bold mb-2 text-navy">
               Let&apos;s talk about your next project
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">
               Give Tyler a call or get in touch by filling out the form below
               and we will be in contact as soon as possible. Alternatively, if
               you are looking for a quote, please fill out our Project
@@ -119,34 +114,37 @@ const QuestionnaireForm = () => {
             </p>
 
             {/* Illustration Container */}
-            <div className="relative">
-              <div className="absolute -top-8 -left-8 w-24 h-24 bg-orange-200 rounded-full opacity-50" />
-              <div className="absolute top-20 right-12 w-16 h-16 bg-orange-200 rounded-full opacity-50" />
-              <div className="relative z-10 mb-8">
+            <div className="relative mt-4 sm:mt-6">
+              <div className="absolute -top-4 -left-4 w-16 sm:w-24 h-16 sm:h-24 bg-orange-200 rounded-full opacity-50" />
+              <div className="absolute top-12 sm:top-20 right-8 sm:right-12 w-12 sm:w-16 h-12 sm:h-16 bg-orange-200 rounded-full opacity-50" />
+              <div className="relative z-10">
                 <Image
                   src="/assets/images/contact/contact-bg.webp"
                   alt="Contact illustration"
-                  className="rounded-lg"
+                  className="rounded-lg w-full"
                   width={500}
-                  height={300} // Replace with your desired height
+                  height={300}
+                  priority
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
             </div>
           </div>
 
-          {/* Right Column with Form */}
-          <div className="bg-white rounded-lg p-6 shadow-lg relative">
-            <div className="absolute -top-4 -right-4 w-12 h-12 bg-orange-200 rounded-full opacity-50" />
-            <div className="text-center mb-8">
-              <h2 className="text-4xl font-bold mb-2 text-orange">
+          {/* Right Column */}
+          <div className="bg-white rounded-lg p-4 sm:p-6 lg:p-8 shadow-lg relative order-1 lg:order-2">
+            <div className="absolute -top-4 -right-4 w-12 h-12 bg-orange-200 rounded-full opacity-50 hidden sm:block" />
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 text-orange">
                 Our Project Questionnaire
               </h2>
-              <p className="text-gray-600">
+              <p className="text-sm sm:text-base text-gray-600">
                 Complete our Project Questionnaire so we can get to know a
-                liittle bit more about your project and we can start to prepare
+                little bit more about your project and we can start to prepare
                 your no obligation free quote.
               </p>
             </div>
+
             {status.message && (
               <Alert
                 className={`mb-4 ${
@@ -156,9 +154,10 @@ const QuestionnaireForm = () => {
                 <AlertDescription>{status.message}</AlertDescription>
               </Alert>
             )}
-            <form onSubmit={handleSubmit} className="space-y-6">
+
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {/* Basic Information */}
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <Input
                   type="text"
                   placeholder="Name"
@@ -166,6 +165,7 @@ const QuestionnaireForm = () => {
                   onChange={(e) =>
                     setFormData((prev) => ({ ...prev, name: e.target.value }))
                   }
+                  className="w-full"
                 />
                 <Input
                   type="text"
@@ -177,6 +177,7 @@ const QuestionnaireForm = () => {
                       location: e.target.value,
                     }))
                   }
+                  className="w-full"
                 />
                 <Input
                   type="text"
@@ -188,6 +189,7 @@ const QuestionnaireForm = () => {
                       postCode: e.target.value,
                     }))
                   }
+                  className="w-full"
                 />
                 <Input
                   type="email"
@@ -196,6 +198,7 @@ const QuestionnaireForm = () => {
                   onChange={(e) =>
                     setFormData((prev) => ({ ...prev, email: e.target.value }))
                   }
+                  className="w-full"
                 />
                 <Input
                   type="tel"
@@ -204,12 +207,15 @@ const QuestionnaireForm = () => {
                   onChange={(e) =>
                     setFormData((prev) => ({ ...prev, phone: e.target.value }))
                   }
+                  className="w-full"
                 />
               </div>
 
               {/* Project Start Date */}
               <div className="space-y-2">
-                <Label>When would you like to start your project?</Label>
+                <Label className="text-sm sm:text-base">
+                  When would you like to start your project?
+                </Label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
@@ -242,10 +248,12 @@ const QuestionnaireForm = () => {
 
               {/* Plans Question */}
               <div className="space-y-2">
-                <Label>Have you had plans professionally drawn up?</Label>
+                <Label className="text-sm sm:text-base">
+                  Have you had plans professionally drawn up?
+                </Label>
                 <RadioGroup
                   defaultValue="no"
-                  className="flex gap-4"
+                  className="flex flex-wrap gap-4"
                   value={formData.hasPlans}
                   onValueChange={(value) =>
                     setFormData((prev) => ({ ...prev, hasPlans: value }))
@@ -253,18 +261,24 @@ const QuestionnaireForm = () => {
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="yes" id="plans-yes" />
-                    <Label htmlFor="plans-yes">Yes</Label>
+                    <Label htmlFor="plans-yes" className="text-sm sm:text-base">
+                      Yes
+                    </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="no" id="plans-no" />
-                    <Label htmlFor="plans-no">No</Label>
+                    <Label htmlFor="plans-no" className="text-sm sm:text-base">
+                      No
+                    </Label>
                   </div>
                 </RadioGroup>
               </div>
 
               {/* Budget */}
               <div className="space-y-2">
-                <Label>Approximate Budget</Label>
+                <Label className="text-sm sm:text-base">
+                  Approximate Budget
+                </Label>
                 <Input
                   type="text"
                   placeholder="Approximate Budget?"
@@ -272,15 +286,18 @@ const QuestionnaireForm = () => {
                   onChange={(e) =>
                     setFormData((prev) => ({ ...prev, budget: e.target.value }))
                   }
+                  className="w-full"
                 />
               </div>
 
               {/* Finance Approval */}
               <div className="space-y-2">
-                <Label>Have you got financed approved?</Label>
+                <Label className="text-sm sm:text-base">
+                  Have you got finance approved?
+                </Label>
                 <RadioGroup
                   defaultValue="no"
-                  className="flex gap-4"
+                  className="flex flex-wrap gap-4"
                   value={formData.financeApproval}
                   onValueChange={(value) =>
                     setFormData((prev) => ({ ...prev, financeApproval: value }))
@@ -288,22 +305,39 @@ const QuestionnaireForm = () => {
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="yes" id="finance-yes" />
-                    <Label htmlFor="finance-yes">Yes</Label>
+                    <Label
+                      htmlFor="finance-yes"
+                      className="text-sm sm:text-base"
+                    >
+                      Yes
+                    </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="no" id="finance-no" />
-                    <Label htmlFor="finance-no">No</Label>
+                    <Label
+                      htmlFor="finance-no"
+                      className="text-sm sm:text-base"
+                    >
+                      No
+                    </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="na" id="finance-na" />
-                    <Label htmlFor="finance-na">Not Applicable</Label>
+                    <Label
+                      htmlFor="finance-na"
+                      className="text-sm sm:text-base"
+                    >
+                      Not Applicable
+                    </Label>
                   </div>
                 </RadioGroup>
               </div>
 
               {/* Hear About Us */}
               <div className="space-y-2">
-                <Label>How did you hear about us?</Label>
+                <Label className="text-sm sm:text-base">
+                  How did you hear about us?
+                </Label>
                 <Input
                   type="text"
                   placeholder="How did you hear about us?"
@@ -314,15 +348,18 @@ const QuestionnaireForm = () => {
                       hearAboutUs: e.target.value,
                     }))
                   }
+                  className="w-full"
                 />
               </div>
 
               {/* Project Description */}
               <div className="space-y-2">
-                <Label>Project Description</Label>
+                <Label className="text-sm sm:text-base">
+                  Project Description
+                </Label>
                 <Textarea
                   placeholder="Briefly describe your project"
-                  className="min-h-[120px]"
+                  className="min-h-[120px] w-full"
                   value={formData.projectDescription}
                   onChange={(e) =>
                     setFormData((prev) => ({
@@ -332,9 +369,10 @@ const QuestionnaireForm = () => {
                   }
                 />
               </div>
+
               {/* Submit Button */}
               <Button
-                className="w-full bg-navy hover:bg-orange text-white rounded-full py-6"
+                className="w-full bg-navy hover:bg-orange text-white rounded-full py-4 sm:py-6 text-sm sm:text-base"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "SUBMITTING..." : "SEND US MESSAGE"}
@@ -344,57 +382,83 @@ const QuestionnaireForm = () => {
         </div>
 
         {/* Bottom Info Bar */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 bg-navy rounded-tl-full rounded-br-full text-white">
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 bg-orange rounded-tl-3xl sm:rounded-tl-full rounded-br-3xl sm:rounded-br-full text-white p-4 sm:p-6">
+          {/* Contact Cards */}
           <Card className="bg-transparent border-none shadow-none">
-            <CardContent className="flex flex-col items-center p-6">
-              <div className="rounded-full bg-white/20 p-3 mb-4">
-                <Phone className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="font-semibold mb-2 text-orange">PHONE</h3>
-              <p className="text-center text-sm text-white/90">022 419 7176</p>
+            <CardContent className="flex flex-col items-center p-4 sm:p-6">
+              <a
+                href="tel:+64224197176"
+                className="group flex flex-col items-center hover:opacity-90 transition-opacity"
+              >
+                <div className="rounded-full bg-white/20 p-2 sm:p-3 mb-3 sm:mb-4 group-hover:bg-white/30 transition-colors">
+                  <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                </div>
+                <h3 className="text-navy font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                  PHONE
+                </h3>
+                <p className="text-center text-xs sm:text-sm text-white/90 hover:text-navy">
+                  022 419 7176
+                </p>
+              </a>
             </CardContent>
           </Card>
 
           <Card className="bg-transparent border-none shadow-none">
-            <CardContent className="flex flex-col items-center p-6">
-              <div className="rounded-full bg-white/20 p-3 mb-4">
-                <Mail className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="font-semibold mb-2 text-orange">EMAIL</h3>
-              <p className="text-center text-sm text-white/90">
-                tyler@twilsonbuilders.co.nz
-              </p>
+            <CardContent className="flex flex-col items-center p-4 sm:p-6">
+              <a
+                href="mailto:tyler@twilsonbuilders.co.nz"
+                className="group flex flex-col items-center hover:opacity-90 transition-opacity"
+              >
+                <div className="rounded-full bg-white/20 p-2 sm:p-3 mb-3 sm:mb-4 group-hover:bg-white/30 transition-colors">
+                  <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                </div>
+                <h3 className="text-navy font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                  EMAIL
+                </h3>
+                <p className="text-center text-xs sm:text-sm text-white/90 hover:text-navy break-all">
+                  tyler@twilsonbuilders.co.nz
+                </p>
+              </a>
             </CardContent>
           </Card>
 
-          <Card className="bg-transparent border-none shadow-none">
-            <CardContent className="flex flex-col items-center p-6">
-              <div className="rounded-full bg-white/20 p-3 mb-4">
-                <Facebook className="h-6 w-6 text-white" />
+          <Card className="bg-transparent border-none shadow-none sm:col-span-2 md:col-span-1">
+            <CardContent className="flex flex-col items-center p-4 sm:p-6">
+              <div className="rounded-full bg-white/20 p-2 sm:p-3 mb-3 sm:mb-4">
+                <Facebook className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
               </div>
-              <h3 className="font-semibold mb-2 text-orange">FOLLOW US</h3>
-              <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="bg-white/20 p-2 rounded-lg hover:bg-white/30 transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook size={20} className="text-white" />
-                </a>
-                <a
-                  href="#"
-                  className="bg-white/20 p-2 rounded-lg hover:bg-white/30 transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram size={20} className="text-white" />
-                </a>
-                <a
-                  href="#"
-                  className="bg-white/20 p-2 rounded-lg hover:bg-white/30 transition-colors"
-                  aria-label="YouTube"
-                >
-                  <Youtube size={20} className="text-white" />
-                </a>
+              <h3 className="text-navy font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                FOLLOW US
+              </h3>
+              <div className="flex gap-3 sm:gap-4">
+                {[
+                  {
+                    Icon: Facebook,
+                    url: "https://www.facebook.com/twilsonbuilders/",
+                    label: "Facebook",
+                  },
+                  {
+                    Icon: Instagram,
+                    url: "https://www.instagram.com/twilsonbuilders/",
+                    label: "Instagram",
+                  },
+                  {
+                    Icon: Youtube,
+                    url: "https://www.youtube.com/watch?v=wK6aKXu5NbE",
+                    label: "YouTube",
+                  },
+                ].map(({ Icon, url, label }) => (
+                  <a
+                    key={label}
+                    href={url}
+                    className="bg-white/20 p-1.5 sm:p-2 rounded-lg hover:bg-white/30 transition-colors"
+                    aria-label={label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon size={16} className="text-white sm:w-5 sm:h-5" />
+                  </a>
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -403,5 +467,4 @@ const QuestionnaireForm = () => {
     </div>
   );
 };
-
 export default QuestionnaireForm;

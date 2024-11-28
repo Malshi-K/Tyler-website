@@ -2,33 +2,6 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 
-const GuaranteeCard = ({ content }) => {
-  return (
-    <Card className="overflow-hidden shadow-lg">
-      {/* Image Section */}
-      <div className="w-full h-64 relative">
-        <Image
-          src={content.imageUrl}
-          alt={content.title}
-          fill
-          className="object-cover"
-        />
-      </div>
-
-      {/* Content Section */}
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold text-orange-500">
-          {content.title}
-        </CardTitle>
-      </CardHeader>
-
-      <CardContent>
-        <p className="text-gray-700 leading-relaxed">{content.description}</p>
-      </CardContent>
-    </Card>
-  );
-};
-
 const GuaranteeSection = () => {
   const cardsData = [
     {
@@ -93,7 +66,7 @@ const GuaranteeSection = () => {
     switch (description.type) {
       case "paragraph":
         return (
-          <p className="text-gray-700 leading-relaxed text-center">
+          <p className="text-gray-700 leading-relaxed text-center sm:text-left">
             {description.content}
           </p>
         );
@@ -102,7 +75,7 @@ const GuaranteeSection = () => {
         return description.content.map((paragraph, idx) => (
           <p
             key={idx}
-            className="text-gray-700 leading-relaxed mb-4 text-center"
+            className="text-gray-700 leading-relaxed mb-4 text-center sm:text-left"
           >
             {paragraph}
           </p>
@@ -112,54 +85,64 @@ const GuaranteeSection = () => {
         return (
           <div className="text-gray-700 leading-relaxed">
             {description.paragraphs.map((para, idx) => (
-              <p key={idx} className="mb-4 text-center">
+              <p key={idx} className="mb-4 text-center sm:text-left">
                 {para}
               </p>
             ))}
             <ul className="list-disc pl-5 mb-4 space-y-2">
               {description.bullets.map((bullet, idx) => (
-                <li key={idx}>{bullet}</li>
+                <li key={idx} className="text-sm sm:text-base">{bullet}</li>
               ))}
             </ul>
-            {description.footer && <p className="mt-4">{description.footer}</p>}
+            {description.footer && (
+              <p className="mt-4 text-center sm:text-left">{description.footer}</p>
+            )}
           </div>
         );
 
       default:
-        return <p className="text-gray-700 leading-relaxed">{description}</p>;
+        return (
+          <p className="text-gray-700 leading-relaxed text-center sm:text-left">
+            {description}
+          </p>
+        );
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
+    <section className="bg-gray-50 py-8 px-4 min-h-screen">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {cardsData.map((card, index) => (
             <Card
               key={index}
-              className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
             >
-              <div className="w-full h-64 relative">
+              <div className="w-full h-48 sm:h-56 lg:h-64 relative">
                 <Image
                   src={card.imageUrl}
                   alt={card.title}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  priority={index < 2}
                 />
               </div>
 
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold text-orange-500 text-center">
+              <CardHeader className="flex-shrink-0">
+                <CardTitle className="text-xl sm:text-2xl font-bold text-orange-500 text-center">
                   {card.title}
                 </CardTitle>
               </CardHeader>
 
-              <CardContent>{renderDescription(card.description)}</CardContent>
+              <CardContent className="flex-grow">
+                {renderDescription(card.description)}
+              </CardContent>
             </Card>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

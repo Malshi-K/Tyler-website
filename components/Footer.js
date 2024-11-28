@@ -8,112 +8,79 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="relative bg-navy/90 text-gray-100 py-16">
-        {/* Dark overlay for better text visibility */}
+      <footer className="relative bg-navy/90 text-gray-100">
         <div className="absolute inset-0 bg-navy/60 z-0"></div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
-            {/* Company Info */}
-            <div className="space-y-6">
-              <div className="flex items-center p-2 rounded">
+        <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16 relative z-10">
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-5 gap-8 xl:gap-12">
+            {/* Company Logo - Responsive sizing */}
+            <div className="xs:col-span-2 lg:col-span-1 flex flex-col items-center lg:items-start space-y-4">
+              <div className="relative w-[140px] h-[60px] sm:w-[150px] sm:h-[50px] md:w-[180px] md:h-[60px]">
                 <Image
                   src="/assets/images/logo.webp"
                   alt="T.Wilson Builders"
-                  width={180}
-                  height={60}
+                  fill
+                  sizes="(max-width: 660px) 120px, (max-width: 770px) 150px, 180px"
+                  priority
                   className="object-contain"
                 />
               </div>
             </div>
 
-            {/* Navigation */}
-            <div>
-              <h3 className="text-white text-lg font-bold mb-6 relative">
+            {/* Rest of the footer content remains the same */}
+            {/* Navigation Links */}
+            <div className="flex flex-col items-center lg:items-start">
+              <h3 className="text-white text-lg font-bold mb-6 relative inline-block">
                 NAVIGATION
-                <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-orange-500 -mb-2"></span>
+                <span className="absolute bottom-0 left-1/2 lg:left-0 w-12 h-0.5 bg-orange-500 -mb-2 transform -translate-x-1/2 lg:translate-x-0"></span>
               </h3>
-              <nav className="space-y-3">
-                <Link
-                  href="/"
-                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/about/our-guarantee"
-                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
-                >
-                  About Us
-                </Link>
-                <Link
-                  href="/house-plans"
-                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
-                >
-                  House Plans
-                </Link>
-                <Link
-                  href="/blog"
-                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
-                >
-                  Our Blogs
-                </Link>
+              <nav className="flex flex-col items-center lg:items-start space-y-3">
+                {["Home", "About Us", "House Plans", "Our Blogs"].map((item) => (
+                  <Link
+                    key={item}
+                    href={`/${item.toLowerCase().replace(/ /g, "-")}`}
+                    className="text-gray-100 hover:text-orange-500 transition-colors font-medium text-center lg:text-left"
+                  >
+                    {item}
+                  </Link>
+                ))}
               </nav>
             </div>
 
-            <div>
-              <h3 className="text-white text-lg font-bold mb-6 relative">
+            {/* Services */}
+            <div className="flex flex-col items-center lg:items-start">
+              <h3 className="text-white text-lg font-bold mb-6 relative inline-block">
                 SERVICES
-                <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-orange-500 -mb-2"></span>
+                <span className="absolute bottom-0 left-1/2 lg:left-0 w-12 h-0.5 bg-orange-500 -mb-2 transform -translate-x-1/2 lg:translate-x-0"></span>
               </h3>
-              <nav className="space-y-3">
-                <Link
-                  href="/services/design-build"
-                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
-                >
-                  Design & Build
-                </Link>
-                <Link
-                  href="/services/renovations"
-                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
-                >
-                  Renovations & Extensions
-                </Link>
-                <Link
-                  href="/services/commercial"
-                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
-                >
-                  Light Commercial
-                </Link>
-                <Link
-                  href="/services/new-builds"
-                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
-                >
-                  New Builds
-                </Link>
-                <Link
-                  href="/services/bathrooms-kitchens"
-                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
-                >
-                  Bathrooms & Kitchens
-                </Link>
-                <Link
-                  href="/services/decks-fences"
-                  className="block text-gray-100 hover:text-orange-500 transition-colors font-medium"
-                >
-                  Decks & Fences
-                </Link>
+              <nav className="flex flex-col items-center lg:items-start space-y-3">
+                {[
+                  "Design & Build",
+                  "Renovations & Extensions",
+                  "Light Commercial",
+                  "New Builds",
+                  "Bathrooms & Kitchens",
+                  "Decks & Fences"
+                ].map((service) => (
+                  <Link
+                    key={service}
+                    href={`/services/${service.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
+                    className="text-gray-100 hover:text-orange-500 transition-colors font-medium text-center lg:text-left whitespace-nowrap"
+                  >
+                    {service}
+                  </Link>
+                ))}
               </nav>
             </div>
 
             {/* Contact Info */}
-            <div>
-              <h3 className="text-white text-lg font-bold mb-6 relative">
+            <div className="flex flex-col items-center lg:items-start">
+              <h3 className="text-white text-lg font-bold mb-6 relative inline-block">
                 GET IN TOUCH
-                <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-orange-500 -mb-2"></span>
+                <span className="absolute bottom-0 left-1/2 lg:left-0 w-12 h-0.5 bg-orange-500 -mb-2 transform -translate-x-1/2 lg:translate-x-0"></span>
               </h3>
-              <div className="space-y-3">
-                <div>
+              <div className="flex flex-col items-center lg:items-start space-y-4">
+                <div className="text-center lg:text-left">
                   <p className="font-bold text-white">Phone:</p>
                   <a
                     href="tel:0224197176"
@@ -122,11 +89,11 @@ const Footer = () => {
                     0224197176
                   </a>
                 </div>
-                <div>
+                <div className="text-center lg:text-left">
                   <p className="font-bold text-white">Email:</p>
                   <a
                     href="mailto:tyler@twilsonbuilder.co.nz"
-                    className="text-gray-100 hover:text-orange-500 transition-colors"
+                    className="text-gray-100 hover:text-orange-500 transition-colors break-all"
                   >
                     tyler@twilsonbuilder.co.nz
                   </a>
@@ -135,33 +102,28 @@ const Footer = () => {
             </div>
 
             {/* Social Media */}
-            <div>
-              <h3 className="text-white text-lg font-bold mb-6 relative">
+            <div className="flex flex-col items-center lg:items-start">
+              <h3 className="text-white text-lg font-bold mb-6 relative inline-block">
                 FOLLOW US
-                <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-orange-500 -mb-2"></span>
+                <span className="absolute bottom-0 left-1/2 lg:left-0 w-12 h-0.5 bg-orange-500 -mb-2 transform -translate-x-1/2 lg:translate-x-0"></span>
               </h3>
               <div className="flex gap-4">
-                <a
-                  href="https://www.facebook.com/twilsonbuilders/"
-                  className="bg-orange-500 p-2 rounded-lg hover:bg-orange-600 transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook size={20} className="text-white" />
-                </a>
-                <a
-                  href="https://www.instagram.com/twilsonbuilders/"
-                  className="bg-orange-500 p-2 rounded-lg hover:bg-orange-600 transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram size={20} className="text-white" />
-                </a>
-                <a
-                  href="https://www.youtube.com/watch?v=wK6aKXu5NbE"
-                  className="bg-orange-500 p-2 rounded-lg hover:bg-orange-600 transition-colors"
-                  aria-label="YouTube"
-                >
-                  <Youtube size={20} className="text-white" />
-                </a>
+                {[
+                  { Icon: Facebook, url: "https://www.facebook.com/twilsonbuilders/", label: "Facebook" },
+                  { Icon: Instagram, url: "https://www.instagram.com/twilsonbuilders/", label: "Instagram" },
+                  { Icon: Youtube, url: "https://www.youtube.com/watch?v=wK6aKXu5NbE", label: "YouTube" }
+                ].map(({ Icon, url, label }) => (
+                  <a
+                    key={label}
+                    href={url}
+                    className="bg-orange-500 p-2 rounded-lg hover:bg-orange-600 transition-colors"
+                    aria-label={label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon size={24} className="text-white" />
+                  </a>
+                ))}
               </div>
             </div>
           </div>

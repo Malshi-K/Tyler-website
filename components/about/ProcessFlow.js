@@ -4,6 +4,17 @@ import React, { useState, useEffect } from "react";
 
 const ProcessFlow = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const steps = [
     {
@@ -66,65 +77,73 @@ const ProcessFlow = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-[1200px] mx-auto p-8 bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="w-full max-w-[1200px] mx-auto p-4 sm:p-6 md:p-8 bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         {steps.map((step, index) => (
           <div
             key={step.id}
-            className={`relative p-6 rounded-lg transition-all duration-500 transform
-              ${index <= currentStep ? "scale-105" : "scale-100"}
+            className={`relative transition-all duration-500 transform
+              ${index <= currentStep ? "scale-100 sm:scale-105" : "scale-100"}
+              ${index === steps.length - 1 && "md:col-span-2 lg:col-span-1"}
             `}
           >
-            {/* Connector Lines */}
-            {index !== steps.length - 1 && (
-              <div
-                className={`hidden lg:block absolute top-1/2 right-0 w-8 h-[2px] transform translate-x-full
-                ${index <= currentStep ? "bg-navy" : "bg-gray-300"}`}
-              />
-            )}
-            {index < steps.length - 2 && index % 3 !== 2 && (
-              <div
-                className={`hidden lg:block absolute top-1/2 right-0 w-2 h-24 transform translate-x-full translate-y-12 border-r-2
-                ${index <= currentStep ? "border-navy" : "border-gray-300"}`}
-              />
+            {/* Connector Lines - Only visible on larger screens */}
+            {!isMobile && index !== steps.length - 1 && (
+              <>
+                <div
+                  className={`hidden lg:block absolute top-1/2 right-0 w-8 h-0.5 transform translate-x-full
+                    ${index <= currentStep ? "bg-navy" : "bg-gray-300"}`}
+                />
+                {index < steps.length - 2 && index % 3 !== 2 && (
+                  <div
+                    className={`hidden lg:block absolute top-1/2 right-0 w-0.5 h-24 transform translate-x-full translate-y-12
+                      ${index <= currentStep ? "bg-navy" : "bg-gray-300"}`}
+                  />
+                )}
+              </>
             )}
 
-            {/* Card Content */}
+            {/* Card */}
             <div
               className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-500
-              ${
-                index <= currentStep
-                  ? "border-2 border-navy"
-                  : "border border-gray-200"
-              }`}
+                ${
+                  index <= currentStep
+                    ? "border-2 border-navy"
+                    : "border border-gray-200"
+                }
+              `}
             >
               {/* Image Container */}
-              <div className="relative h-64 bg-gray-50 overflow-hidden">
+              <div className="relative h-48 sm:h-56 md:h-64 bg-gray-50">
                 <Image
                   src={step.imageSrc}
                   alt={step.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 hover:scale-110"
+                  priority={index < 3}
                 />
                 <div
-                  className={`absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold
-    ${
-      index <= currentStep ? "bg-navy text-white" : "bg-gray-200 text-gray-500"
-    }`}
+                  className={`absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-base sm:text-lg font-bold
+                    ${
+                      index <= currentStep
+                        ? "bg-navy text-white"
+                        : "bg-gray-200 text-gray-500"
+                    }`}
                 >
                   {step.id}
                 </div>
               </div>
 
-              {/* Text Content */}
-              <div className="p-6">
+              {/* Content */}
+              <div className="p-4 sm:p-6">
                 <h3
-                  className={`text-xl font-semibold mb-3 transition-colors duration-500
-                  ${index <= currentStep ? "text-orange" : "text-gray-700"}`}
+                  className={`text-lg sm:text-xl font-semibold mb-2 sm:mb-3 transition-colors duration-500
+                    ${index <= currentStep ? "text-orange" : "text-gray-700"}`}
                 >
                   {step.title}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                   {step.description}
                 </p>
               </div>

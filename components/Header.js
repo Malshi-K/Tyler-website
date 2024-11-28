@@ -7,6 +7,7 @@ import {
   Youtube,
   Instagram,
   Plus,
+  X,
 } from "lucide-react";
 import {
   Sheet,
@@ -24,6 +25,7 @@ const Header = () => {
   const [currentPath, setCurrentPath] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setCurrentPath(pathname);
@@ -35,13 +37,29 @@ const Header = () => {
       setScrolled(isScrolled);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   if (pathname === "/") {
     return null;
   }
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check
+    handleResize();
+    setCurrentPath(window.location.pathname);
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const navItems = [
     {
@@ -177,9 +195,11 @@ const Header = () => {
   return (
     <>
       {/* Main Header */}
-      <header className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-sm transition-all duration-300 ${
-        scrolled ? 'bg-white/80' : ''
-      }`}>
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-sm transition-all duration-300 ${
+          scrolled ? "bg-white/80" : ""
+        }`}
+      >
         <div className="container mx-auto px-8 py-4 flex justify-between items-center">
           <Link href="/" className="inline-block">
             <Image
@@ -195,7 +215,7 @@ const Header = () => {
 
           <button
             className={`flex items-center gap-3 transition-colors duration-300 group ${
-              scrolled ? 'text-orange' : 'text-white hover:text-orange'
+              scrolled ? "text-orange" : "text-white hover:text-orange"
             }`}
             onClick={() => setIsOpen(true)}
           >
@@ -215,17 +235,25 @@ const Header = () => {
           className="w-80 bg-navy text-white border-l border-white/10 overflow-y-auto"
         >
           <SheetHeader className="border-none">
-            <div className="flex justify-between items-center mb-8">
-              <SheetTitle className="text-white text-lg font-medium">
-                <Image
-                  src="/assets/images/logo.webp"
-                  alt="Logo"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: "auto", height: "auto" }}
-                />
+            <div className="flex justify-between items-center mb-6 sm:mb-8">
+              <SheetTitle className="text-white">
+                <div className="w-32 sm:w-40 relative">
+                  <Image
+                    src="/assets/images/logo.webp"
+                    alt="Logo"
+                    width={160}
+                    height={60}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </div>
               </SheetTitle>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white/60 hover:text-white transition-colors"
+              >
+                <X size={isMobile ? 20 : 24} />
+              </button>
             </div>
           </SheetHeader>
 

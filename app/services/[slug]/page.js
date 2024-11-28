@@ -19,7 +19,6 @@ const ServicePage = () => {
     <div>
       <HeroSection data={serviceData} />
       <Section1 data={serviceData.section1} />
-      {/* Pass the entire serviceData object */}
       <Section2 data={serviceData} />
       <CTACard data={serviceData.section4}/>
     </div>

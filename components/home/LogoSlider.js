@@ -65,13 +65,6 @@ const LogoSlider = () => {
     }
   };
 
-  const scroll = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = direction === "left" ? -200 : 200;
-      sliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  };
-
   const startDragging = (e) => {
     setIsDragging(true);
     setStartX(e.pageX - sliderRef.current.offsetLeft);
@@ -92,25 +85,44 @@ const LogoSlider = () => {
   };
 
   return (
-    <Card className="w-full bg-white p-6 relative">
+    <Card className="w-full bg-white p-4 sm:p-6 md:p-8 relative">
       {/* Section Title */}
-      <div className="text-center mb-5">
-        <h2 className="text-4xl font-bold text-navy mb-4">Our Partners</h2>
+      <div className="text-center mb-4 sm:mb-6 md:mb-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy mb-3 sm:mb-4">
+          Our Partners
+        </h2>
         <div className="flex justify-center items-center gap-1">
-          <div className="w-16 h-[1px] bg-gray-300"></div>
-          <div className="w-4 h-1 bg-orange"></div>
-          <div className="w-16 h-[1px] bg-gray-300"></div>
+          <div className="w-12 sm:w-16 h-[1px] bg-gray-300"></div>
+          <div className="w-3 sm:w-4 h-1 bg-orange"></div>
+          <div className="w-12 sm:w-16 h-[1px] bg-gray-300"></div>
         </div>
       </div>
 
+      {/* Logo Slider Container */}
       <div
         ref={sliderRef}
-        className="flex gap-8 overflow-x-hidden cursor-grab active:cursor-grabbing scroll-smooth"
+        className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-hidden cursor-grab active:cursor-grabbing scroll-smooth"
         onMouseDown={startDragging}
         onMouseUp={stopDragging}
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter}
         onMouseMove={handleDrag}
+        onTouchStart={(e) => {
+          setIsDragging(true);
+          setStartX(e.touches[0].pageX - sliderRef.current.offsetLeft);
+          setScrollLeft(sliderRef.current.scrollLeft);
+          handleMouseEnter();
+        }}
+        onTouchMove={(e) => {
+          if (!isDragging) return;
+          const x = e.touches[0].pageX - sliderRef.current.offsetLeft;
+          const walk = (x - startX) * 2;
+          sliderRef.current.scrollLeft = scrollLeft - walk;
+        }}
+        onTouchEnd={() => {
+          stopDragging();
+          handleMouseLeave();
+        }}
       >
         {/* Double the logos for infinite scroll effect */}
         {[...logos, ...logos, ...logos].map((logo, index) => (
@@ -118,14 +130,16 @@ const LogoSlider = () => {
             key={`${logo.id}-${index}`}
             className="flex-shrink-0 transition-all duration-300 group"
           >
-            <div className="w-40 h-60 flex items-center justify-center bg-white rounded-lg">
-              <div className="relative w-full h-auto">
+            <div className="w-28 sm:w-32 md:w-40 h-40 sm:h-48 md:h-60 flex items-center justify-center bg-white rounded-lg">
+              <div className="relative w-full h-auto px-4">
                 <Image
                   src={logo.url}
                   alt={logo.name}
-                  width={160} // w-40 equals 160px
-                  height={240} // h-60 equals 240px
-                  className="transition-all duration-300 filter grayscale hover:grayscale-0 opacity-50 hover:opacity-100"
+                  width={160}
+                  height={240}
+                  className="transition-all duration-300 filter grayscale hover:grayscale-0 opacity-50 hover:opacity-100
+                           w-full h-auto object-contain"
+                  sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, 160px"
                 />
               </div>
             </div>

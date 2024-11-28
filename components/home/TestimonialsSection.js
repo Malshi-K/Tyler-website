@@ -77,13 +77,11 @@ const TestimonialsSection = () => {
   };
 
   const prevSlide = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
-    );
+    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   return (
-    <div className="relative py-20 px-8">
+    <div className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -92,54 +90,57 @@ const TestimonialsSection = () => {
           fill
           sizes="100vw"
           className="w-full h-full object-cover"
+          priority
         />
         <div className="absolute inset-0 bg-navy/90" />
-        {/* Pattern Overlay - Optional */}
+        {/* Pattern Overlay */}
         <div
           className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: `url('/assets/images/background/pattern-1.webp')`,
             backgroundRepeat: "repeat",
-            backgroundSize: "100px",
+            backgroundSize: "80px sm:100px",
           }}
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-16">
-          <h3 className="text-2xl font-bold text-orange mb-4">This is why</h3>
-          <h2 className="text-4xl font-bold text-white mb-4">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h3 className="text-xl sm:text-2xl font-bold text-orange mb-3 sm:mb-4">
+            This is why
+          </h3>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4">
             We do what we do!
           </h2>
           <div className="flex items-center justify-center gap-1">
-            <div className="w-16 h-[1px] bg-white/20"></div>
-            <div className="w-4 h-1 bg-orange"></div>
-            <div className="w-16 h-[1px] bg-white/20"></div>
+            <div className="w-12 sm:w-16 h-[1px] bg-white/20"></div>
+            <div className="w-3 sm:w-4 h-1 bg-orange"></div>
+            <div className="w-12 sm:w-16 h-[1px] bg-white/20"></div>
           </div>
         </div>
 
         {/* Testimonial Content */}
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="relative">
-            <div className="relative bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+            <div className="relative bg-white/10 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-lg">
               {/* Quote Icon */}
-              <div className="absolute -left-4 -top-4 text-6xl text-orange/40 font-serif">
+              <div className="absolute -left-2 sm:-left-4 -top-2 sm:-top-4 text-4xl sm:text-6xl text-orange/40 font-serif">
                 &ldquo;
               </div>
 
               {/* Testimonial Text */}
-              <div className="space-y-6">
-                <h4 className="text-2xl font-semibold text-white text-center">
+              <div className="space-y-4 sm:space-y-6">
+                <h4 className="text-xl sm:text-2xl font-semibold text-white text-center">
                   {testimonials[currentSlide].title}
                 </h4>
-                <p className="text-white/90 text-lg leading-relaxed italic text-center">
+                <p className="text-white/90 text-base sm:text-lg leading-relaxed italic text-center">
                   {testimonials[currentSlide].quote}
                 </p>
 
                 {/* Client Info */}
-                <div className="pt-6 border-t border-white/10">
-                  <p className="text-orange text-center">
+                <div className="pt-4 sm:pt-6 border-t border-white/10">
+                  <p className="text-orange text-center text-sm sm:text-base">
                     {testimonials[currentSlide].name}
                   </p>
                 </div>
@@ -147,21 +148,36 @@ const TestimonialsSection = () => {
             </div>
 
             {/* Navigation Arrows */}
-            <div className="flex items-center justify-center gap-4 mt-8">
+            <div className="flex items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
               <button
                 onClick={prevSlide}
-                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center
-                  text-white hover:border-orange hover:text-orange transition-colors duration-300"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-white/20 flex items-center justify-center
+                         text-white hover:border-orange hover:text-orange transition-colors duration-300"
+                aria-label="Previous testimonial"
               >
-                <ChevronLeft size={20} />
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
               <button
                 onClick={nextSlide}
-                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center
-                  text-white hover:border-orange hover:text-orange transition-colors duration-300"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-white/20 flex items-center justify-center
+                         text-white hover:border-orange hover:text-orange transition-colors duration-300"
+                aria-label="Next testimonial"
               >
-                <ChevronRight size={20} />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
+            </div>
+
+            {/* Slide Indicators */}
+            <div className="flex justify-center gap-2 mt-4 sm:mt-6">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 
+                    ${currentSlide === index ? "bg-orange w-3 sm:w-4" : "bg-white/20 hover:bg-white/40"}`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>

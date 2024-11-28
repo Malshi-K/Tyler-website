@@ -12,17 +12,26 @@ export default function Home() {
     <div className="relative min-h-screen">
       <SideNavigation />
       <HeroSection />
-      {/* Video Background */}
+      {/* Responsive Background Video/Image */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-navy/50 z-10" /> {/* Overlay */}
+        {/* Overlay - stays consistent across all devices */}
+        <div className="absolute inset-0 bg-navy/50 z-10" />
+
+        {/* Background Video - Hidden on Mobile */}
         <video
           autoPlay
           muted
           loop
           playsInline
-          poster="/assets/images/poster-image.webp" 
-          className="w-full h-full object-cover"
+          poster="/assets/images/poster-image.webp"
+          className="hidden md:block w-full h-full object-cover"
           src="/assets/videos/company.mp4"
+        />
+
+        {/* Background Image - Visible only on Mobile */}
+        <div
+          className="block md:hidden w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url(/assets/images/poster-image.webp)" }}
         />
       </div>
       <ExperienceSection />

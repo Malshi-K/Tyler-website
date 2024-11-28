@@ -76,16 +76,15 @@ const AboutSection = () => {
 
   const stats = [
     {
-      number: "12",
+      number: "20",
       title: "Years in the Building Industry",
-      prefix: "+",
     },
     {
-      number: "5",
+      number: "6",
       title: "Services Provided",
     },
     {
-      number: "20",
+      number: "100",
       title: "Projects Completed",
       prefix: "+",
     },
@@ -111,27 +110,27 @@ const AboutSection = () => {
 
   return (
     <div className="relative w-full">
-      <div className="container">
-        <div className="grid md:grid-cols-2">
+      <div className="container px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Stats Section */}
           <div
             ref={sectionRef}
-            className="relative w-full h-[600px] bg-neutral-900 text-white"
+            className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] bg-neutral-900 text-white"
           >
             <div className="absolute inset-0 bg-[url('/assets/images/image-1.webp')] opacity-50 bg-cover bg-center" />
             <div className="relative z-10 h-full flex items-center">
-              <div className="w-full px-12">
-                <div className="grid grid-cols-2 gap-x-16 gap-y-20">
+              <div className="w-full px-4 sm:px-8 md:px-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-x-16 sm:gap-y-20">
                   {stats.map((stat, index) => (
                     <div
                       key={index}
-                      className="relative opacity-0 transition-opacity duration-500"
+                      className="relative opacity-0 transition-opacity duration-500 text-center sm:text-left"
                       style={{
                         opacity: isVisible ? 1 : 0,
                         transitionDelay: `${index * 200}ms`,
                       }}
                     >
-                      <h3 className="text-7xl font-bold text-white mb-8">
+                      <h3 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-4 sm:mb-8">
                         {isVisible && (
                           <Counter
                             end={stat.number}
@@ -140,8 +139,8 @@ const AboutSection = () => {
                           />
                         )}
                       </h3>
-                      <div className="absolute left-0 -bottom-4 w-16 h-0.5 bg-orange-500" />
-                      <p className="text-gray-200 mt-8 text-base leading-tight max-w-[180px]">
+                      <div className="absolute left-1/2 sm:left-0 -translate-x-1/2 sm:translate-x-0 -bottom-4 w-12 sm:w-16 h-0.5 bg-orange-500" />
+                      <p className="text-gray-200 mt-6 sm:mt-8 text-sm sm:text-base leading-tight max-w-[180px] mx-auto sm:mx-0">
                         {stat.title}
                       </p>
                     </div>
@@ -152,28 +151,36 @@ const AboutSection = () => {
           </div>
 
           {/* FAQ Section */}
-          <div className="py-10">
-            <div className="bg-gray-50 p-6">
-              <h3 className="text-2xl font-bold text-orange-500 mb-2">
+          <div className="py-8 sm:py-10">
+            <div className="bg-gray-50 p-4 sm:p-6 md:p-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-orange-500 mb-2">
                 Why choose
               </h3>
-              <h2 className="text-4xl font-bold text-navy mb-2">
+              <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-2">
                 T.Wilson Builders ?
               </h2>
               <div className="relative mb-6">
-                <div className="absolute left-0 w-24 h-1 bg-orange-500" />
-                <div className="absolute left-0 w-12 h-1 bg-orange-500/30 my-2" />
+                <div className="absolute left-0 w-20 sm:w-24 h-1 bg-orange-500" />
+                <div className="absolute left-0 w-10 sm:w-12 h-1 bg-orange-500/30 my-2" />
               </div>
 
-              <Accordion type="single" collapsible>
+              <Accordion 
+                type="single" 
+                collapsible 
+                className="space-y-2 sm:space-y-3"
+              >
                 {questions.map((q, index) => (
                   <AccordionItem
                     key={index}
                     value={`item-${index}`}
-                    className="shadow-sm border border-gray-100"
+                    className="shadow-sm border border-gray-100 rounded-lg"
                   >
-                    <AccordionTrigger>{q.question}</AccordionTrigger>
-                    <AccordionContent>{q.answer}</AccordionContent>
+                    <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-medium">
+                      {q.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 sm:px-6 pb-4 text-sm sm:text-base text-gray-600">
+                      {q.answer}
+                    </AccordionContent>
                   </AccordionItem>
                 ))}
               </Accordion>
