@@ -2,10 +2,6 @@
 import React, { useState, useEffect } from "react";
 import {
   Menu as MenuIcon,
-  ChevronDown,
-  Facebook,
-  Youtube,
-  Instagram,
   Plus,
   X,
 } from "lucide-react";
@@ -24,9 +20,10 @@ const Header = () => {
   const [expandedMenus, setExpandedMenus] = useState([]);
   const [currentPath, setCurrentPath] = useState("");
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
   const [isMobile, setIsMobile] = useState(false);
+  const pathname = usePathname();
 
+  // Combine all useEffect hooks at the top level
   useEffect(() => {
     setCurrentPath(pathname);
   }, [pathname]);
@@ -40,10 +37,6 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  if (pathname === "/") {
-    return null;
-  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -60,6 +53,11 @@ const Header = () => {
     // Cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Early return after all hooks
+  if (pathname === "/") {
+    return null;
+  }
 
   const navItems = [
     {
@@ -194,7 +192,6 @@ const Header = () => {
 
   return (
     <>
-      {/* Main Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-sm transition-all duration-300 ${
           scrolled ? "bg-white/80" : ""
@@ -228,7 +225,6 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Side Navigation Sheet - Same as before */}
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetContent
           side="right"

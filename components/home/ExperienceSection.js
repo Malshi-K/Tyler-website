@@ -82,8 +82,8 @@ const ExperienceSection = () => {
               going team. We are a small, personal company with a big reputation
               for friendly, professional service and high quality workmanship.
               <br className="hidden sm:block" /><br />
-              We ensure that our client's needs are always met. Building your
-              dream house shouldn't be a nightmare and doing it right costs less
+              We ensure that our client&apos;s needs are always met. Building your
+              dream house shouldn&apos;t be a nightmare and doing it right costs less
               than doing it over!
               <br className="hidden sm:block" /><br />
               At T.Wilson Builders we provide quality you deserve and
