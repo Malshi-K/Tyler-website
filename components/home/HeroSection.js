@@ -23,9 +23,21 @@ const HeroSection = () => {
   ];
 
   const socialLinks = [
-    { name: "Facebook", Icon: Facebook, url: "https://www.facebook.com/twilsonbuilders/" },
-    { name: "YouTube", Icon: Youtube, url: "https://www.instagram.com/twilsonbuilders/" },
-    { name: "Instagram", Icon: Instagram, url: "https://www.youtube.com/watch?v=wK6aKXu5NbE" },
+    {
+      name: "Facebook",
+      Icon: Facebook,
+      url: "https://www.facebook.com/twilsonbuilders/",
+    },
+    {
+      name: "YouTube",
+      Icon: Youtube,
+      url: "https://www.instagram.com/twilsonbuilders/",
+    },
+    {
+      name: "Instagram",
+      Icon: Instagram,
+      url: "https://www.youtube.com/watch?v=wK6aKXu5NbE",
+    },
   ];
 
   useEffect(() => {
@@ -44,18 +56,19 @@ const HeroSection = () => {
           <Image
             src="/assets/images/logo.webp"
             alt="T.Wilson Builders"
-            width={0}
-            height={0}
-            sizes="100vw"
+            width={160} // Set explicit width based on actual logo dimensions
+            height={200} // Set explicit height based on actual logo dimensions
+            priority={true} // Ensures immediate loading
             className="h-24 sm:h-32 md:h-40 w-auto"
-            style={{ width: "auto" }}
           />
         </Link>
       </header>
 
       {/* Social Media Icons */}
-      <div className="absolute z-50 bottom-0 left-0 right-0 md:right-12 md:left-auto md:bottom-auto md:top-1/2 
-                      md:-translate-y-1/2 bg-transparent">
+      <div
+        className="absolute z-50 bottom-0 left-0 right-0 md:right-12 md:left-auto md:bottom-auto md:top-1/2 
+                md:-translate-y-1/2 bg-transparent"
+      >
         <div className="flex md:flex-col justify-center items-center gap-4 p-4">
           {socialLinks.map(({ name, Icon, url }) => (
             <Link
@@ -63,11 +76,12 @@ const HeroSection = () => {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Visit our ${name} page`}
               className="w-14 h-14 rounded-full border border-white/50 flex items-center justify-center
-                       bg-black/20 backdrop-blur-sm hover:bg-black/40 transition-all duration-300
-                       text-white hover:border-white"
+                 bg-black/20 backdrop-blur-sm hover:bg-black/40 transition-all duration-300
+                 text-white hover:border-white"
             >
-              <Icon size={30} />
+              <Icon size={30} aria-hidden="true" />
             </Link>
           ))}
         </div>
@@ -77,15 +91,19 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 sm:px-8 pt-8 sm:pt-20">
         <div className="max-w-4xl mx-auto md:mx-0">
           {/* Welcome Text */}
-          <h5 className="text-orange text-base sm:text-lg md:text-xl font-bold uppercase tracking-[0.2em] 
+          <h5
+            className="text-orange text-base sm:text-lg md:text-xl font-bold uppercase tracking-[0.2em] 
                          sm:tracking-[0.3em] mb-4 sm:mb-8 transition-all duration-500 ease-in-out transform
-                         text-center md:text-left">
+                         text-center md:text-left"
+          >
             {heroContent[currentSlide].welcome}
           </h5>
 
           {/* Main Title */}
-          <h1 className="text-white text-3xl sm:text-5xl md:text-7xl font-bold leading-[1.2] mb-8 sm:mb-12 
-                         transition-all duration-500 ease-in-out transform text-center md:text-left">
+          <h1
+            className="text-white text-3xl sm:text-5xl md:text-7xl font-bold leading-[1.2] mb-8 sm:mb-12 
+                         transition-all duration-500 ease-in-out transform text-center md:text-left"
+          >
             {heroContent[currentSlide].title.split(" ").map((word, index) => (
               <span
                 key={index}
@@ -125,6 +143,8 @@ const HeroSection = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                aria-current={currentSlide === index ? "true" : "false"}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   currentSlide === index
                     ? "bg-orange w-6 sm:w-8"

@@ -77,7 +77,9 @@ const TestimonialsSection = () => {
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   return (
@@ -86,11 +88,14 @@ const TestimonialsSection = () => {
       <div className="absolute inset-0 z-0">
         <Image
           src="/assets/images/background/pattern-4.webp"
-          alt="background"
+          alt="" // Empty alt for decorative background
           fill
           sizes="100vw"
           className="w-full h-full object-cover"
-          priority
+          loading="lazy" // Enable lazy loading
+          quality={75} // Reduce quality for background image
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJyEkMj4xLy4wMy85OjU8OURJRD5FPUg5Mz1IOUhJSFZJSjxIPUdHSEr/2wBDAQYXFx4aHh4kHBwkSjclJEpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkr/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
         />
         <div className="absolute inset-0 bg-navy/90" />
         {/* Pattern Overlay */}
@@ -107,12 +112,12 @@ const TestimonialsSection = () => {
       <div className="container mx-auto relative z-10">
         {/* Section Title */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <h3 className="text-xl sm:text-2xl font-bold text-orange mb-3 sm:mb-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-orange mb-3 sm:mb-4">
             This is why
-          </h3>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4">
-            We do what we do!
           </h2>
+          <h3 className="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4">
+            We do what we do!
+          </h3>
           <div className="flex items-center justify-center gap-1">
             <div className="w-12 sm:w-16 h-[1px] bg-white/20"></div>
             <div className="w-3 sm:w-4 h-1 bg-orange"></div>
@@ -174,7 +179,11 @@ const TestimonialsSection = () => {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 
-                    ${currentSlide === index ? "bg-orange w-3 sm:w-4" : "bg-white/20 hover:bg-white/40"}`}
+                    ${
+                      currentSlide === index
+                        ? "bg-orange w-3 sm:w-4"
+                        : "bg-white/20 hover:bg-white/40"
+                    }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}

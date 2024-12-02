@@ -38,7 +38,7 @@ const ExperienceSection = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
             clipPath: "polygon(100% 0, 100% 100%, 0 100%, 0 0)",
-            '@media (min-width: 768px)': {
+            "@media (min-width: 768px)": {
               clipPath: "polygon(100% 0, 100% 100%, 0 100%, 20% 0)",
             },
           }}
@@ -53,13 +53,17 @@ const ExperienceSection = () => {
             {/* Counter Box */}
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-8">
               <div className="p-3 sm:p-4 shadow-lg inline-flex">
-                <span className="text-6xl sm:text-7xl md:text-8xl text-orange font-bold">{count}</span>
+                <span className="text-6xl sm:text-7xl md:text-8xl text-orange font-bold">
+                  {count}
+                </span>
               </div>
               <div className="text-center sm:text-left sm:pt-4">
                 <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-2">
                   YEARS OF EXPERIENCE
                 </h2>
-                <p className="text-lg sm:text-xl text-orange">IN THIS INDUSTRY</p>
+                <p className="text-lg sm:text-xl text-orange">
+                  IN THIS INDUSTRY
+                </p>
               </div>
             </div>
 
@@ -70,22 +74,24 @@ const ExperienceSection = () => {
               </h3>
               <div className="relative mt-4 flex justify-center sm:justify-start">
                 <div className="absolute w-24 h-1 bg-orange" />
-                <div className="absolute w-12 h-1 bg-orange/30 my-2" />
+                <div className="absolute w-12 h-1 bg-orange/50 my-2" />
               </div>
             </div>
 
             {/* Description */}
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-800 text-base sm:text-lg leading-relaxed">
               T. Wilson Builders in Hamilton have over 20 years experience in
               the building and construction industries and provide all levels of
               carpentry work with friendly professional service and an easy
               going team. We are a small, personal company with a big reputation
               for friendly, professional service and high quality workmanship.
-              <br className="hidden sm:block" /><br />
-              We ensure that our client&apos;s needs are always met. Building your
-              dream house shouldn&apos;t be a nightmare and doing it right costs less
-              than doing it over!
-              <br className="hidden sm:block" /><br />
+              <br className="hidden sm:block" />
+              <br />
+              We ensure that our client&apos;s needs are always met. Building
+              your dream house shouldn&apos;t be a nightmare and doing it right
+              costs less than doing it over!
+              <br className="hidden sm:block" />
+              <br />
               At T.Wilson Builders we provide quality you deserve and
               dependability you can count on. As a certified and Licensed
               Builder you can be assured your job will be done right and take
@@ -96,14 +102,14 @@ const ExperienceSection = () => {
             <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-0 sm:justify-between">
               <div>
                 <Link href="/about/our-guarantee">
-                  <button className="w-full sm:w-auto bg-navy text-white px-6 sm:px-8 py-3 rounded-full hover:bg-navy/90 transition-colors duration-300">
+                  <button className="w-full sm:w-auto bg-navy hover:bg-navy/90 text-white px-6 sm:px-8 py-3 rounded-full transition-colors duration-300">
                     Learn More
                   </button>
                 </Link>
               </div>
 
               <div className="text-center sm:text-right">
-                <p className="text-gray-600 mb-2">Phone</p>
+                <p className="text-gray-800 mb-2">Phone</p>
                 <Link
                   href="tel:+64224197176"
                   className="flex items-center justify-center sm:justify-end gap-2 text-xl sm:text-2xl font-semibold text-navy hover:text-orange transition-colors duration-300"
@@ -126,7 +132,7 @@ const ExperienceSection = () => {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
               />
-              <div className="absolute inset-0 bg-black/20"></div>
+              <div className="absolute inset-0 bg-black/30"></div>
             </div>
           </div>
         </div>

@@ -50,11 +50,9 @@ module.exports = {
           5: "hsl(var(--chart-5))",
         },
         orange: {
-          500: "#d67c1c",
           DEFAULT: "#d67c1c",
         },
         navy: {
-          900: "#201f3c",
           DEFAULT: "#201f3c",
         },
       },

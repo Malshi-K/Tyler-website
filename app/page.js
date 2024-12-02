@@ -6,6 +6,7 @@ import ProjectsSection from "@/components/home/ProjectsSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import SideNavigation from "@/components/SideNavigation";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -29,10 +30,17 @@ export default function Home() {
         />
 
         {/* Background Image - Visible only on Mobile */}
-        <div
-          className="block md:hidden w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url(/assets/images/poster-image.webp)" }}
-        />
+        <div className="block md:hidden w-full h-full">
+          <Image
+            src="/assets/images/poster-image.webp"
+            alt=""
+            fill
+            sizes="(max-width: 768px) 100vw, 1px"
+            className="object-cover object-center"
+            loading="lazy"
+            quality={75}
+          />
+        </div>
       </div>
       <ExperienceSection />
       <AboutSection />
