@@ -56,8 +56,8 @@ const HeroSection = () => {
           <Image
             src="/assets/images/logo.webp"
             alt="T.Wilson Builders"
-            width={160} // Set explicit width based on actual logo dimensions
-            height={200} // Set explicit height based on actual logo dimensions
+            width={160} 
+            height={200} 
             priority={true} // Ensures immediate loading
             className="h-24 sm:h-32 md:h-40 w-auto"
           />
