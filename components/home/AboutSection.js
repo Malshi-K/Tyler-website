@@ -150,35 +150,32 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* FAQ Section */}
           <div className="py-8 sm:py-10">
-            <div className="bg-gray-50 p-4 sm:p-6 md:p-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-orange-500 mb-2">
-                Why choose
-              </h3>
-              <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-2">
-                T.Wilson Builders ?
-              </h2>
-              <div className="relative mb-6">
-                <div className="absolute left-0 w-20 sm:w-24 h-1 bg-orange-500" />
-                <div className="absolute left-0 w-10 sm:w-12 h-1 bg-orange-500/30 my-2" />
+            <div className="bg-gray-100 p-4 sm:p-6 md:p-8 rounded-lg">
+              <div className="space-y-4 mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-orange">
+                  Why choose
+                </h3>
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+                  T.Wilson Builders?
+                </h2>
+                <div className="relative h-4">
+                  <div className="absolute left-0 w-20 sm:w-24 h-1 bg-orange" />
+                  <div className="absolute left-0 w-10 sm:w-12 h-1 bg-orange/50 mt-2" />
+                </div>
               </div>
 
-              <Accordion 
-                type="single" 
-                collapsible 
-                className="space-y-2 sm:space-y-3"
-              >
+              <Accordion type="single" collapsible className="space-y-3">
                 {questions.map((q, index) => (
                   <AccordionItem
                     key={index}
                     value={`item-${index}`}
-                    className="shadow-sm border border-gray-100 rounded-lg"
+                    className="border border-gray-200 rounded-lg bg-white"
                   >
-                    <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-medium">
+                    <AccordionTrigger className="px-4 sm:px-6 py-4 text-sm sm:text-base font-medium text-slate-900 hover:text-orange-700">
                       {q.question}
                     </AccordionTrigger>
-                    <AccordionContent className="px-4 sm:px-6 pb-4 text-sm sm:text-base text-gray-600">
+                    <AccordionContent className="px-4 sm:px-6 pb-4 text-sm sm:text-base text-slate-700">
                       {q.answer}
                     </AccordionContent>
                   </AccordionItem>
