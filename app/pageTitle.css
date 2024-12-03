@@ -46,7 +46,6 @@ h1.long-title {
       right: 60%;
       top: 50%;
       transform: translateY(-50%);
-      /* Make the before element match the h1 padding */
       padding-left: inherit;
     }
 
@@ -95,32 +94,23 @@ h1.long-title {
   }
 
   h1 {
-    padding-left: 0;
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
     text-align: center;
     color: white;
-    z-index: 2;
-    position: relative;
+    white-space: normal;
+    font-size: calc(20px + 4vw);
   }
 
-  .mobile-title {
-    white-space: pre-line !important;
-    line-height: 1.2;
-    padding: 0 1rem;
+  /* Reset all the complex styling for mobile */
+  .the-long-way h1:before,
+  .the-long-way h1 .wrap,
+  .the-long-way h1 .split {
+    display: none;
   }
 
-  .the-long-way {
-    h1 {
-      &:before {
-        display: none; /* Hide the split effect on mobile */
-      }
-
-      .wrap {
-        display: none; /* Hide the split effect on mobile */
-      }
-    }
-  }
-
-  /* Add a dark overlay for better text readability */
+  /* Simple dark overlay */
   .the-long-way:after {
     content: "";
     position: absolute;
@@ -131,15 +121,11 @@ h1.long-title {
     background: rgba(0, 0, 0, 0.4);
     z-index: 1;
   }
-}
 
-/* Smaller mobile devices */
-@media (max-width: 480px) {
-  h1 {
-    font-size: calc(20px + 4vw);
-  }
-
-  .mobile-title {
-    padding: 0 0.5rem;
+  /* Reset padding classes for mobile */
+  h1.short-title,
+  h1.long-title {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

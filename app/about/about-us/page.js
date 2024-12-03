@@ -7,7 +7,7 @@ export default function AboutUs() {
     <div className="relative min-h-screen">
       <PageTitle />
       <AboutSection />
-      <TeamSection />
+      {/* <TeamSection /> */}
     </div>
   );
 }
