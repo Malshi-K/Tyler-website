@@ -91,7 +91,7 @@ const AboutSection = () => {
           <div className="relative mt-8 md:mt-0">
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl">
               <Image
-                src="/assets/images/about/1.jpg"
+                src="/assets/images/about/1.webp"
                 alt="Team"
                 fill
                 className="object-cover"
