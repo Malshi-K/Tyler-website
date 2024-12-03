@@ -101,7 +101,7 @@ const ExperienceSection = () => {
             {/* Signature and Contact */}
             <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-0 sm:justify-between">
               <div>
-                <Link href="/about/our-guarantee">
+                <Link href="/about/about-us">
                   <button className="w-full sm:w-auto bg-navy hover:bg-navy/90 text-white px-6 sm:px-8 py-3 rounded-full transition-colors duration-300">
                     Learn More
                   </button>
@@ -125,7 +125,7 @@ const ExperienceSection = () => {
           <div className="relative mt-8 md:mt-0">
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl">
               <Image
-                src="/assets/images/team.webp"
+                src="/assets/images/about/1.jpg"
                 alt="Team"
                 fill
                 className="object-cover"

@@ -1,137 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { Link } from "lucide-react";
+import { Link, X } from "lucide-react";
 import Image from "next/image";
+import { categories, projects } from "@/app/data/projects";
 
 const ProjectsSection = () => {
   const [activeCategory, setActiveCategory] = useState("0");
-
-  const categories = [
-    { id: "0", label: "All", count: 15 },
-    { id: "1", label: "Design & Build" },
-    { id: "2", label: "Renovations & Extensions" },
-    { id: "3", label: "Light Commercial" },
-    { id: "4", label: "New Builds" },
-    { id: "5", label: "Bathrooms & Kitchens" },
-    { id: "6", label: "Decks & Fences" },
-  ];
-
-  const projects = {
-    2: [
-      {
-        id: "2-1",
-        title: "Kotahitanga Marae",
-        description: "Renovations",
-        image: "/assets/images/projects/Kotahitanga Marae - Reno/DSC05681.webp",
-        size: "large",
-      },
-    ],
-    3: [
-      {
-        id: "3-1",
-        title: "The Base car wash",
-        description: "Light Commercial",
-        image: "/assets/images/projects/The Base car wash/IMG_4400.webp",
-        size: "large",
-      },
-      {
-        id: "3-2",
-        title: "Kaipaki Berry Farm",
-        description: "Light Commercial",
-        image:
-          "/assets/images/projects/Kaipaki Berry Farm ( Big warehosue)/1.webp",
-        size: "large",
-      },
-    ],
-    4: [
-      {
-        id: "4-1",
-        title: "Galloway Street New Build - House Hamilton East",
-        description: "New Build",
-        image:
-          "/assets/images/projects/Galloway Street New Build - House Hamilton East/DSC01410.webp",
-        size: "small",
-      },
-      {
-        id: "4-2",
-        title: "Hamilton - House Greenhill",
-        description: "New Build",
-        image:
-          "/assets/images/projects/Hamilton - New Build - House Greenhill/DJI_0034.webp",
-        size: "small",
-      },
-      {
-        id: "4-3",
-        title: "Raglan - New Builds Rangatahi",
-        description: "New Build",
-        image:
-          "/assets/images/projects/Ragan - New Builds Rangatahi/DJI_0043.webp",
-        size: "large",
-      },
-      {
-        id: "4-4",
-        title: "Taare - Wharenui New Build",
-        description: "New Build",
-        image:
-          "/assets/images/projects/Taare - Wharenui New Build/DSC02893.webp",
-        size: "medium",
-      },
-      {
-        id: "4-5",
-        title: "Tamahere New Build",
-        description: "New Build",
-        image: "/assets/images/projects/Tamahere New Build/DSC08057.webp",
-        size: "small",
-      },
-      {
-        id: "4-6",
-        title: "Te Kowhari New Build",
-        description: "New Build",
-        image: "/assets/images/projects/Te Kowhari New Build/DJI_0029.webp",
-        size: "medium",
-      },
-    ],
-    5: [
-      {
-        id: "5-1",
-        title: "Bathrooms",
-        description: "Bathrooms",
-        image:
-          "/assets/images/projects/Bathrooms & Kitchens/Copy of IMG_9136.webp",
-        size: "small",
-      },
-      {
-        id: "5-2",
-        title: "Kitchens",
-        description: "Kitchens",
-        image: "/assets/images/projects/Bathrooms & Kitchens/DSC03679.webp",
-        size: "small",
-      },
-    ],
-    6: [
-      {
-        id: "6-1",
-        title: "Decks",
-        description: "Decks",
-        image: "/assets/images/projects/Decks/1.webp",
-        size: "small",
-      },
-      {
-        id: "6-2",
-        title: "Decks",
-        description: "Decks",
-        image: "/assets/images/projects/Decks/2.webp",
-        size: "small",
-      },
-      {
-        id: "6-3",
-        title: "Decks",
-        description: "Decks",
-        image: "/assets/images/projects/Decks/3.webp",
-        size: "small",
-      },
-    ],
-  };
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const getAllProjects = () => {
     return Object.values(projects).flat();
@@ -154,6 +29,62 @@ const ProjectsSection = () => {
 
   const filteredProjects = getFilteredProjects();
 
+  const MasonryGallery = ({ project, onClose }) => {
+    return (
+      <div className="fixed inset-0 z-50 bg-black/95 overflow-y-auto">
+        <div className="relative min-h-screen p-4 md:p-8">
+          {/* Header */}
+          <div className="sticky top-0 z-50 flex justify-between items-center mb-6 bg-black/50 backdrop-blur-sm p-4 rounded-lg">
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                {project.title}
+              </h2>
+              <p className="text-white/70">{project.description}</p>
+            </div>
+            <button
+              onClick={onClose}
+              className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
+            >
+              <X className="w-6 h-6 text-white" />
+            </button>
+          </div>
+
+          {/* Masonry Grid */}
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-4">
+            {/* Main Image */}
+            <div className="relative mb-4 break-inside-avoid">
+              <div className="relative w-full">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-lg"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Additional Images */}
+            {project.additionalImages?.map((imgSrc, index) => (
+              <div key={index} className="relative mb-4 break-inside-avoid">
+                <div className="relative w-full">
+                  <Image
+                    src={imgSrc}
+                    alt={`${project.title} - Image ${index + 1}`}
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
       <div className="absolute inset-0 bg-white" />
@@ -171,7 +102,7 @@ const ProjectsSection = () => {
           </div>
         </div>
 
-        {/* Category Filter - Scrollable on mobile */}
+        {/* Category Filter */}
         <div className="container mx-auto mb-8 sm:mb-12">
           <div className="overflow-x-auto pb-4 sm:pb-0 hide-scrollbar">
             <div className="flex flex-nowrap sm:flex-wrap sm:justify-center gap-3 sm:gap-4 min-w-max sm:min-w-0 px-4">
@@ -205,9 +136,9 @@ const ProjectsSection = () => {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group bg-white rounded-lg sm:rounded-2xl overflow-hidden"
+                className="group bg-white rounded-lg sm:rounded-2xl overflow-hidden cursor-pointer"
+                onClick={() => setSelectedProject(project)}
               >
-                {/* Project Container */}
                 <div className="relative w-full aspect-[4/3]">
                   <div className="absolute inset-0 bg-gray-100">
                     <Image
@@ -228,27 +159,12 @@ const ProjectsSection = () => {
 
                   {/* Content Overlay */}
                   <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 translate-y-1/2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    {/* Action Icons */}
-                    <div className="absolute top-4 right-4 flex gap-2">
-                      <button
-                        className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 backdrop-blur-sm 
-                                 flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
-                      >
-                        <Link className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                      </button>
-                    </div>
-
-                    {/* Project Title */}
                     <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">
                       {project.title.toUpperCase()}
                     </h3>
-
-                    {/* Project Category/Type */}
                     <p className="text-white/80 text-xs sm:text-sm font-medium mb-2 sm:mb-4">
                       {project.description}
                     </p>
-
-                    {/* Accent Line */}
                     <div className="w-8 sm:w-12 h-0.5 bg-orange transition-all duration-500" />
                   </div>
                 </div>
@@ -256,6 +172,14 @@ const ProjectsSection = () => {
             ))}
           </div>
         </div>
+
+        {/* Gallery Modal */}
+        {selectedProject && (
+          <MasonryGallery
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
       </div>
     </div>
   );

@@ -36,14 +36,14 @@ const Footer = () => {
               <nav className="flex flex-col items-center lg:items-start space-y-3">
                 {[
                   { text: "Home", path: "/home" },
-                  { text: "About Us", path: "/about/our-guarantee" },
+                  { text: "About Us", path: "/about/about-us" },
                   { text: "House Plans", path: "/house-plans" },
                   { text: "Our Blogs", path: "/our-blogs" },
                 ].map((item) => (
                   <Link
                     key={item.text}
                     href={item.path}
-                    className="text-gray-100 hover:text-orange-500 transition-colors font-medium text-center lg:text-left"
+                    className="text-gray-100 hover:text-orange transition-colors font-medium text-center lg:text-left"
                   >
                     {item.text}
                   </Link>
@@ -55,7 +55,7 @@ const Footer = () => {
             <div className="flex flex-col items-center lg:items-start">
               <h3 className="text-white text-lg font-bold mb-6 relative inline-block">
                 SERVICES
-                <span className="absolute bottom-0 left-1/2 lg:left-0 w-12 h-0.5 bg-orange-500 -mb-2 transform -translate-x-1/2 lg:translate-x-0"></span>
+                <span className="absolute bottom-0 left-1/2 lg:left-0 w-12 h-0.5 bg-orange -mb-2 transform -translate-x-1/2 lg:translate-x-0"></span>
               </h3>
               <nav className="flex flex-col items-center lg:items-start space-y-3">
                 {[
@@ -72,7 +72,7 @@ const Footer = () => {
                       .toLowerCase()
                       .replace(/ & /g, "-")
                       .replace(/ /g, "-")}`}
-                    className="text-gray-100 hover:text-orange-500 transition-colors font-medium text-center lg:text-left whitespace-nowrap"
+                    className="text-gray-100 hover:text-orange transition-colors font-medium text-center lg:text-left whitespace-nowrap"
                   >
                     {service}
                   </Link>
@@ -84,14 +84,14 @@ const Footer = () => {
             <div className="flex flex-col items-center lg:items-start">
               <h3 className="text-white text-lg font-bold mb-6 relative inline-block">
                 GET IN TOUCH
-                <span className="absolute bottom-0 left-1/2 lg:left-0 w-12 h-0.5 bg-orange-500 -mb-2 transform -translate-x-1/2 lg:translate-x-0"></span>
+                <span className="absolute bottom-0 left-1/2 lg:left-0 w-12 h-0.5 bg-orange -mb-2 transform -translate-x-1/2 lg:translate-x-0"></span>
               </h3>
               <div className="flex flex-col items-center lg:items-start space-y-4">
                 <div className="text-center lg:text-left">
                   <p className="font-bold text-white">Phone:</p>
                   <a
                     href="tel:0224197176"
-                    className="text-gray-100 hover:text-orange-500 transition-colors"
+                    className="text-gray-100 hover:text-orange transition-colors"
                   >
                     0224197176
                   </a>
@@ -100,7 +100,7 @@ const Footer = () => {
                   <p className="font-bold text-white">Email:</p>
                   <a
                     href="mailto:tyler@twilsonbuilder.co.nz"
-                    className="text-gray-100 hover:text-orange-500 transition-colors break-all"
+                    className="text-gray-100 hover:text-orange transition-colors break-all"
                   >
                     tyler@twilsonbuilder.co.nz
                   </a>
@@ -112,7 +112,7 @@ const Footer = () => {
             <div className="flex flex-col items-center lg:items-start">
               <h3 className="text-white text-lg font-bold mb-6 relative inline-block">
                 FOLLOW US
-                <span className="absolute bottom-0 left-1/2 lg:left-0 w-12 h-0.5 bg-orange-500 -mb-2 transform -translate-x-1/2 lg:translate-x-0"></span>
+                <span className="absolute bottom-0 left-1/2 lg:left-0 w-12 h-0.5 bg-orange -mb-2 transform -translate-x-1/2 lg:translate-x-0"></span>
               </h3>
               <div className="flex gap-4">
                 {[
@@ -135,7 +135,7 @@ const Footer = () => {
                   <a
                     key={label}
                     href={url}
-                    className="bg-orange-500 p-2 rounded-lg hover:bg-orange-600 transition-colors"
+                    className="bg-orange p-2 rounded-lg hover:bg-orange-500 transition-colors"
                     aria-label={label}
                     target="_blank"
                     rel="noopener noreferrer"

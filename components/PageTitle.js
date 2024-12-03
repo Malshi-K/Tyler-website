@@ -4,6 +4,11 @@ import { usePathname } from "next/navigation";
 import "@/app/pageTitle.css";
 
 const pageTitleData = {
+  "/about/about-us": {
+    title: "About Us",
+    mobileTitle: "About Us",
+    backgroundImage: "/assets/images/page-title/14.webp",
+  },
   "/about/our-guarantee": {
     title: "Our Guarantee",
     mobileTitle: "Our Guarantee",
@@ -51,6 +56,11 @@ const PageTitle = () => {
   const pageData = pageTitleData[pathname] || pageTitleData["/"];
   const [isMobile, setIsMobile] = React.useState(false);
 
+  // Function to determine padding class based on title length
+  const getPaddingClass = (title) => {
+    return title.length < 10 ? "short-title" : "long-title";
+  };
+
   React.useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -75,12 +85,12 @@ const PageTitle = () => {
             src={pageData.backgroundImage}
             alt={pageData.title}
           />
-          <h1
+          <h1            
             data-title={pageData.title}
-            className={isMobile ? "mobile-title" : ""}
+            className={`${isMobile ? "mobile-title" : ""} ${getPaddingClass(pageData.title)}`}
           >
             {displayTitle}
-            {!isMobile && ( // Only show the wrap/split effect on desktop
+            {!isMobile && (
               <span className="wrap" aria-hidden="true">
                 <span className="split" data-letters={pageData.title}>
                   {pageData.title}
@@ -93,5 +103,4 @@ const PageTitle = () => {
     </div>
   );
 };
-
 export default PageTitle;

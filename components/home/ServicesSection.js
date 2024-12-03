@@ -52,10 +52,10 @@ const ServicesSection = () => {
 
   return (
     <div className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
-      {/* Overlay Background */}
+      {/* Existing background overlay */}
       <div className="absolute inset-0 bg-navy/80" />
 
-      {/* Section Title */}
+      {/* Existing section title */}
       <div className="relative z-10 text-center mb-8 sm:mb-12 md:mb-16">
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
           Our Services
@@ -75,7 +75,6 @@ const ServicesSection = () => {
               key={index}
               className="group relative cursor-pointer h-[300px] sm:h-[350px] md:h-[400px]"
             >
-              {/* Main Image */}
               <div className="relative h-full overflow-hidden rounded-lg">
                 <Image
                   src={service.image}
@@ -83,21 +82,24 @@ const ServicesSection = () => {
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  priority={index < 3} // Load first 3 images with priority
+                  priority={index < 3}
                 />
 
-                {/* Default Overlay */}
-                <div className="absolute inset-0 bg-black/50 transition-opacity duration-300 group-hover:opacity-0" />
-
-                {/* Default Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 text-center transition-transform duration-300 group-hover:-translate-y-full">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">
-                    {service.title}
-                  </h3>
-                  <div className="w-10 sm:w-12 h-0.5 bg-orange mx-auto" />
+                {/* Enhanced title overlay */}
+                <div className="absolute bottom-0 left-0 right-0">
+                  {/* Gradient overlay for better text visibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black to-transparent h-32" />
+                  
+                  {/* Title content */}
+                  <div className="relative p-4 sm:p-5 md:p-6 text-center transition-transform duration-300 group-hover:-translate-y-full">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2 text-shadow">
+                      {service.title}
+                    </h3>
+                    <div className="w-10 sm:w-12 h-0.5 bg-orange mx-auto" />
+                  </div>
                 </div>
 
-                {/* Hover Overlay */}
+                {/* Existing hover overlay */}
                 <div className="absolute inset-0 bg-orange/90 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <div className="flex flex-col items-center justify-center h-full p-4 sm:p-6 md:p-8 text-center">
                     <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">

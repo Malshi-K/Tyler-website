@@ -1,44 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Facebook, Youtube, Instagram } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { heroContent } from "@/app/data/heroContent";
+import { socialLinks } from "@/app/data/socialLinks";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const heroContent = [
-    {
-      welcome: "Welcome to T.Wilson Builders",
-      title: "Quality Building Solutions for Your Dream Home",
-    },
-    {
-      welcome: "Expert Building Services",
-      title: "Crafting Beautiful Spaces That Last a Lifetime",
-    },
-    {
-      welcome: "Renovation Specialists",
-      title: "Transform Your Space with Our Expertise",
-    },
-  ];
-
-  const socialLinks = [
-    {
-      name: "Facebook",
-      Icon: Facebook,
-      url: "https://www.facebook.com/twilsonbuilders/",
-    },
-    {
-      name: "YouTube",
-      Icon: Youtube,
-      url: "https://www.instagram.com/twilsonbuilders/",
-    },
-    {
-      name: "Instagram",
-      Icon: Instagram,
-      url: "https://www.youtube.com/watch?v=wK6aKXu5NbE",
-    },
-  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -56,8 +24,8 @@ const HeroSection = () => {
           <Image
             src="/assets/images/logo.webp"
             alt="T.Wilson Builders"
-            width={160} 
-            height={200} 
+            width={160}
+            height={200}
             priority={true} // Ensures immediate loading
             className="h-24 sm:h-32 md:h-40 w-auto"
           />
