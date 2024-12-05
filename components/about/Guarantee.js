@@ -14,7 +14,7 @@ const GuaranteeSection = () => {
       },
     },
     {
-      imageUrl: "/assets/images/guarantee/2.webp",
+      imageUrl: "/assets/images/guarantee/2.jpg",
       title: "Communication",
       description: {
         type: "paragraph",
@@ -41,7 +41,7 @@ const GuaranteeSection = () => {
       },
     },
     {
-      imageUrl: "/assets/images/guarantee/4.webp",
+      imageUrl: "/assets/images/guarantee/4.jpg",
       title: "Reputation & Referrals",
       description: {
         type: "paragraph",
