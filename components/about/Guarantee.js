@@ -116,19 +116,19 @@ const GuaranteeSection = () => {
           {cardsData.map((card, index) => (
             <Card
               key={index}
-              className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
+              className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="relative w-full">
-                <div className="aspect-[16/9] relative">
-                  <Image
-                    src={card.imageUrl}
-                    alt={card.title}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    priority={index < 2}
-                  />
-                </div>
+              {/* Full-width image container */}
+              <div className="w-full">
+                <Image
+                  src={card.imageUrl}
+                  alt={card.title}
+                  width={600}
+                  height={400}
+                  className="w-full h-auto"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  priority={index < 2}
+                />
               </div>
 
               <CardHeader className="flex-shrink-0">
