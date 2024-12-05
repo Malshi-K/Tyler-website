@@ -23,7 +23,7 @@ const GuaranteeSection = () => {
       },
     },
     {
-      imageUrl: "/assets/images/guarantee/3.webp",
+      imageUrl: "/assets/images/guarantee/3.jpg",
       title: "Our Team Culture",
       description: {
         type: "mixed",
@@ -50,7 +50,7 @@ const GuaranteeSection = () => {
       },
     },
     {
-      imageUrl: "/assets/images/guarantee/5.webp",
+      imageUrl: "/assets/images/guarantee/5.jpg",
       title: "Accurate Pricing",
       description: {
         type: "paragraphs",
