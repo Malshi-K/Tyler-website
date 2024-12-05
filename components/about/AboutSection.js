@@ -89,12 +89,13 @@ const AboutSection = () => {
 
           {/* Right Content - Image */}
           <div className="relative mt-8 md:mt-0">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl">
+            <div className="relative max-w-full overflow-hidden rounded-lg shadow-xl">
               <Image
-                src="/assets/images/about/1.webp"
+                src="/assets/images/about/1.jpg"
                 alt="Team"
-                fill
-                className="object-cover"
+                width={1920} // Use actual image width
+                height={1080} // Use actual image height
+                className="object-contain w-full h-auto"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
               />
