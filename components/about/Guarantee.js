@@ -5,7 +5,7 @@ import Image from "next/image";
 const GuaranteeSection = () => {
   const cardsData = [
     {
-      imageUrl: "/assets/images/guarantee/1.webp",
+      imageUrl: "/assets/images/guarantee/1.jpg",
       title: "Quality Assurance",
       description: {
         type: "paragraph",
@@ -110,7 +110,7 @@ const GuaranteeSection = () => {
   };
 
   return (
-    <section className="bg-gray-50 py-8 px-4 min-h-screen">
+    <section className="bg-gray-50 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {cardsData.map((card, index) => (
@@ -118,15 +118,17 @@ const GuaranteeSection = () => {
               key={index}
               className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
             >
-              <div className="w-full h-48 sm:h-56 lg:h-64 relative">
-                <Image
-                  src={card.imageUrl}
-                  alt={card.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  priority={index < 2}
-                />
+              <div className="relative w-full">
+                <div className="aspect-[16/9] relative">
+                  <Image
+                    src={card.imageUrl}
+                    alt={card.title}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    priority={index < 2}
+                  />
+                </div>
               </div>
 
               <CardHeader className="flex-shrink-0">
