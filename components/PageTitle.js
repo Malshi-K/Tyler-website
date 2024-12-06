@@ -70,7 +70,7 @@ const PageTitle = () => {
           {/* Content Container */}
           <div className="relative h-full flex items-center px-12 lg:px-24">
             <div className="max-w-xl">
-              <h1 className="text-4xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-4xl lg:text-7xl font-bold text-white mb-6 leading-tight">
                 {pageData.title}
               </h1>
             </div>
