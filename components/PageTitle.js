@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import { usePathname } from "next/navigation";
-import "@/app/pageTitle.css";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 const pageTitleData = {
   "/about/about-us": {
@@ -54,46 +55,76 @@ const pageTitleData = {
 const PageTitle = () => {
   const pathname = usePathname();
   const pageData = pageTitleData[pathname] || pageTitleData["/"];
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, []);
 
   return (
-    <div className="relative w-full overflow-hidden">
-      <div className="relative h-[calc(100vh-80px)] min-h-[600px] w-full">
-        <div className="the-long-way">
+    <>
+      {/* Desktop View */}
+      <div className="hidden md:block relative h-[600px] w-full overflow-hidden">
+        {/* Left Side with Content and Diagonal Shape */}
+        <div 
+          className="absolute inset-0 w-3/5 bg-[#e67817]"
+          style={{
+            clipPath: 'polygon(0 0, 100% 0, 70% 100%, 0% 100%)',
+          }}
+        >
+          {/* Content Container */}
+          <div className="relative h-full flex items-center px-12 lg:px-24">
+            <div className="max-w-xl">
+              <h1 className="text-4xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+                {pageData.title}
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Side with Image */}
+        <div className="absolute top-0 right-0 w-[60%] h-full">
           <img
-            className="pageImage"
             src={pageData.backgroundImage}
             alt={pageData.title}
+            className="w-full h-full object-cover"
+            style={{
+              clipPath: 'polygon(30% 0, 100% 0, 100% 100%, 0 100%)',
+            }}
           />
-          <h1
-            data-title={pageData.title}
-            className={pageData.title.length < 10 ? "short-title" : "long-title"}
-          >
-            {pageData.title}
-            {!isMobile && (
-              <span className="wrap" aria-hidden="true">
-                <span className="split" data-letters={pageData.title}>
-                  {pageData.title}
-                </span>
-              </span>
-            )}
-          </h1>
         </div>
       </div>
-    </div>
+
+      {/* Mobile View - with centered text */}
+      <div className="md:hidden relative h-[400px] w-full">
+        <div className="absolute inset-0">
+          <img
+            src={pageData.backgroundImage}
+            alt={pageData.title}
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+        <div className="relative h-full flex items-center justify-center px-6">
+          <div className="max-w-xl text-center">
+            <h1 className="text-3xl font-bold text-white mb-4 leading-tight">
+              {pageData.mobileTitle}
+            </h1>
+            {pathname === "/" && (
+              <>
+                <p className="text-white mb-6">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </p>
+                <Button 
+                  asChild
+                  className="bg-white hover:bg-gray-100 text-black font-semibold px-6 py-4 rounded-md"
+                >
+                  <Link href="#get-started">
+                    Get Started
+                  </Link>
+                </Button>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
