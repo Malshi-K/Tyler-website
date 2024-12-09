@@ -9,7 +9,32 @@ const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const getAllProjects = () => {
-    return Object.values(projects).flat();
+    // Get all projects as a flat array
+    const allProjects = Object.values(projects).flat();
+    
+    // Create a Map to store projects with combined descriptions
+    const uniqueProjects = new Map();
+    
+    // Process each project
+    allProjects.forEach(project => {
+      if (!uniqueProjects.has(project.title)) {
+        // First occurrence of this title
+        uniqueProjects.set(project.title, {...project});
+      } else {
+        // Project with this title already exists, combine descriptions
+        const existingProject = uniqueProjects.get(project.title);
+        const existingDesc = existingProject.description;
+        const newDesc = project.description;
+        
+        // Only add new description if it's different
+        if (!existingDesc.includes(newDesc)) {
+          existingProject.description = `${existingDesc} • ${newDesc}`;
+        }
+      }
+    });
+    
+    // Convert Map values back to array
+    return Array.from(uniqueProjects.values());
   };
 
   const getFilteredProjects = () => {
@@ -29,6 +54,7 @@ const ProjectsSection = () => {
 
   const filteredProjects = getFilteredProjects();
 
+  // Rest of the component remains the same...
   const MasonryGallery = ({ project, onClose }) => {
     return (
       <div className="fixed inset-0 z-50 bg-black/95 overflow-y-auto">

@@ -25,7 +25,7 @@ export const projects = {
     },
     {
       id: "2-2",
-      title: "Taare New Wharenui",
+      title: "Taare - New Wharenui",
       description: "Renovations",
       image: "/assets/images/projects/Taare - Wharenui New Build/image (4).webp",
       additionalImages: [
@@ -107,7 +107,7 @@ export const projects = {
     },
     {
       id: "4-4",
-      title: "Taare - Wharenui New Build",
+      title: "Taare - New Wharenui",
       description: "New Build",
       image: "/assets/images/projects/Taare - Wharenui New Build/image (4).webp",
 
