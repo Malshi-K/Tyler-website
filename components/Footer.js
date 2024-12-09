@@ -13,14 +13,14 @@ const Footer = () => {
 
         <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16 relative z-10">
           <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-5 gap-8 xl:gap-12">
-            {/* Company Logo - Responsive sizing */}
+            {/* Company Logo - Further increased responsive sizing */}
             <div className="xs:col-span-2 lg:col-span-1 flex flex-col items-center lg:items-start space-y-4">
-              <div className="relative w-[140px] h-[60px] sm:w-[150px] sm:h-[50px] md:w-[180px] md:h-[60px]">
+              <div className="relative w-[200px] h-[80px] sm:w-[220px] sm:h-[70px] md:w-[260px] md:h-[100px]">
                 <Image
                   src="/assets/images/logo.webp"
                   alt="T.Wilson Builders"
                   fill
-                  sizes="(max-width: 660px) 120px, (max-width: 770px) 150px, 180px"
+                  sizes="(max-width: 660px) 200px, (max-width: 770px) 220px, 260px"
                   priority
                   className="object-contain"
                 />

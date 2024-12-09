@@ -8,7 +8,7 @@ const pageTitleData = {
   "/about/about-us": {
     title: "About Us",
     mobileTitle: "About Us",
-    backgroundImage: "/assets/images/page-title/14.jpg",
+    backgroundImage: "/assets/images/page-title/14.webp",
   },
   "/about/our-guarantee": {
     title: "Our Guarantee",
