@@ -139,13 +139,66 @@ export const projects = {
       title: "Bathrooms",
       description: "Bathrooms",
       image:
-        "/assets/images/projects/Bathrooms & Kitchens/Copy of IMG_9136.webp",
+        "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/1.webp",
     },
     {
       id: "5-2",
+      title: "Bathrooms",
+      description: "Bathrooms",
+      image:
+        "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/2.webp",
+    },
+    {
+      id: "5-3",
+      title: "Bathrooms",
+      description: "Bathrooms",
+      image:
+        "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/3.webp",
+    },
+    {
+      id: "5-4",
+      title: "Bathrooms",
+      description: "Bathrooms",
+      image:
+        "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/4.webp",
+    },
+    {
+      id: "5-5",
+      title: "Bathrooms",
+      description: "Bathrooms",
+      image:
+        "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/5.webp",
+    },
+    {
+      id: "5-6",
+      title: "Bathrooms",
+      description: "Bathrooms",
+      image:
+        "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/6.webp",
+    },
+    {
+      id: "5-7",
       title: "Kitchens",
       description: "Kitchens",
-      image: "/assets/images/projects/Bathrooms & Kitchens/DSC03679.webp",
+      image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/1.webp",
+    },
+    {
+      id: "5-8",
+      title: "Kitchens",
+      description: "Kitchens",
+      image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/2.webp",
+    },
+    {
+      id: "5-9",
+      title: "Kitchens",
+      description: "Kitchens",
+      image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/3.webp",
+    },
+    {
+      id: "5-10",
+      title: "Kitchens",
+      description: "Kitchens",
+      image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/4.webp",
     },
   ],
   6: [
@@ -160,6 +213,36 @@ export const projects = {
       title: "Decks",
       description: "Decks",
       image: "/assets/images/projects/Decks/2.webp",
+    },
+    {
+      id: "6-3",
+      title: "Decks",
+      description: "Decks",
+      image: "/assets/images/projects/Decks/3.webp",
+    },
+    {
+      id: "6-4",
+      title: "Decks",
+      description: "Decks",
+      image: "/assets/images/projects/Decks/4.webp",
+    },
+    {
+      id: "6-5",
+      title: "Decks",
+      description: "Decks",
+      image: "/assets/images/projects/Decks/5.webp",
+    },
+    {
+      id: "6-6",
+      title: "Decks",
+      description: "Decks",
+      image: "/assets/images/projects/Decks/6.webp",
+    },
+    {
+      id: "6-7",
+      title: "Decks",
+      description: "Decks",
+      image: "/assets/images/projects/Decks/7.webp",
     },
   ],
 };
