@@ -11,28 +11,28 @@ const ProjectsSection = () => {
   const getAllProjects = () => {
     // Get all projects as a flat array
     const allProjects = Object.values(projects).flat();
-    
+
     // Create a Map to store projects with combined descriptions
     const uniqueProjects = new Map();
-    
+
     // Process each project
-    allProjects.forEach(project => {
+    allProjects.forEach((project) => {
       if (!uniqueProjects.has(project.title)) {
         // First occurrence of this title
-        uniqueProjects.set(project.title, {...project});
+        uniqueProjects.set(project.title, { ...project });
       } else {
         // Project with this title already exists, combine descriptions
         const existingProject = uniqueProjects.get(project.title);
         const existingDesc = existingProject.description;
         const newDesc = project.description;
-        
+
         // Only add new description if it's different
         if (!existingDesc.includes(newDesc)) {
           existingProject.description = `${existingDesc} • ${newDesc}`;
         }
       }
     });
-    
+
     // Convert Map values back to array
     return Array.from(uniqueProjects.values());
   };
@@ -62,7 +62,10 @@ const ProjectsSection = () => {
           {/* Header */}
           <div className="sticky top-0 z-50 flex justify-between items-center mb-6 bg-black/50 backdrop-blur-sm p-4 rounded-lg">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
+              <p className="text-md md:text-lg font-semibold text-white">
+                {project.location}
+              </p>
+              <h2 className="text-lg md:text-xl font-bold text-white">
                 {project.title}
               </h2>
               <p className="text-white/70">{project.description}</p>
@@ -185,6 +188,10 @@ const ProjectsSection = () => {
 
                   {/* Content Overlay */}
                   <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 translate-y-1/2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    {/* Add location here */}
+                    <p className="text-white/90 text-sm font-medium mb-1">
+                      {project.location}
+                    </p>
                     <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">
                       {project.title.toUpperCase()}
                     </h3>

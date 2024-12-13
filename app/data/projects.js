@@ -25,7 +25,8 @@ export const projects = {
     },
     {
       id: "2-2",
-      title: "Taare - New Wharenui",
+      location: "Taare",
+      title: "New Wharenui",
       description: "Renovations",
       image: "/assets/images/projects/Taare - Wharenui New Build/image (4).webp",
       additionalImages: [
@@ -51,7 +52,8 @@ export const projects = {
     },
     {
       id: "3-2",
-      title: "Kaipaki Berry Farm",
+      location: "Kaipaki",
+      title: " Berry Farm",
       description: "Light Commercial",
       image:
         "/assets/images/projects/Kaipaki Berry Farm ( Big warehosue)/1.webp",
@@ -65,7 +67,8 @@ export const projects = {
   4: [
     {
       id: "4-1",
-      title: "Galloway Street New Build - House Hamilton East",
+      location: "Hamilton East",
+      title: "Galloway Street New Build",      
       description: "New Build",
       image:
         "/assets/images/projects/Galloway Street New Build - House Hamilton East/image (6).webp",
@@ -84,14 +87,16 @@ export const projects = {
     },
     {
       id: "4-2",
-      title: "Hamilton - House Greenhill",
+      location: "Hamilton",
+      title: "House Greenhill",
       description: "New Build",
       image:
         "/assets/images/projects/Hamilton - New Build - House Greenhill/DJI_0034.webp",
     },
     {
       id: "4-3",
-      title: "Raglan - New Builds Rangatahi",
+      location: "Raglan",
+      title: "New Builds Rangatahi",
       description: "New Build",
       image:
         "/assets/images/projects/Ragan - New Builds Rangatahi/DJI_0043.webp",
@@ -107,7 +112,8 @@ export const projects = {
     },
     {
       id: "4-4",
-      title: "Taare - New Wharenui",
+      location: "Taare",
+      title: "New Wharenui",
       description: "New Build",
       image: "/assets/images/projects/Taare - Wharenui New Build/image (4).webp",
 
@@ -122,13 +128,15 @@ export const projects = {
     },
     {
       id: "4-5",
-      title: "Tamahere New Build",
+      location: "Tamahere",
+      title: "",
       description: "New Build",
       image: "/assets/images/projects/Tamahere New Build/DSC08057.webp",
     },
     {
       id: "4-6",
-      title: "Te Kowhai New Build",
+      location: "Te Kowhai",
+      title: "",
       description: "New Build",
       image: "/assets/images/projects/Te Kowhari New Build/DJI_0029.webp",
     },
