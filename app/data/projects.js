@@ -146,85 +146,85 @@ export const projects = {
   5: [
     {
       id: "5-1",
-      title: "Bathrooms",
+      title: "",
       description: "Bathrooms",
       image:
         "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/1.webp",
     },
     {
       id: "5-2",
-      title: "Bathrooms",
+      title: "",
       description: "Bathrooms",
       image:
         "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/2.webp",
     },
     {
       id: "5-3",
-      title: "Bathrooms",
+      title: "",
       description: "Bathrooms",
       image:
         "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/3.webp",
     },
     {
       id: "5-4",
-      title: "Bathrooms",
+      title: "",
       description: "Bathrooms",
       image:
         "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/4.webp",
     },
     {
       id: "5-5",
-      title: "Bathrooms",
+      title: "",
       description: "Bathrooms",
       image:
         "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/5.webp",
     },
     {
       id: "5-6",
-      title: "Bathrooms",
+      title: "",
       description: "Bathrooms",
       image:
         "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/6.webp",
     },
     {
       id: "5-7",
-      title: "Kitchens",
+      title: "",
       description: "Kitchens",
       image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/1.webp",
     },
     {
       id: "5-8",
-      title: "Kitchens",
+      title: "",
       description: "Kitchens",
       image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/2.webp",
     },
     {
       id: "5-9",
-      title: "Kitchens",
+      title: "",
       description: "Kitchens",
       image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/3.webp",
     },
     {
       id: "5-10",
-      title: "Kitchens",
+      title: "",
       description: "Kitchens",
       image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/4.webp",
     },
     {
       id: "5-10",
-      title: "Kitchens",
+      title: "",
       description: "Kitchens",
       image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/5.webp",
     },
     {
       id: "5-10",
-      title: "Kitchens",
+      title: "",
       description: "Kitchens",
       image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/6.webp",
     },
     {
       id: "5-10",
-      title: "Kitchens",
+      title: "",
       description: "Kitchens",
       image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/7.webp",
     },
@@ -232,43 +232,43 @@ export const projects = {
   6: [
     {
       id: "6-1",
-      title: "Decks",
+      title: "",
       description: "Decks",
       image: "/assets/images/projects/Decks/1.webp",
     },
     {
       id: "6-2",
-      title: "Decks",
+      title: "",
       description: "Decks",
       image: "/assets/images/projects/Decks/2.webp",
     },
     {
       id: "6-3",
-      title: "Decks",
+      title: "",
       description: "Decks",
       image: "/assets/images/projects/Decks/3.webp",
     },
     {
       id: "6-4",
-      title: "Decks",
+      title: "",
       description: "Decks",
       image: "/assets/images/projects/Decks/4.webp",
     },
     {
       id: "6-5",
-      title: "Decks",
+      title: "",
       description: "Decks",
       image: "/assets/images/projects/Decks/5.webp",
     },
     {
       id: "6-6",
-      title: "Decks",
+      title: "",
       description: "Decks",
       image: "/assets/images/projects/Decks/6.webp",
     },
     {
       id: "6-7",
-      title: "Decks",
+      title: "",
       description: "Decks",
       image: "/assets/images/projects/Decks/7.webp",
     },
