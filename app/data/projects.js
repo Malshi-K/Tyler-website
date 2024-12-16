@@ -12,6 +12,7 @@ export const projects = {
   2: [
     {
       id: "2-1",
+      location: "Otorohanga",
       title: "Kotahitanga Marae",
       description: "Renovations",
       image: "/assets/images/projects/Kotahitanga Marae - Reno/DSC05681.webp",
@@ -42,6 +43,7 @@ export const projects = {
   3: [
     {
       id: "3-1",
+      location: "Hamilton",
       title: "The Base car wash",
       description: "Light Commercial",
       image: "/assets/images/projects/The Base car wash/IMG_4400.webp",
@@ -68,7 +70,7 @@ export const projects = {
     {
       id: "4-1",
       location: "Hamilton East",
-      title: "Galloway Street New Build",      
+      title: "Galloway Street",      
       description: "New Build",
       image:
         "/assets/images/projects/Galloway Street New Build - House Hamilton East/image (6).webp",
@@ -96,7 +98,7 @@ export const projects = {
     {
       id: "4-3",
       location: "Raglan",
-      title: "New Builds Rangatahi",
+      title: "Rangatahi",
       description: "New Build",
       image:
         "/assets/images/projects/Ragan - New Builds Rangatahi/DJI_0043.webp",
