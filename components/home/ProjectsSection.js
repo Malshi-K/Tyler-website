@@ -19,22 +19,44 @@ const ProjectsSection = () => {
     allProjects.forEach((project) => {
       if (!uniqueProjects.has(project.title)) {
         // First occurrence of this title
-        uniqueProjects.set(project.title, { ...project });
+        uniqueProjects.set(project.title, {
+          ...project,
+          descriptions: [project.description],
+          // Keep track of original categories
+          categories: [project.category || activeCategory],
+          // Keep the first image as main but store all additional ones
+          allImages: [project.image, ...(project.additionalImages || [])],
+        });
       } else {
-        // Project with this title already exists, combine descriptions
+        // Project with this title already exists
         const existingProject = uniqueProjects.get(project.title);
-        const existingDesc = existingProject.description;
-        const newDesc = project.description;
 
-        // Only add new description if it's different
-        if (!existingDesc.includes(newDesc)) {
-          existingProject.description = `${existingDesc} • ${newDesc}`;
+        // Add new description if it's unique
+        if (!existingProject.descriptions.includes(project.description)) {
+          existingProject.descriptions.push(project.description);
         }
+
+        // Add category if it's new
+        if (!existingProject.categories.includes(project.category)) {
+          existingProject.categories.push(project.category);
+        }
+
+        // Add new images if they don't exist
+        const newImages = [project.image, ...(project.additionalImages || [])];
+        newImages.forEach((img) => {
+          if (!existingProject.allImages.includes(img)) {
+            existingProject.allImages.push(img);
+          }
+        });
       }
     });
 
-    // Convert Map values back to array
-    return Array.from(uniqueProjects.values());
+    // Convert Map values back to array and format the descriptions
+    return Array.from(uniqueProjects.values()).map((project) => ({
+      ...project,
+      description: project.descriptions.join(" • "),
+      additionalImages: project.allImages.slice(1), // First image is the main image
+    }));
   };
 
   const getFilteredProjects = () => {
