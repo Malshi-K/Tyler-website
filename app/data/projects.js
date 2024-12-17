@@ -76,6 +76,9 @@ export const projects = {
       video: "/assets/videos/projects/Kaipaki berry farm.mp4",
       additionalImages: [
         "/assets/images/projects/Kaipaki Berry Farm ( Big warehosue)/2.webp",
+        "/assets/images/projects/Kaipaki Berry Farm ( Big warehosue)/3.webp",
+        "/assets/images/projects/Kaipaki Berry Farm ( Big warehosue)/4.webp",
+        "/assets/images/projects/Kaipaki Berry Farm ( Big warehosue)/5.webp",
       ],
     },
   ],
@@ -103,12 +106,7 @@ export const projects = {
       title: "House Greenhill",
       description: "New Build",
       image:
-        "/assets/images/projects/Hamilton - New Build - House Greenhill/1.webp",
-      additionalImages: [
-        "/assets/images/projects/Hamilton - New Build - House Greenhill/2.webp",
-        "/assets/images/projects/Hamilton - New Build - House Greenhill/3.webp",
-        "/assets/images/projects/Hamilton - New Build - House Greenhill/4.webp",
-      ],
+        "/assets/images/projects/Hamilton - New Build - House Greenhill/1.webp",      
     },
     {
       id: "4-3",
