@@ -252,6 +252,12 @@ export const projects = {
       description: "",
       image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/7.webp",
     },
+    {
+      id: "6-8",
+      title: "Kitchens",
+      description: "",
+      image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/8.webp",
+    },
   ],
   7: [
     {
