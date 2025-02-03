@@ -27,7 +27,7 @@ export async function POST(request) {
       from: `"${name}" <${process.env.EMAIL_USER}>`,
       // Set reply-to to the form submitter's email
       replyTo: `"${name}" <${email}>`,
-      to: 'malshi.k@gdcgroup.co.nz',
+      to: 'tyler@twilsonbuilder.co.nz',
       subject: `New Contact Form Submission from ${name}`,
       // Add a header to make it clear who the message is actually from
       html: `
