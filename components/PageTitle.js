@@ -20,7 +20,7 @@ const pageTitleData = {
     mobileTitle: "Testimonials",
     backgroundImage: "/assets/images/page-title/2.webp",
   },
-  "/about/who-we-are": {
+  "/about/how-we-work": {
     title: "How we work",
     mobileTitle: "How we work",
     backgroundImage: "/assets/images/page-title/3.webp",

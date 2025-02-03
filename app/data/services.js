@@ -35,7 +35,7 @@ export const servicesData = {
     },
   },
 
-  renovations: {
+  "renovations-extensions": {
     title: "Renovations & Extensions",
     backgroundImage: "/assets/images/page-title/9.webp",
     section1: {
@@ -74,7 +74,7 @@ export const servicesData = {
         "Ready to update or expand your property? T. Wilson Builders is here to assist. Contact us today to arrange a consultation and take the first step towards creating a space that works better for you and your family or business. Together, we’ll make your renovation or extension project a resounding success.",
     },
   },
-  commercial: {
+  "light-commercial": {
     title: "Light Commercial",
     backgroundImage: "/assets/images/page-title/10.webp",
     section1: {
@@ -149,33 +149,33 @@ export const servicesData = {
         "We’re passionate about turning great designs into exceptional builds. Whether you’re constructing a home or commercial space, our team is ready to bring your project to life with expertise and care. Contact us today to discuss your new build project, and let’s create a space you’ll be proud to call your own.",
     },
   },
-  "bathrooms-kitchens": {
-    title: "Bathrooms & Kitchens",
-    backgroundImage: "/assets/images/page-title/12.webp",
+  "bathrooms": {
+    title: "Bathrooms",
+    backgroundImage: "/assets/images/services/7.webp",
     section1: {
       heading:
-        "Transform Your Home with Stunning Bathroom & Kitchen Renovations",
+        "Transform Your Home with Stunning Bathroom Renovations",
       description:
-        "We are skilled in designing and building bathrooms and kitchens that are stylish, functional, and tailored to your needs. These spaces are at the heart of every home, and we’re here to ensure they look stunning while meeting the demands of your daily life. Whether you’re planning a complete remodel or creating a new space from scratch, our expert team delivers high-quality results you’ll love.",
+        "We are skilled in designing and building bathrooms that are stylish, functional, and tailored to your needs. These spaces are at the heart of every home, and we’re here to ensure they look stunning while meeting the demands of your daily life. Whether you’re planning a complete remodel or creating a new space from scratch, our expert team delivers high-quality results you’ll love.",
     },
     section2: {
       question: {
-        1: "Why Renovate Your Bathroom or Kitchen?",
+        1: "Why Renovate Your Bathroom?",
         2: "Why Choose T. Wilson Builders?",
       },
       answer: {
         1: {
           points: [
-            "Updating your bathroom or kitchen can transform the look and feel of your home.",
+            "Updating your bathroom can transform the look and feel of your home.",
             "Enhanced Functionality: Improve the layout and features to make your spaces more practical and efficient.",
             "Modern Design: Upgrade to contemporary styles, fixtures, and finishes that reflect your taste.",
-            "Increased Property Value: A beautifully designed kitchen or bathroom adds significant value to your property.",
+            "Increased Property Value: A beautifully designed or bathroom adds significant value to your property.",
             "Better Use of Space: Maximise storage and create more usable areas to meet your family’s needs.",
           ],
         },
         2: {
           points: [
-            "Expert Craftsmanship: With years of experience, we deliver top-quality bathrooms and kitchens that exceed expectations.",
+            "Expert Craftsmanship: With years of experience, we deliver top-quality bathrooms that exceed expectations.",
             "Tailored Solutions: Every project is customised to suit your unique style and requirements.",
             "High-Quality Materials: We use premium materials and trusted suppliers to ensure durability and lasting beauty.",
             "Transparent Communication: We keep you informed throughout the project, ensuring you always know what’s happening.",
@@ -187,7 +187,48 @@ export const servicesData = {
     section4: {
       title: "Let’s Design Your Ideal Space Together",
       description:
-        "Ready to transform your bathroom or kitchen? We’re passionate about creating spaces that combine style, comfort, and functionality. Whether you’re looking for a modern kitchen makeover or a luxurious bathroom retreat, we’re here to bring it to life. Contact us today to arrange a consultation and begin turning your vision into reality.",
+        "Ready to transform your bathroom? We’re passionate about creating spaces that combine style, comfort, and functionality. Whether you’re looking for a luxurious bathroom retreat, we’re here to bring it to life. Contact us today to arrange a consultation and begin turning your vision into reality.",
+    },
+  },
+  "kitchens": {
+    title: "Kitchens",
+    backgroundImage: "/assets/images/page-title/12.webp",
+    section1: {
+      heading:
+        "Transform Your Home with Stunning Kitchen Renovations",
+      description:
+        "We are skilled in designing and building kitchens that are stylish, functional, and tailored to your needs. These spaces are at the heart of every home, and we’re here to ensure they look stunning while meeting the demands of your daily life. Whether you’re planning a complete remodel or creating a new space from scratch, our expert team delivers high-quality results you’ll love.",
+    },
+    section2: {
+      question: {
+        1: "Why Renovate Your Kitchen?",
+        2: "Why Choose T. Wilson Builders?",
+      },
+      answer: {
+        1: {
+          points: [
+            "Updating your kitchen can transform the look and feel of your home.",
+            "Enhanced Functionality: Improve the layout and features to make your spaces more practical and efficient.",
+            "Modern Design: Upgrade to contemporary styles, fixtures, and finishes that reflect your taste.",
+            "Increased Property Value: A beautifully designed bathroom adds significant value to your property.",
+            "Better Use of Space: Maximise storage and create more usable areas to meet your family’s needs.",
+          ],
+        },
+        2: {
+          points: [
+            "Expert Craftsmanship: With years of experience, we deliver top-quality kitchens that exceed expectations.",
+            "Tailored Solutions: Every project is customised to suit your unique style and requirements.",
+            "High-Quality Materials: We use premium materials and trusted suppliers to ensure durability and lasting beauty.",
+            "Transparent Communication: We keep you informed throughout the project, ensuring you always know what’s happening.",
+            "On-Time and On-Budget Delivery: We respect your time and budget, completing projects efficiently without compromising quality.",
+          ],
+        },
+      },
+    },
+    section4: {
+      title: "Let’s Design Your Ideal Space Together",
+      description:
+        "Ready to transform your kitchen? We’re passionate about creating spaces that combine style, comfort, and functionality. Whether you’re looking for a modern kitchen makeover, we’re here to bring it to life. Contact us today to arrange a consultation and begin turning your vision into reality.",
     },
   },
   "decks-fences": {

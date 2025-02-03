@@ -38,7 +38,7 @@ const Footer = () => {
                   { text: "Home", path: "/home" },
                   { text: "About Us", path: "/about/about-us" },
                   { text: "House Plans", path: "/house-plans" },
-                  { text: "Our Blogs", path: "/our-blogs" },
+                  { text: "Our Blogs", path: "/blog" },
                 ].map((item) => (
                   <Link
                     key={item.text}
@@ -63,7 +63,8 @@ const Footer = () => {
                   "Renovations & Extensions",
                   "Light Commercial",
                   "New Builds",
-                  "Bathrooms & Kitchens",
+                  "Bathrooms",
+                  "Kitchens",
                   "Decks & Fences",
                 ].map((service) => (
                   <Link

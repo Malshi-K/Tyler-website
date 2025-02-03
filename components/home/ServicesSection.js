@@ -18,14 +18,14 @@ const ServicesSection = () => {
       image: "/assets/images/services/2.webp",
       description:
         "Our expert carpenters provide top-quality woodworking services for all your construction and renovation needs...",
-      link: "/services/renovations",
+      link: "/services/renovations-extensions",
     },
     {
       title: "Light Commercial",
       image: "/assets/images/services/3.webp",
       description:
         "Transform your existing furniture into beautiful pieces that match your style and requirements...",
-      link: "/services/commercial",
+      link: "/services/light-commercial",
     },
     {
       title: "New Builds",
@@ -35,11 +35,18 @@ const ServicesSection = () => {
       link: "/services/new-builds",
     },
     {
-      title: "Bathrooms & Kitchens",
+      title: "Bathrooms",
+      image: "/assets/images/services/7.webp",
+      description:
+        "Our expert carpenters provide top-quality woodworking services for all your construction and renovation needs...",
+      link: "/services/bathrooms",
+    },
+    {
+      title: "Kitchens",
       image: "/assets/images/services/5.webp",
       description:
         "Our expert carpenters provide top-quality woodworking services for all your construction and renovation needs...",
-      link: "/services/bathrooms-kitchens",
+      link: "/services/kitchens",
     },
     {
       title: "Decks & Fences",

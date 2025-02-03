@@ -82,7 +82,7 @@ const ProcessFlow = () => {
         {steps.map((step, index) => (
           <div
             key={step.id}
-            className={`relative transition-all duration-500 transform
+            className={`relative transition-all duration-500 transform h-[600px]
               ${index <= currentStep ? "scale-100 sm:scale-105" : "scale-100"}
               ${index === steps.length - 1 && "md:col-span-2 lg:col-span-1"}
             `}
@@ -105,7 +105,7 @@ const ProcessFlow = () => {
 
             {/* Card */}
             <div
-              className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-500
+              className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-500 h-full flex flex-col
                 ${
                   index <= currentStep
                     ? "border-2 border-navy"
@@ -113,8 +113,8 @@ const ProcessFlow = () => {
                 }
               `}
             >
-              {/* Image Container */}
-              <div className="relative h-48 sm:h-56 md:h-64 bg-gray-50">
+              {/* Image Container with fixed height */}
+              <div className="relative h-48 flex-shrink-0">
                 <Image
                   src={step.imageSrc}
                   alt={step.title}
@@ -124,7 +124,7 @@ const ProcessFlow = () => {
                   priority={index < 3}
                 />
                 <div
-                  className={`absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-base sm:text-lg font-bold
+                  className={`absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold
                     ${
                       index <= currentStep
                         ? "bg-navy text-white"
@@ -135,17 +135,19 @@ const ProcessFlow = () => {
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-4 sm:p-6">
+              {/* Content with fixed height and scrollable description */}
+              <div className="flex flex-col flex-grow p-6">
                 <h3
-                  className={`text-lg sm:text-xl font-semibold mb-2 sm:mb-3 transition-colors duration-500
+                  className={`text-xl font-semibold mb-3 transition-colors duration-500
                     ${index <= currentStep ? "text-orange" : "text-gray-700"}`}
                 >
                   {step.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                  {step.description}
-                </p>
+                <div className="flex-grow overflow-y-auto">
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
