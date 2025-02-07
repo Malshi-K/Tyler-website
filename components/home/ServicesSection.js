@@ -10,7 +10,7 @@ const ServicesSection = () => {
       title: "Design & Build",
       image: "/assets/images/services/1.webp",
       description:
-        "We also done furniture manufacturing, our experts are help you building your dream furnitures with in more than your expectation...",
+        "We are also qualified in furniture manufacturing, our experts can help you building your dream furnitures with in more than your expectation...",
       link: "/services/design-build",
     },
     {
@@ -31,7 +31,7 @@ const ServicesSection = () => {
       title: "New Builds",
       image: "/assets/images/services/4.webp",
       description:
-        "We also done furniture manufacturing, our experts are help you building your dream furnitures with in more than your expectation...",
+        "We are also qualified in furniture manufacturing, our experts can help you building your dream furnitures with in more than your expectation...",
       link: "/services/new-builds",
     },
     {

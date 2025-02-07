@@ -38,7 +38,7 @@ export async function POST(request) {
     const mailOptions = {
       from: `"${name}" <${process.env.EMAIL_USER}>`,
       replyTo: `"${name}" <${email}>`,
-      to: 'malshi.k@gdcgroup.co.nz',
+      to: 'tyler@twilsonbuilder.co.nz',
       subject: `New Project Questionnaire Submission from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
