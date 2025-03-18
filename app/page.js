@@ -19,7 +19,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-navy/50 z-10" />
 
         {/* Background Video - Hidden on Mobile */}
-        {/* <video
+        <video
           autoPlay
           muted
           loop
@@ -27,7 +27,7 @@ export default function Home() {
           poster="/assets/images/poster-image.webp"
           className="hidden md:block w-full h-full object-cover"
           src="/assets/videos/company.mp4"
-        /> */}
+        />
 
         {/* Background Image - Visible only on Mobile */}
         <div className="block md:hidden w-full h-full">
