@@ -1,4 +1,3 @@
-// File: components/QuestionnaireSuccessContent.js
 "use client";
 import { useSearchParams } from "next/navigation";
 import { Card } from "@/components/ui/card";
