@@ -8,6 +8,7 @@ import Link from "next/link";
 
 // Separate component for content that uses useSearchParams
 const SuccessContent = () => {
+  // This component must be rendered within a Suspense boundary
   const searchParams = useSearchParams();
   const name = searchParams.get("name") || "there";
 
@@ -35,8 +36,8 @@ const SuccessContent = () => {
   );
 };
 
-// Main page component with Suspense boundary
-const SuccessPage = () => {
+// Main page component with proper Suspense boundary
+export default function SuccessPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <Suspense fallback={
@@ -54,6 +55,4 @@ const SuccessPage = () => {
       </Suspense>
     </div>
   );
-};
-
-export default SuccessPage;
+}
