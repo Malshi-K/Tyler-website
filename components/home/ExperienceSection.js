@@ -38,7 +38,7 @@ const ExperienceSection = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
             clipPath: "polygon(100% 0, 100% 100%, 0 100%, 0 0)",
-            "@media (min-width: 768px)": {
+            "@media (minWidth: 768px)": {
               clipPath: "polygon(100% 0, 100% 100%, 0 100%, 20% 0)",
             },
           }}
