@@ -33,7 +33,6 @@ const CTACard = ({ data }) => {
                   {data.description}
                 </h5>
               </div>
-
               {/* Contact Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
