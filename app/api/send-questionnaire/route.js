@@ -24,7 +24,7 @@ export async function POST(request) {
       budget,
       financeApproval,
       hearAboutUs,
-      projectDescription
+      projectDescription,
     } = body;
 
     // Basic validation
@@ -38,7 +38,7 @@ export async function POST(request) {
     const mailOptions = {
       from: `"${name}" <${process.env.EMAIL_USER}>`,
       replyTo: `"${name}" <${email}>`,
-      to: 'tyler@twilsonbuilders.co.nz',
+      to: "tyler@twilsonbuilders.co.nz",
       subject: `New Project Questionnaire Submission from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -57,7 +57,9 @@ export async function POST(request) {
 
           <div style="background: #fff; padding: 20px; border-radius: 5px; border: 1px solid #eee; margin: 20px 0;">
             <h3 style="color: #444; margin-top: 0;">Project Details</h3>
-            <p><strong>Desired Start Date:</strong> ${startDate || 'Not specified'}</p>
+            <p><strong>Desired Start Date:</strong> ${
+              startDate || "Not specified"
+            }</p>
             <p><strong>Professional Plans:</strong> ${hasPlans}</p>
             <p><strong>Approximate Budget:</strong> ${budget}</p>
             <p><strong>Finance Approval:</strong> ${financeApproval}</p>
@@ -73,11 +75,11 @@ export async function POST(request) {
             <p>To reply to this inquiry, simply reply to this email and your response will be sent to ${email}</p>
           </div>
         </div>
-      `
+      `,
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log('Questionnaire email sent:', info);
+    console.log("Questionnaire email sent:", info);
 
     // Send confirmation email to the form submitter
     const confirmationMail = {
@@ -93,7 +95,9 @@ export async function POST(request) {
           <div style="background: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
             <h3 style="margin-top: 0;">Project Summary</h3>
             <p><strong>Location:</strong> ${location}</p>
-            <p><strong>Desired Start Date:</strong> ${startDate || 'Not specified'}</p>
+            <p><strong>Desired Start Date:</strong> ${
+              startDate || "Not specified"
+            }</p>
             <p><strong>Project Description:</strong></p>
             <p style="white-space: pre-wrap;">${projectDescription}</p>
           </div>
@@ -114,7 +118,7 @@ export async function POST(request) {
             We will contact you at ${email} or ${phone} soon.
           </p>
         </div>
-      `
+      `,
     };
 
     await transporter.sendMail(confirmationMail);
