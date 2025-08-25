@@ -27,7 +27,7 @@ export async function POST(request) {
       from: `"${name}" <${process.env.EMAIL_USER}>`,
       // Set reply-to to the form submitter's email
       replyTo: `"${name}" <${email}>`,
-      to: 'tyler@twilsonbuilders.co.nz',
+      to: "tyler@twilsonbuilders.co.nz",
       subject: `New Contact Form Submission from ${name}`,
       // Add a header to make it clear who the message is actually from
       html: `
@@ -45,11 +45,11 @@ export async function POST(request) {
             <p>To reply to this message, simply reply to this email and your response will be sent to ${email}</p>
           </div>
         </div>
-      `
+      `,
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent:', info);
+    console.log("Email sent:", info);
 
     // Send confirmation email to the form submitter
     const confirmationMail = {
@@ -71,7 +71,7 @@ export async function POST(request) {
             We will respond to your message at ${email} soon.
           </p>
         </div>
-      `
+      `,
     };
 
     await transporter.sendMail(confirmationMail);
