@@ -193,16 +193,9 @@ export const projects = {
       description: "",
       image:
         "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/4.webp",
-    },
+    },   
     {
       id: "5-5",
-      title: "Bathrooms",
-      description: "",
-      image:
-        "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/5.webp",
-    },
-    {
-      id: "5-6",
       title: "Bathrooms",
       description: "",
       image:
@@ -257,6 +250,13 @@ export const projects = {
       title: "Kitchens",
       description: "",
       image: "/assets/images/projects/Bathrooms & Kitchens/Kitchens/8.webp",
+    },
+     {
+      id: "6-9",
+      title: "Kitchens",
+      description: "",
+      image:
+        "/assets/images/projects/Bathrooms & Kitchens/Bathrooms/5.webp",
     },
   ],
   7: [
