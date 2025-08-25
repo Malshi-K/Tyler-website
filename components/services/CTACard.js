@@ -44,7 +44,7 @@ const CTACard = ({ data }) => {
                   <span>022 419 7176</span>
                 </a>
                 <a
-                  href="mailto:tyler@twilsonbuilder.co.nz"
+                  href="mailto:tyler@twilsonbuilders.co.nz"
                   className="flex items-center justify-center gap-2 bg-white text-navy hover:bg-navy hover:text-white px-6 py-3 rounded-lg transition-colors duration-300 font-semibold"
                 >
                   <Mail className="w-5 h-5" />
