@@ -36,6 +36,11 @@ export const navItems = [
     icon: "/assets/images/menu-icons/4.webp",
   },
   {
+    name: "Our Packages",
+    path: "/packages",
+    icon: "/assets/images/menu-icons/7.png",
+  },
+  {
     name: "Our Blogs",
     path: "/blog",
     icon: "/assets/images/menu-icons/5.webp",

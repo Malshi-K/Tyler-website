@@ -35,6 +35,11 @@ const pageTitleData = {
     mobileTitle: "House Plans",
     backgroundImage: "/assets/images/page-title/5.webp",
   },
+  "/packages": {
+    title: "Our Packages",
+    mobileTitle: "Our Packages",
+    backgroundImage: "/assets/images/page-title/1.webp",
+  },
   "/blog": {
     title: "Our Blog",
     mobileTitle: "Our Blog",

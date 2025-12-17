@@ -6,6 +6,7 @@ import LogoSlider from "@/components/home/LogoSlider";
 import ProjectsSection from "@/components/home/ProjectsSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import PackagesShowcase from "@/components/packages/PackagesShowcase";
 import SideNavigation from "@/components/SideNavigation";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
@@ -120,6 +121,15 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <ProjectsSection />
+      
+      {/* Packages Section with white background */}
+      <div className="relative z-20 bg-white py-20">
+        <div className="text-center">
+          <h2 className="text-6xl font-bold text-navy">Our Packages</h2>
+        </div>
+        <PackagesShowcase />
+      </div>
+      
       <TestimonialsSection />
       <LogoSlider />
     </div>
