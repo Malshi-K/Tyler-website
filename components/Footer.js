@@ -100,10 +100,10 @@ const Footer = () => {
                 <div className="text-center lg:text-left">
                   <p className="font-bold text-white">Email:</p>
                   <a
-                    href="mailto:tyler@twilsonbuilders.co.nz"
+                    href="mailto:Tyler@twilsonbuilders.co.nz"
                     className="text-gray-100 hover:text-orange transition-colors break-all"
                   >
-                    tyler@twilsonbuilders.co.nz
+                    Tyler@twilsonbuilders.co.nz
                   </a>
                 </div>
               </div>

@@ -71,7 +71,7 @@ export default function QuestionnaireSuccessPage() {
             <div className="text-center text-sm text-gray-600">
               <p>For immediate assistance:</p>
               <p className="font-medium">Call: 022 419 7176</p>
-              <p className="font-medium">Email: tyler@twilsonbuilders.co.nz</p>
+              <p className="font-medium">Email: Tyler@twilsonbuilders.co.nz</p>
             </div>
           </div>
         </div>
