@@ -406,7 +406,7 @@ const QuestionnaireForm = () => {
           <Card className="bg-transparent border-none shadow-none">
             <CardContent className="flex flex-col items-center p-4 sm:p-6">
               <a
-                href="mailto:Tyler@twilsonbuilders.co.nz"
+                href="mailto:tyler@twilsonbuilders.co.nz"
                 className="group flex flex-col items-center hover:opacity-90 transition-opacity"
               >
                 <div className="rounded-full bg-white/20 p-2 sm:p-3 mb-3 sm:mb-4 group-hover:bg-white/30 transition-colors">
@@ -416,7 +416,7 @@ const QuestionnaireForm = () => {
                   EMAIL
                 </h3>
                 <p className="text-center text-xs sm:text-sm text-white/90 hover:text-navy break-all">
-                  Tyler@twilsonbuilders.co.nz
+                  tyler@twilsonbuilders.co.nz
                 </p>
               </a>
             </CardContent>
